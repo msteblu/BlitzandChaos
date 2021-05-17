@@ -2,3 +2,42 @@
    text-align: center;
    margin-right: 10px;
 }
+
+.menu-text{
+   font-family: 'Cheboygan', sans-serif;
+   background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;                                          
+}
+
+.heather {
+   margin-top: 50px;
+   
+   height: 600px;
+   border: 3px solid black;
+}
+
+.justin {
+  
+   margin-top:60px;
+  
+   height: 600px;
+}
+
+.megan {
+   margin-top:60px; 
+   
+   height: 600px;
+   border: 3px solid black; 
+}
+
+.mike {
+   margin-top:60px;
+  
+   height: 600px;
+}
+
+.project {
+   width: 100%;
+   margin-top: 650px;
+}

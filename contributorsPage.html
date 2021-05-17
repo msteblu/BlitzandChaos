@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>contributorsPage</title>
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="stylesheet" type="css/text" href="assets/css/contributorsPage.css">
+    <!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">  
+    <link href="http://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/contributorsPage.css">
 </head>
 <body>
     <header>
@@ -16,7 +21,7 @@
                 <div class="top-bar">
                     <div class="top-bar-left">
                       <ul class="dropdown menu" data-dropdown-menu>
-                        <li class="menu-text">Site Title</li>
+                        <li class="menu-text">Blitz and Chaos</li>
                         <li>
                           <a href="#">One</a>
                           <ul class="Contributors">
@@ -37,42 +42,40 @@
                     </div>
                   </div>
             </div>
-              <div class="title-bar-right"><h1>Contributors Page</h1></div>
+              <div class="title-bar-right"><h1 id="mainHeader">Contributors Page</h1></div>
             </div>
           </div>
      </header>
 
-     <div class="grid-x grid-margin-x">
-        <div class="cell medium-6 large-4">Heather Bjoin</div>
-        <div class="cell medium-6 large-8">add stuff here</div>
+     <main>
+     <section>
+      <div class="grid-x grid-padding-x heather">
+        <div class="cell small-4">Heather Bjoin</div>
+        <div class="cell small-4">the left</div>
       </div>
-      <div class="grid-x grid-padding-x">
-        <div class="cell medium-6 large-4">picture here</div>
-        <div class="cell medium-6 large-8">add stuff here</div>
+      <div class="grid-x grid-padding-x align-right justin"> 
+        <div class="cell small-4">Justin Hoch</div>
+        <div class="cell small-4">the right</div>
       </div>
-      <div class="grid-x grid-margin-x">
-        <div class="cell medium-6 large-4">Justin Hoch</div>
-        <div class="cell medium-6 large-8">add stuff here</div>
+      <div class="grid-x grid-padding-x align-left megan"> 
+        <div class="cell small-4">Megan Steblay</div>
+        <div class="cell small-4">the center</div>
       </div>
-      <div class="grid-x grid-padding-x">
-        <div class="cell medium-6 large-4">picture here</div>
-        <div class="cell medium-6 large-8">picture here</div>
+      <div class="grid-x grid-padding-x align-right mike">
+        <div class="cell small-4">Mike Steinmetz</div>
+        <div class="cell small-4">the edges</div>
       </div>
-      <div class="grid-x grid-margin-x">
-        <div class="cell medium-6 large-4">Megan Steblay</div>
-        <div class="cell medium-6 large-8">add stuff here</div>
-      </div>
-      <div class="grid-x grid-padding-x">
-        <div class="cell medium-6 large-4">picture here</div>
-        <div class="cell medium-6 large-8">add stuff here</div>
-      </div>
-      <div class="grid-x grid-margin-x">
-        <div class="cell medium-6 large-4">Mike Steinmetz</div>
-        <div class="cell medium-6 large-8">add stuff here</div>
-      </div>
-      <div class="grid-x grid-padding-x">
-        <div class="cell medium-6 large-4">picture here</div>
-        <div class="cell medium-6 large-8">picture here</div>
-      </div>
+      <div class="grid-x grid-padding-x align-spaced">
+    </section>
+
+    <section id="project">
+        <h1>The Project</h1>
+
+    </section>
+  </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
 </body>
 </html>
