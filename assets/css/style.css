@@ -1,0 +1,54 @@
+body {
+    min-width: 375px;
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    width: 100%;
+    height: 100px;
+    color: white;
+    background-color: #00012c;
+
+}
+
+#header h1 {
+    text-align: center;
+    font-size: 35px;
+    padding-top: 10px;
+}
+
+#location {
+    padding: 0px;
+}
+
+#caveImage {
+    width: 100%;
+    height: 60%;
+}
+
+#textAndChoices {
+    margin-top: 10px;
+    margin-left: 15%;
+    width: 70%;
+    height: 15%;
+}
+
+#storyText {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+#continue {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #00012c;
+    color: white;
+    margin-top: 10px;
+}
