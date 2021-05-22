@@ -9,7 +9,6 @@ body {
     height: 100px;
     color: white;
     background-color: #00012c;
-
 }
 
 #header h1 {
@@ -23,24 +22,37 @@ body {
 }
 
 #caveImage {
+    position: absolute;
     width: 100%;
-    height: 60%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    z-index: -1;
 }
 
 #textAndChoices {
+    position: relative;
     margin-top: 10px;
     margin-left: 15%;
     width: 70%;
-    height: 15%;
+    height: 30%;
+    top: 40%;
+
 }
 
-#storyText {
+#text {
+    width: 100%;
+    height: 100%;
+}
+
+#text p {
+    display: none;
     width: 100%;
     height: 100%;
     font-size: 20px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #e0e0e0;
+    background-color: #e0e0e0d2;
 }
 
 #continue {
@@ -51,4 +63,10 @@ body {
     background-color: #00012c;
     color: white;
     margin-top: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    #text {
+        height: fit-content;
+    }
 }
