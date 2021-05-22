@@ -1,33 +1,51 @@
 body {
-    min-width: 375px;
     width: 100%;
     height: 100%;
+    min-width: 375px;
+    overflow: hidden;
 }
 
 #header {
     width: 100%;
-    height: 100px;
-    color: white;
-    background-color: #00012c;
+    height: 200px;
+}
+
+#header img {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+    min-width: 375px;
 }
 
 #header h1 {
-    text-align: center;
-    font-size: 35px;
-    padding-top: 10px;
+    text-align: right;
+    margin-right: 5%;
+    font-family: cheboygan, sans-serif;
+    font-size: 45px;
+    color: red;
+    background: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-top: 30px;
 }
 
 #location {
     padding: 0px;
+    color: red;
+    background: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #caveImage {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0px;
     bottom: 0px;
-    z-index: -1;
+    z-index: -2;
+    min-width: 850px;
 }
 
 #textAndChoices {
@@ -36,8 +54,7 @@ body {
     margin-left: 15%;
     width: 70%;
     height: 30%;
-    top: 40%;
-
+    top: 20%;
 }
 
 #text {
@@ -58,15 +75,34 @@ body {
 #continue {
     width: 100px;
     height: 50px;
-    font-size: 20px;
     border-radius: 5px;
-    background-color: #00012c;
-    color: white;
+    background-color: black;
     margin-top: 10px;
+}
+
+#continue p {
+    font-size: 20px;
+    font-family: cheboygan, sans-serif;
+    color: red;
+    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 780px) {
+    #header h1 {
+        font-size: 35px;
+    }
 }
 
 @media screen and (max-width: 700px) {
     #text {
         height: fit-content;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #header h1 {
+        font-size: 25px;
     }
 }
