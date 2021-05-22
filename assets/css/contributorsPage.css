@@ -1,10 +1,12 @@
+/* if you want to add this through js https://www.pexels.com/photo/red-fire-illustration-97494/ */
+
 #mainHeaderImage {
    text-align: center;
    margin-right: 10px;
    background-image: url(../images/mainHeader.jpg);
    width: 100%;
    background-size:cover;
-   height:500px;
+   height:275px;
   
 
 }
@@ -15,11 +17,11 @@
    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent; 
-   text-align: right; 
-   margin: 82px 0px -76px 411px;
+   float: right; 
+   margin: 50px 250px 50px 50px;
   
    z-index: 1;
-   position:absolute;
+   position:relative;
 }
 .menu-text{
    font-family: 'Cheboygan', sans-serif;
@@ -58,4 +60,31 @@
 .project {
    width: 100%;
    margin-top: 650px;
+}
+
+
+
+
+
+/* Media Quries */
+
+@media screen and (max-width: 1264px){
+   #mainTitle {
+      font-size: 60px;
+      margin: 10% 10% 10% 10%;
+   }
+}
+
+@media screen and (max-width: 725px) {
+   #mainTitle {
+      font-size: 28px;
+      margin: 10% 10% 10% 10%;
+   }
+
+   #mainHeaderImage {
+      height:125px;
+      width:100%;
+     
+   
+   }
 }
