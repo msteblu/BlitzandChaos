@@ -1,6 +1,7 @@
 let textContainer = $("#text");
 let continueBtn = $("#continue");
 let caveImg = $("#caveImage");
+let headerImg = $("#header").children().eq(0);
 let bodyEl = $("body");
 let audioEl = document.querySelector("#audio");
 let apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370";
@@ -28,16 +29,25 @@ function nextText() {
         textNum++;
         textContainer.children().eq(textNum).css(textCSS);
     } else {
-        console.log("pog")
+        textContainer.children().eq(textNum).text("I'm pretty tired, I should probably head home now...");
     }
 }
 
 fetch("https://api.pexels.com/v1/photos/2633", { headers: { "Authorization": apiKey } })
     .then(function (response) {
+        console.log(response.headers.get("X-Ratelimit-Limit"))
         return response.json();
     })
     .then(function (data) {
         caveImg.attr({ "src": data.src.original });
+    })
+
+fetch("https://api.pexels.com/v1/photos/97494", { headers: { "Authorization": apiKey } })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        headerImg.attr({ "src": data.src.original});
     })
 
 textContainer.children().eq(textNum).css(textCSS);
