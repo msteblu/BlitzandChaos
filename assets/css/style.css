@@ -38,6 +38,22 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+#locationButtons button {
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    background-color: black;
+    border-radius: 5px;
+}
+
+#locationButtons button p {
+    font-family: cheboygan, sans-serif;
+    color: red;
+    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #caveImage {
     position: fixed;
     width: 100%;
