@@ -14,7 +14,6 @@
     <header id="mainHeader">
       <h1 id="mainTitle">Blitz and Chaos</h1>
       <div id="mainHeaderImage"></div>
-      
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
@@ -70,12 +69,59 @@
       </nav>
      </header>
 
+  <main>
+    <section id="contributors">
 
+      <section id="heather">
+        <h3>Heather Bjoin</h3>
+        <div class="columns is-vcentered">
+          <div class="column is-6">
+            <img class="bd-notification is-primary" src="assets/images/contributorsImages/heather.jpg" width="200px" height="200px">
+          </div>
+          <div class="column">
+            <p class="bd-notification is-primary">Second column with more content. This is so you can see the vertical alignment.</p>
+          </div>
+        </div>
+      </section>
 
-     <section>
-  
+      <section id="justin">
+        <h3>Justin Hoch</h3>
+        <div class="columns is-vcentered">
+          <div class="column is-8">
+            <img class="bd-notification is-primary" src="">
+          </div>
+          <div class="column">
+            <p class="bd-notification is-primary">Second column with more content. This is so you can see the vertical alignment.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="megan">
+        <h3>Megan Steblay</h3>
+        <div class="columns is-vcentered">
+          <div class="column is-8">
+            <img class="bd-notification is-primary" src="">
+          </div>
+          <div class="column">
+            <p class="bd-notification is-primary">Second column with more content. This is so you can see the vertical alignment.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="mike">
+        <h3>Mike Steinmetz</h3>
+        <div class="columns is-vcentered">
+          <div class="column is-8">
+            <img class="bd-notification is-primary" src="">
+          </div>
+          <div class="column">
+            <p class="bd-notification is-primary">Second column with more content. This is so you can see the vertical alignment.</p>
+          </div>
+        </div>
+      </section>
+
     </section>
-
+    
     <section id="project">
         <h1>The Project</h1>
 
@@ -83,31 +129,7 @@
   </main>
 
   
-  <script>
-    function getphoto() {
-    const apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370"
-      
 
 
-
-//      function getWeatherByCityName(cityName) {
-//     fetch("https://api.pexels.com/v1/photos/:id=97494", {
-//     headers: {
-//     "Authorization": '563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370'
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//     })
-//     .catch(err => console.log("wrong city name!", err))
-// }
-fetch("https://api.pexels.com/v1/search?query=people", {
-  headers: {
-    Authorization: 'YOUR_API_KEY'
-  })
-  .then(response => response.json())
-  .then(result => console.log(result))
-  .catch(err => console.log(err))
-
-  </script>
 </body>
 </html>
