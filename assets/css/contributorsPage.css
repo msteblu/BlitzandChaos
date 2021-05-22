@@ -1,8 +1,26 @@
-#mainHeader {
+#mainHeaderImage {
    text-align: center;
    margin-right: 10px;
+   background-image: url(../images/mainHeader.jpg);
+   width: 100%;
+   background-size:cover;
+   height:500px;
+  
+
 }
 
+#mainTitle {
+   font-size: 89px;
+   font-family: 'Cheboygan', sans-serif;
+   background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent; 
+   text-align: right; 
+   margin: 82px 0px -76px 411px;
+  
+   z-index: 1;
+   position:absolute;
+}
 .menu-text{
    font-family: 'Cheboygan', sans-serif;
    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
