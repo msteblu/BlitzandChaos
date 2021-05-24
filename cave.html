@@ -1,39 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <header id="header">
-        <img src="#" alt="Blitz and Chaos header">
+        <img src="https://images.pexels.com/photos/97494/pexels-photo-97494.jpeg" alt="Blitz and Chaos header">
         <h1>Blitz and Chaos</h1>
         <h1 id="location">Cave</h1>
     </header>
-    <img src="#" alt="Cave background" id="caveImage">
+    <img src="https://images.pexels.com/photos/2633/nature-france-rocks-caves.jpg" alt="Cave background" id="caveImage">
     <audio id="audio" src="#"></audio>
+    <div id="menuDiv">
+        <button id="showmenu"><p>Menu</p></button>
+        <ul id="menu">
+            <li>
+                <div><p>Inventory</p></div>
+                <ul id="items">
+                    
+                </ul>
+            </li>
+            <li>
+                <div><p>Save</p></div>
+            </li>
+            <li>
+                <div><p>Load Save</p></div>
+            </li>
+            <li>
+                <div><p>Close Menu</p></div>
+            </li>
+        </ul>
+        
+    </div>
     <div id="textAndChoices">
         <div id="text">
             <p>You arrive at the cave!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla asperiores dolorum nam odio cum itaque similique, maiores minus eos tempora ratione voluptates, laudantium molestiae? Maiores quam voluptas ipsum doloribus omnis.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptate optio mollitia consectetur. Soluta temporibus repellendus obcaecati hic sit laboriosam fuga nihil iste magni, tempora porro veniam, labore error debitis!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam in voluptatibus fugiat ad vitae soluta, debitis dignissimos fuga, dolorum minus sit recusandae delectus qui quis ducimus beatae vel? Non, totam?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet eos, sed id exercitationem, unde corporis consequuntur voluptatibus, recusandae sequi aliquid laborum? Modi nostrum quibusdam in, distinctio id aliquam fuga corrupti.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dicta inventore nisi quo, in doloremque doloribus vero ducimus quaerat? Magni totam doloremque molestias quo excepturi! Natus placeat quo minus doloremque.</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum pariatur repudiandae libero, possimus, non repellat alias tempora ipsam ipsa culpa qui eius dicta nam! Doloribus aspernatur explicabo labore adipisci.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla provident, accusamus expedita enim atque eaque esse delectus magnam facere, et in pariatur. Aperiam, vero explicabo magni autem illo aut inventore?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nemo perferendis quod obcaecati tenetur natus facilis atque magni praesentium beatae fugit odit incidunt perspiciatis dolore, reiciendis ab, molestiae quibusdam fugiat!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit eos ex sequi unde ad nesciunt voluptatum non quia sunt ea accusamus, sed rem officiis reiciendis perspiciatis dolores cum vel perferendis.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla asperiores dolorum nam odio cum itaque
+                similique, maiores minus eos tempora ratione voluptates, laudantium molestiae? Maiores quam voluptas
+                ipsum doloribus omnis.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptate optio mollitia consectetur.
+                Soluta temporibus repellendus obcaecati hic sit laboriosam fuga nihil iste magni, tempora porro veniam,
+                labore error debitis!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam in voluptatibus fugiat ad vitae soluta,
+                debitis dignissimos fuga, dolorum minus sit recusandae delectus qui quis ducimus beatae vel? Non, totam?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet eos, sed id exercitationem, unde
+                corporis consequuntur voluptatibus, recusandae sequi aliquid laborum? Modi nostrum quibusdam in,
+                distinctio id aliquam fuga corrupti.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dicta inventore nisi quo, in doloremque
+                doloribus vero ducimus quaerat? Magni totam doloremque molestias quo excepturi! Natus placeat quo minus
+                doloremque.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum pariatur repudiandae libero,
+                possimus, non repellat alias tempora ipsam ipsa culpa qui eius dicta nam! Doloribus aspernatur explicabo
+                labore adipisci.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla provident, accusamus expedita enim atque
+                eaque esse delectus magnam facere, et in pariatur. Aperiam, vero explicabo magni autem illo aut
+                inventore?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nemo perferendis quod obcaecati tenetur
+                natus facilis atque magni praesentium beatae fugit odit incidunt perspiciatis dolore, reiciendis ab,
+                molestiae quibusdam fugiat!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit eos ex sequi unde ad nesciunt
+                voluptatum non quia sunt ea accusamus, sed rem officiis reiciendis perspiciatis dolores cum vel
+                perferendis.</p>
         </div>
-        <button id="continue"><p>Continue</p></button>
+        <button id="continue">
+            <p>Continue</p>
+        </button>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./assets/javascript/cave.js"></script>
 </body>
+
 </html>

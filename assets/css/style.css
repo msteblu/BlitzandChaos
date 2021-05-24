@@ -38,6 +38,68 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+#menuDiv {
+    width: 150px;
+}
+
+#menu, #menu ul {
+    position: absolute;
+    background-color: black;
+    display: none;
+}
+
+#menu ul li {
+    opacity: 1;
+}
+
+#menu div, #menu ul div{
+    padding: 0px;
+}
+
+#menu div:hover {
+    background-color: #0084ff;
+    border: 1px solid white;
+}
+
+#menu ul:hover {
+    cursor: default;
+}
+
+#menu div p, #menu ul div p {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    font-size: 20px;
+    font-family: cheboygan, sans-serif;
+    color: red;
+    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#showmenu {
+    position: fixed;
+    width: 100px;
+    height: 50px;
+    background-color: black;
+    border: 0px solid black;
+    
+}
+
+#showmenu p {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    font-size: 20px;
+    font-family: cheboygan, sans-serif;
+    color: red;
+    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 1px solid #696969;
+    border-radius: 5px;
+}
+
 #caveImage {
     position: fixed;
     width: 100%;
