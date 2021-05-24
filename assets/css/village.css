@@ -1,0 +1,48 @@
+#bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    z-index: -2;
+    min-width: 850px;
+}
+
+.hero {
+    /* background-image: url(../images/mainHeader.jpg); */
+}
+
+.title {
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+.subtitle {
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+
+#header {
+    height: 20%;
+}
+
+button {
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+.card {
+    margin: 50px;
+    background-color: bisque;
+};
+
+.storycard {
+    min-height: 250px;
+}
