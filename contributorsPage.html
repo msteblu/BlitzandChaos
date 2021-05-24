@@ -14,7 +14,6 @@
     <header id="mainHeader">
       <h1 id="mainTitle">Blitz and Chaos</h1>
       <div id="mainHeaderImage"></div>
-      
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
@@ -34,7 +33,7 @@
               Home
             </a>
       
-            <a class="navbar-item">
+            <a href="#project" class="navbar-item">
               Project
             </a>
       
@@ -44,16 +43,16 @@
               </a>
       
               <div class="navbar-dropdown">
-                <a class="navbar-item">
+                <a href="#heather" class="navbar-item">
                   Heather Bjoin
                 </a>
-                <a class="navbar-item">
+                <a href="#justin" class="navbar-item">
                   Justin Hoch
                 </a>
-                <a class="navbar-item">
+                <a href="#megan" class="navbar-item">
                   Megan Steblay
                 </a>
-                <a class="navbar-item">
+                <a href="#mike" class="navbar-item">
                   Mike Steinmetz
                 </a>
               </div>
@@ -70,44 +69,101 @@
       </nav>
      </header>
 
+  <main>
+    <section id="contributors">
 
+      <section id="heather">
+        <h3>Heather Bjoin</h3>
+        <div class="columns is-vcentered">
+          <div class="column is-6">
+            <img class="bd-notification is-primary" src="assets/images/contributorsImages/heather.jpg" width="200px" height="200px">
+          </div>
+          <div class="column">
+            <p class="bd-notification is-primary">Second column with more content. This is so you can see the vertical alignment.</p>
+          </div>
+        </div>
+      </section>
 
-     <section>
-  
+      <section id="justin">
+        <h3>Justin Hoch</h3>
+        <div class="columns is-vcentered">
+          <div class="column is-8">
+            <img class="bd-notification is-primary" src="">
+          </div>
+          <div class="column">
+            <p class="bd-notification is-primary">Second column with more content. This is so you can see the vertical alignment.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="megan">
+        <h3>Megan Steblay</h3>
+        <div class="columns is-vcentered">
+          <div class="column is-8">
+            <img class="bd-notification is-primary" src="">
+          </div>
+          <div class="column">
+            <p class="bd-notification is-primary">Second column with more content. This is so you can see the vertical alignment.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="mike">
+        <h3>Mike Steinmetz</h3>
+        <div class="columns is-vcentered">
+          <div class="column is-8">
+            <img class="bd-notification is-primary" src="">
+          </div>
+          <div class="column">
+            <p class="bd-notification is-primary">Second column with more content. This is so you can see the vertical alignment.</p>
+          </div>
+        </div>
+      </section>
+
     </section>
+    
+    <section id="projectContainer">
 
-    <section id="project">
-        <h1>The Project</h1>
+      <h1 id="project">The Project</h1>
+      
+        <div id="conceptContainer">
+          <h2>Concept</h2>
+          <h3>Elevator Pitch</h3>
+          <p>An interactive where the main character - YOU, the user - will embark on a mission to save the world from a DRAGON! I mean, it’s a dragon, so how will this happen? Right? The user will read a story and make decisions, which will determine the final outcome. In the end, you will either find a way to save everyone (including yourself) or be forced to watch everything burn in an unstoppable, fiery apocalypse. The choice is yours. Choose wisely, my friend. </p>
 
+          <h3>User Story</h3>
+          <p>GIVEN THE TEXT-BASED STORY, I want to be able to make choices and interact with the storyline. I want to change the story’s outcome by “traveling” (using different pages) and collecting items (using Local Storage). When I make certain choices, I will receive different items, and my choices and what I collect will change the ending. At the end, I will either win (by defeating the dragon) or lose. </p>
+
+          <h3>Motivation for development</h3>
+          <p>What was the motivation for development? Where did the idea generate from? </p>
+        </div>
+
+        <hr>
+
+        <div id=processContainer>
+          <h2>The Process</h2>
+            <h3>Technologies</h3>
+            <h3>Breaking down the tasks</h3>
+            <h3>Challenges</h3>
+            <h3>Successes</h3>
+        </div>
+
+        <hr>
+
+        <div id="storyContainer">
+          <h2>The Story</h2>
+        </div>
+
+        <hr>
+        
+        <div id="futureContainer">
+          <h2>Future Advancements</h2>
+        </div>
     </section>
   </main>
 
   
-  <script>
-    function getphoto() {
-    const apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370"
-      
 
 
-
-//      function getWeatherByCityName(cityName) {
-//     fetch("https://api.pexels.com/v1/photos/:id=97494", {
-//     headers: {
-//     "Authorization": '563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370'
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//     })
-//     .catch(err => console.log("wrong city name!", err))
-// }
-fetch("https://api.pexels.com/v1/search?query=people", {
-  headers: {
-    Authorization: 'YOUR_API_KEY'
-  })
-  .then(response => response.json())
-  .then(result => console.log(result))
-  .catch(err => console.log(err))
-
-  </script>
 </body>
 </html>
