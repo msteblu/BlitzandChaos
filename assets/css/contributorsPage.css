@@ -1,5 +1,7 @@
 /* if you want to add this through js https://www.pexels.com/photo/red-fire-illustration-97494/ */
 
+/* Header CSS (Header, NavBar) */ 
+
 #mainHeaderImage {
    text-align: center;
    margin-right: 10px;
@@ -30,6 +32,7 @@
    -webkit-text-fill-color: transparent;                                          
 }
 
+/* Contributors CSS */
 
 #contributors {
    margin: 100px;
@@ -43,35 +46,38 @@
 #contributors img {
    margin-left: 150px;
 }
-#heather {
+#heather, #justin, #megan, #mike {
    margin-top: 50px;
    margin-bottom: 150px;
-   height: 400px;
+   
   
 }
 
-#justin {
-   margin-top: 50px;
-   margin-bottom: 150px;
-   height: 400px;   
-}
 
-#megan {
-   margin-top: 50px;
-   margin-bottom: 150px;
-   height: 400px;
-}
-
-#mike {
-   margin-top: 50px;
-   margin-bottom: 150px;
-   height: 400px;
-}
-
-.project {
+/* Project CSS */
+#projectContainer{
    width: 100%;
-   margin-top: 650px;
 }
+
+#projectContainer h2 {
+   font-size: 2em;
+   font-weight: bolder;
+   margin-left: 20px;
+}
+
+#projectContainer h3 {
+   font-size: 1.3em;
+   font-weight:bold;
+}
+
+#project {
+   text-align: center;
+   font-size: 3em;
+   font-family: 'Cheboygan', sans-serif;
+   background: radial-gradient( #0a0404, #711818, #d1730b);
+   margin: 30px 20px 50px 20px;
+}
+
 
 
 
