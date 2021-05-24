@@ -59,16 +59,27 @@
    width: 100%;
 }
 
+#conceptContainer, #processContainer, #storyContainer, #futureContainer{
+   width: 70%;
+   margin-left:10%;
+}
+
 #projectContainer h2 {
    font-size: 2em;
    font-weight: bolder;
    text-decoration: underline;
    margin-left: -10%;
+   margin-bottom: 25px;
 }
 
 #projectContainer h3 {
    font-size: 1.3em;
    font-weight:bold;
+   margin-bottom:10px;
+}
+
+#projectContainer p {
+   margin-bottom: 25px;
 }
 
 #project {
@@ -79,14 +90,14 @@
    margin: 30px 20px 50px 20px;
 }
 
-#conceptContainer, #processContainer, #theStory, #future{
-   width: 70%;
-   margin-left:10%;
 
+
+
+hr {
+   margin-top: 50px;
+   margin-bottom: 50px;
+   background-color: rgb(104, 103, 103);
 }
-
-
-
 
 
 /* Media Quries */
