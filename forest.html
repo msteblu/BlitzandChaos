@@ -7,39 +7,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
     <link href="http://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/village.css" />
+    <link rel="stylesheet" href="./assets/css/forest.css" />
     <title>The Forest</title>
 </head>
 
 <body>
+    <header id="mainHeader">
+        <h1 id="mainTitle">Blitz and Chaos</h1>
+        <div id="mainHeaderImage"></div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+              <h1 class="menu-text">Blitz and Chaos</h1>
+            </a>
+        
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+        
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item">
+                Home
+              </a>
+        
+              <a href="#project" class="navbar-item">
+                Project
+              </a>
+        
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                 Contributors
+                </a>
+        
+                <div class="navbar-dropdown">
+                  <a href="#heather" class="navbar-item">
+                    Heather Bjoin
+                  </a>
+                  <a href="#justin" class="navbar-item">
+                    Justin Hoch
+                  </a>
+                  <a href="#megan" class="navbar-item">
+                    Megan Steblay
+                  </a>
+                  <a href="#mike" class="navbar-item">
+                    Mike Steinmetz
+                  </a>
+                </div>
+              </div>
+            </div>
+        
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <h1>Contributor's Page</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+       </header>
+    
   
-    <header class="hero is-small">
-        <div class="hero-body has-text-right">
-            <h1 class="title"> 
-                Blitz and Chaos
-            </h1>
-            <p class="subtitle">
-                Forest
-            </p>
-        </div>
-    </header>
-
-    <img src="#" alt="Painting of Forest" id="bg">
+    
     <!-- testing audio -->
     <audio id="audio" src="#"></audio>
 
     <main>
+
+        <div  id="backgroundImage" alt="Painting of Forest" width="300" height="200"></div>
+
         <div class="card has-text-centered storycard">
             <div class="card-content story"></div>
         </div>
 
 
-        <div class="tile is-ancestor has-text-centered">
-            <div class="tile">
-                <div class="card tile is-parent is-vertical card1">
+        <div class="tile is-ancestor has-text-centered choiceBoxContainer">
+            <div class="tile choiceBox">
+                <div class="card tile is-parent is-vertical card1 choiceBox">
                     <div class="card-content tile is-child choice1"></div>
                 </div>
-                <div class="card tile is-parent is-vertical card2">
+                <div class="card tile is-parent is-vertical card2 choiceBox">
                     <div class="card-content tile is-child choice2"></div>
                 </div>
             </div>

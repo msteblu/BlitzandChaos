@@ -20,44 +20,44 @@ let forestUrl
 
 // *** Get background image function: ***
 
-let getImage = function () {
-    let apiUrl = "https://api.artic.edu/api/v1/artworks/30828"
+// let getImage = function () {
+//     let apiUrl = "https://api.artic.edu/api/v1/artworks/30828"
 
-    fetch(apiUrl)
-    .then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data) {
-                console.log(data);
+//     fetch(apiUrl)
+//     .then(function (response) {
+//         if (response.ok) {
+//             response.json().then(function (data) {
+//                 console.log(data);
 
-                // testing to make sure we're grabbing the correct data (can remove later): 
-                console.log(data.config.iiif_url);
-                console.log(data.data.image_id);
+//                 // testing to make sure we're grabbing the correct data (can remove later): 
+//                 console.log(data.config.iiif_url);
+//                 console.log(data.data.image_id);
 
-                // set url to be able to call it later: 
-                let imageUrl = data.config.iiif_url + "/" + data.data.image_id + "/full/843,/0/default.jpg";
-                forestUrl = imageUrl;
+//                 // set url to be able to call it later: 
+//                 let imageUrl = data.config.iiif_url + "/" + data.data.image_id + "/full/843,/0/default.jpg";
+//                 forestUrl = imageUrl;
 
-                // Call the next function to display it:
-                displayImage();
-            });
-        } else {
-            alert('Error: ' + response.statusText);
-        }
-    })
-    .catch(function (error) {
-        alert('Unable to connect to API');
-    });
-};
+//                 // Call the next function to display it:
+//                 displayImage();
+//             });
+//         } else {
+//             alert('Error: ' + response.statusText);
+//         }
+//     })
+//     .catch(function (error) {
+//         alert('Unable to connect to API');
+//     });
+// };
 
 
 // *** Display background image function: *** 
 // (Run this first so it will load before the rest of the functions try to run...)
 
-let displayImage = function (data) {
-    background.setAttribute( "src", forestUrl);
-    // Run a function to hide everthing initially, and to start the story sequence: 
-    hideInit();
-};
+// let displayImage = function (data) {
+//     background.setAttribute( "src", forestUrl);
+//     // Run a function to hide everthing initially, and to start the story sequence: 
+    
+// };
 
 // Testing Music: !!!!!!!!!!!!!!!
 
@@ -79,7 +79,7 @@ let hideInit = function () {
 // ** Basic Storyline: **
 let enterForest = function () {
 
-    let storyTxt = "Lorem Ipsum";
+    let storyTxt = "Even with the sun out the forest is dark, but light beams down through the trees onto the path. After walking there is a fork in the path with a sign";
     let i = 0;
     let speed = 25;
 
@@ -100,8 +100,8 @@ let enterForest = function () {
 
 // ** User Choices: ** 
 let enterForestChoices = function () {
-    let choice1Txt = "Lorem ipsum";
-    let choice2Txt = "Lorem ipsum";
+    let choice1Txt = "To the River";
+    let choice2Txt = "To the Deep Forest";
     let i = 0;
     let t = 0;
     let speed = 30;
@@ -178,7 +178,7 @@ let theEnchanter = function () {
     card2.style.display = "none";
 
     // Run the same type of Typewriter functions
-    let storyTxt = "Lorem ipsum....  "
+    let storyTxt = "Even with the sun out the forest is dark, but light beams down through the trees onto the path. After walking there is a fork in the path with a sign  "
     let i = 0;
     let speed = 25;
 
@@ -253,4 +253,5 @@ let theEnchanterChoices = function () {
 // ************* RUN FUNCTIONS AT INITIALIZE: ******************** 
 
 // To start the rolling by getting the background image:
-getImage();
+// getImage();
+hideInit();

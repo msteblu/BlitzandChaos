@@ -1,0 +1,109 @@
+#mainHeaderImage {
+    text-align: center;
+    margin-right: 10px;
+    background-image: url(../images/mainHeader.jpg);
+    width: 100%;
+    background-size:cover;
+    height:275px;
+   
+ 
+ } 
+ 
+  #mainTitle {
+    font-size: 89px;
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    float: right; 
+    margin: 50px 250px 50px 50px;
+   
+    z-index: 1;
+    position:relative;
+ }
+ .menu-text{
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;                                          
+ }
+
+#backgroundImage{
+   width: 100%;   
+   position:fixed;
+   z-index: -2;
+   top: 0px;
+   bottom: 0px; 
+   background-size: cover;
+   background:linear-gradient(rgba(19, 2, 2, 0.45),rgba(8, 1, 1, 0.45), rgba(5, 0, 0, 0.35), rgba(3, 0, 0, 0.15)),
+   url(../images/IMG_20200704_091637-2.jpg);
+   background-position-y: 40%;
+   background-repeat: no-repeat;
+   min-width: 550px;
+ 
+
+}
+
+main{
+   display:flex;
+   flex-direction: column;
+}
+button {
+   font-family: 'Cheboygan', sans-serif;
+   background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent; 
+}
+
+.card {
+   width: 20%;
+   margin: 50px;
+   background-color: bisque;
+}
+
+.storycard {
+   width: 60%;
+   font-size: 30px;
+}
+
+.choiceBoxContainer {
+   display:flex;
+   text-align: center;
+   width:60%;
+   height: 20%;
+   margin-right: 5%;
+}
+
+.choiceBox {
+   display:flex;
+   font-size: 20px;
+   margin-left: 5%;
+   width: 40%;
+   padding-left:20px;
+
+}
+
+
+
+ /* Media Quries */
+
+@media screen and (max-width: 1264px){
+    #mainTitle {
+       font-size: 60px;
+       margin: 10% 10% 10% 10%;
+    }
+ }
+ 
+ @media screen and (max-width: 725px) {
+    #mainTitle {
+       font-size: 28px;
+       margin: 10% 10% 10% 10%;
+    }
+ 
+    #mainHeaderImage {
+       height:125px;
+       width:100%;
+      
+    
+    }
+ }
