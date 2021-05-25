@@ -6,7 +6,6 @@ let bodyEl = $("body");
 let menuEl = $("#menu");
 let menuBtn = $("#showmenu");
 let textEl = $("#displayedText")
-let itemMenu = $("#items");
 let audioEl = document.querySelector("#audio");
 let apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370";
 let textCSS = { "display": "block", "width": "100%", "height": "100%", "font-size": "20px", "padding": "10px", "border-radius": "5px", "background-color": "background-color: #e0e0e0d2" };
@@ -16,13 +15,11 @@ let myVar;
 let finished = false;
 if (JSON.parse(localStorage.getItem("loading")) === true) {
     var textNum = JSON.parse(localStorage.getItem("saveSpot")).textnum;
-    var items = JSON.parse(localStorage.getItem("saveSpot")).items;
     var currentLocation = JSON.parse(localStorage.getItem("saveSpot")).location;
     var currentDay = JSON.parse(localStorage.getItem("saveSpot")).day;
     localStorage.setItem("loading", JSON.stringify(false));
 } else {
     var textNum = 0;
-    var items = JSON.parse(localStorage.getItem("items"));
     var currentLocation = localStorage.getItem("location");
     var currentDay = localStorage.getItem("day");
 }
@@ -45,7 +42,7 @@ function nextText() {
 }
 
 function saveHere() {
-    localStorage.setItem("saveSpot", JSON.stringify({"location": currentLocation, "textnum": textNum, "day": currentDay, "items": items}))
+    localStorage.setItem("saveSpot", JSON.stringify({"location": currentLocation, "textnum": textNum, "day": currentDay}))
 }
 
 fetch("https://api.pexels.com/v1/photos/2633", { headers: { "Authorization": apiKey } })
@@ -92,22 +89,6 @@ function typeWriter() {
         finished = true;
         console.log("Finished")
     }
-}
-
-for (i in items) {
-    let pEl = $("<p>");
-    pEl.text(items[i]);
-    itemMenu.append($("<li>").addClass("ui-state-disabled").append("<div>").append($(pEl).css({
-        "width": "100%",
-        "height": "100%",
-        "padding": "15px",
-        "font-size": "20px",
-        "font-family": "cheboygan, sans-serif",
-        "color": "red",
-        "background-image": "-webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E)",
-        "-webkit-background-clip": "text",
-        "-webkit-text-fill-color": "transparent"
-    })));
 }
 
 menuBtn.on("click", function(event) {
