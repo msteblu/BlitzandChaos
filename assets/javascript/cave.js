@@ -5,10 +5,15 @@ let headerImg = $("#header").children().eq(0);
 let bodyEl = $("body");
 let menuEl = $("#menu");
 let menuBtn = $("#showmenu");
+let textEl = $("#displayedText")
 let itemMenu = $("#items");
 let audioEl = document.querySelector("#audio");
 let apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370";
 let textCSS = { "display": "block", "width": "100%", "height": "100%", "font-size": "20px", "padding": "10px", "border-radius": "5px", "background-color": "background-color: #e0e0e0d2" };
+let charNum = 0;
+let textt = "";
+let myVar;
+let finished = false;
 if (JSON.parse(localStorage.getItem("loading")) === true) {
     var textNum = JSON.parse(localStorage.getItem("saveSpot")).textnum;
     var items = JSON.parse(localStorage.getItem("saveSpot")).items;
@@ -23,14 +28,20 @@ if (JSON.parse(localStorage.getItem("loading")) === true) {
 }
 
 function nextText() {
+    clearTimeout(myVar);
     audioEl.play();
-    if ((textNum + 1) < textContainer.children().length) {
-        textContainer.children().eq(textNum).css({ "display": "none" });
+    if (finished) {
+        finished = false;
+        clearTimeout(myVar);
+        charNum = 0;
+        textt = "";
         textNum++;
-        textContainer.children().eq(textNum).css(textCSS);
+        typeWriter()
     } else {
-        textContainer.children().eq(textNum).text("I'm pretty tired, I should probably head home now...");
+        finished = true;
+        textEl.text(textContainer.children().eq(textNum + 1).text())
     }
+    
 }
 
 function saveHere() {
@@ -70,6 +81,19 @@ fetch("https://freesound.org/apiv2/sounds/343741?token=qz79q7DsbN3veU3EUNMHVH0GB
 
 textContainer.children().eq(textNum).css(textCSS);
 
+function typeWriter() {
+    myVar = setTimeout(typeWriter, 50);
+    if (charNum < textContainer.children().eq(textNum + 1).text().length) {
+        textt = textt + textContainer.children().eq(textNum + 1).text()[charNum]
+        textEl.text(textt)
+        charNum++;
+    } else {
+        clearTimeout(myVar);
+        finished = true;
+        console.log("Finished")
+    }
+}
+
 for (i in items) {
     let pEl = $("<p>");
     pEl.text(items[i]);
@@ -104,6 +128,9 @@ menuEl.on("click", "div", function(event) {
         window.location.href = `${JSON.parse(localStorage.getItem("saveSpot")).location}.html`
     }
 })
+
+typeWriter()
+
 
 $(function() {
     $("#menu").menu();
