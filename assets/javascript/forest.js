@@ -8,6 +8,8 @@ let background = document.querySelector('#bg');
 let card1 = document.querySelector('.card1');
 let card2 = document.querySelector('.card2');
 
+// Creating an empty variable that will be the url for the background image
+let forestUrl
 
 // Local Storage variables: 
 // Add Local Storage variables here to push to...
@@ -19,16 +21,24 @@ let card2 = document.querySelector('.card2');
 // *** Get background image function: ***
 
 let getImage = function () {
-    let apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370"
+    let apiUrl = "https://api.artic.edu/api/v1/artworks/30828"
 
-    fetch( "https://api.pexels.com/v1/photos/1450082/", { headers: { "Authorization": apiKey } })
+    fetch(apiUrl)
     .then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
+                console.log(data);
+
+                // testing to make sure we're grabbing the correct data (can remove later): 
+                console.log(data.config.iiif_url);
+                console.log(data.data.image_id);
 
                 // set url to be able to call it later: 
-                background.setAttribute("src", data.src.original)
-                hideInit();
+                let imageUrl = data.config.iiif_url + "/" + data.data.image_id + "/full/843,/0/default.jpg";
+                forestUrl = imageUrl;
+
+                // Call the next function to display it:
+                displayImage();
             });
         } else {
             alert('Error: ' + response.statusText);
@@ -40,17 +50,25 @@ let getImage = function () {
 };
 
 
+// *** Display background image function: *** 
+// (Run this first so it will load before the rest of the functions try to run...)
+
+let displayImage = function (data) {
+    background.setAttribute( "src", forestUrl);
+    // Run a function to hide everthing initially, and to start the story sequence: 
+    hideInit();
+};
+
 // Testing Music: !!!!!!!!!!!!!!!
 
 
-// ***** The Initial function:  *****
 
 let hideInit = function () {
     card1.style.display = "none";
     card2.style.display = "none";
 
     // start the story sequence:
-    enterMountain();
+    enterForest();
 };
 
 
@@ -59,9 +77,9 @@ let hideInit = function () {
 // ************* Enter Town Storyline: **************
 
 // ** Basic Storyline: **
-let enterMountain = function () {
+let enterForest = function () {
 
-    let storyTxt = "You enter the mountain. Lorem ipsum lorem ipsum";
+    let storyTxt = "Lorem Ipsum";
     let i = 0;
     let speed = 25;
 
@@ -72,7 +90,7 @@ let enterMountain = function () {
             setTimeout(typeWriter, speed);
         } else {
             // Once the script has been written out, display the user's options: 
-            enterMountainChoices();
+            enterForestChoices();
         }
     }
 
@@ -81,9 +99,9 @@ let enterMountain = function () {
 };
 
 // ** User Choices: ** 
-let enterMountainChoices = function () {
-    let choice1Txt = "You’re too busy. You ignore her and carry on.";
-    let choice2Txt = "You agree and follow her.";
+let enterForestChoices = function () {
+    let choice1Txt = "Lorem ipsum";
+    let choice2Txt = "Lorem ipsum";
     let i = 0;
     let t = 0;
     let speed = 30;
@@ -160,7 +178,7 @@ let theEnchanter = function () {
     card2.style.display = "none";
 
     // Run the same type of Typewriter functions
-    let storyTxt = "Example text... lorem ipsum lorem ipsum "
+    let storyTxt = "Lorem ipsum....  "
     let i = 0;
     let speed = 25;
 
@@ -180,8 +198,8 @@ let theEnchanter = function () {
 
 // ** User Choices: **
 let theEnchanterChoices = function () {
-    let choice1Txt = "Choice one is this lorem ipsum.";
-    let choice2Txt = "Choice two is this, lorem ipsum";
+    let choice1Txt = "Lorem ipsum...";
+    let choice2Txt = "Lorem ipsum....";
     let i = 0;
     let t = 0;
     let speed = 30;
