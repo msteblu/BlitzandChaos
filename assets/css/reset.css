@@ -35,6 +35,10 @@ code {
     font-family: inherit;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 ol,
 ul {
     list-style: none;
