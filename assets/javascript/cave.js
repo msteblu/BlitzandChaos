@@ -34,7 +34,7 @@ function nextText() {
 }
 
 function saveHere() {
-    localStorage.setItem("saveSpot", JSON.stringify({"location": currentLocation, "textnum": textNum, "day": day, "items": items}))
+    localStorage.setItem("saveSpot", JSON.stringify({"location": currentLocation, "textnum": textNum, "day": currentDay, "items": items}))
 }
 
 fetch("https://api.pexels.com/v1/photos/2633", { headers: { "Authorization": apiKey } })
