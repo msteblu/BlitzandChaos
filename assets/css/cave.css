@@ -1,0 +1,31 @@
+.card {
+    margin: 50px;
+    margin-top: 150px;
+    background-color: bisque;
+};
+
+.storycard {
+    min-height: 250px;
+}
+
+.story {
+    font-size: 20px;
+    font-family: cheboygan, sans-serif;
+    color: red;
+    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.choice1:hover, .choice2:hover {
+    cursor: pointer;
+}
+
+.choice1, .choice2 {
+    font-size: 20px;
+    font-family: cheboygan, sans-serif;
+    color: red;
+    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
