@@ -108,10 +108,10 @@ button {
    }
 }
 
- @media screen and (max-width: 725px) {
+ @media screen and (max-width: 768px) {
    #mainTitle {
       font-size: 24px;
-      margin: 8% 15% 10% 10%;
+      margin: 8% 7% 10% 10%;
    }
 
    #mainHeaderImage {
@@ -130,7 +130,7 @@ button {
    
    #mainTitle {
       font-size: 22px;
-      margin: 8% 15% 10% 0%;
+      margin: 8% 7% 10% 0%;
    }
    
    .choiceBoxContainer{
