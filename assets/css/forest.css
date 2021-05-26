@@ -10,16 +10,25 @@
  } 
  
   #mainTitle {
-    font-size: 89px;
+    font-size: 70px;
     font-family: 'Cheboygan', sans-serif;
     background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     float: right; 
-    margin: 50px 250px 50px 50px;
+    margin: 7% 10% 0% 0%;
    
     z-index: 1;
     position:relative;
+ }
+
+ #mainSubHeading {
+    font-size:24px;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    float: right; 
+    margin: 4% -16% 0% 0%;
  }
  .menu-text{
     font-family: 'Cheboygan', sans-serif;
@@ -45,8 +54,7 @@
 }
 
 main{
-   display:flex;
-   flex-direction: column;
+  
 }
 button {
    font-family: 'Cheboygan', sans-serif;
@@ -56,20 +64,23 @@ button {
 }
 
 .card {
-   width: 20%;
+   
+   width: 50%;
    margin: 50px;
    background-color: bisque;
 }
-
+/* .card-content {
+   width: 80%;
+} */
 .storycard {
-   width: 60%;
-   font-size: 30px;
+   width: 70%;
+   font-size: 20px;
 }
 
 .choiceBoxContainer {
    display:flex;
    text-align: center;
-   width:60%;
+   width:80%;
    height: 20%;
    margin-right: 5%;
 }
@@ -90,7 +101,7 @@ button {
 @media screen and (max-width: 1264px){
     #mainTitle {
        font-size: 60px;
-       margin: 10% 10% 10% 10%;
+       margin: 9% 10% 10% 10%;
     }
  }
  

@@ -79,7 +79,7 @@ let hideInit = function () {
 // ** Basic Storyline: **
 let enterForest = function () {
 
-    let storyTxt = "Even with the sun out the forest is dark, but light beams down through the trees onto the path. After walking there is a fork in the path with a sign";
+    let storyTxt ="When days become warmer, the nights become more dark. Things, monstrous creatures wake. Now, some people say this is just folklore; a tale to tell for metaphorical reasons, or perhaps just to pass the time. Those are the lucky ones who got to live their lives in peace, never seeing the darkest of nights filled with smoke, flames and death. I am an old man. There are few of us left who have witnessed the death and destruction of everything we once loved. And the time is upon us again, child. The time has come for Fraener to fly again. He has waited patiently for this day. Sleeping in his cave beneath the mountains. It is said that this time nothing will survive his flames." ;
     let i = 0;
     let speed = 25;
 
