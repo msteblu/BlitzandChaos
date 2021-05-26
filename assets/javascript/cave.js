@@ -32,38 +32,38 @@ option2.parent().css({"display": "none"})
 
 
 
-// fetch("https://api.pexels.com/v1/photos/2633", { headers: { "Authorization": apiKey } })
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         caveImg.attr({ "src": data.src.original });
-//         console.log(data.src.original)
-//     })
+fetch("https://api.pexels.com/v1/photos/2633", { headers: { "Authorization": apiKey } })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        caveImg.attr({ "src": data.src.original });
+        console.log(data.src.original)
+    })
 
-// fetch("https://api.pexels.com/v1/photos/97494", { headers: { "Authorization": apiKey } })
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         headerImg.attr({ "src": data.src.original});
-//         console.log(data.src.original)
-//     })
+fetch("https://api.pexels.com/v1/photos/97494", { headers: { "Authorization": apiKey } })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        headerImg.attr({ "src": data.src.original});
+        console.log(data.src.original)
+    })
 
-// fetch("https://freesound.org/apiv2/sounds/343741?token=qz79q7DsbN3veU3EUNMHVH0GBhsbt4v13jCK7yNh")
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         $(function () {
-//             audioEl.setAttribute("src", data.previews["preview-lq-mp3"]);
-//             audioEl.volume = 0.3;
-//             audioEl.setAttribute("loop", "true");
-//             continueBtn.on("click", nextText);
-//             option1.on("click", nextText);
-//             option2.on("click", nextText);
-//         })
-//     })
+fetch("https://freesound.org/apiv2/sounds/343741?token=qz79q7DsbN3veU3EUNMHVH0GBhsbt4v13jCK7yNh")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        $(function () {
+            audioEl.setAttribute("src", data.previews["preview-lq-mp3"]);
+            audioEl.volume = 0.3;
+            audioEl.setAttribute("loop", "true");
+            continueBtn.on("click", nextText);
+            option1.on("click", nextText);
+            option2.on("click", nextText);
+        })
+    })
 
 function saveHere() {
     localStorage.setItem("saveSpot", JSON.stringify({"location": currentLocation, "textnum": textNum, "day": currentDay}))
