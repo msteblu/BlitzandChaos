@@ -6,7 +6,10 @@ let option2 = $(".choice2");
 let headerImg = $("#header").children().eq(0);
 let menuEl = $("#menu");
 let menuBtn = $("#showmenu");
+
 let textEl = $("#currentText");
+
+
 let audioEl = document.querySelector("#audio");
 let apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370";
 let textCSS = { "display": "block", "width": "100%", "height": "100%", "font-size": "20px", "padding": "10px", "border-radius": "5px", "background-color": "background-color: #ffe4c4" };
@@ -14,6 +17,7 @@ let charNum = 0;
 let textt = "";
 let myVar;
 let finished = false;
+
 let line = "";
 let choiceNum;
 let run = false;
@@ -89,6 +93,7 @@ function typeWriter() {
     }
 }
 
+
 function choiceTypeWriter() {
     option2.parent().css({"display": "inline"})
     if (choiceNum === 1) {
@@ -150,7 +155,6 @@ function choice(event) {
 
 option1.on("click", choice)
 option2.on("click", choice)
-
 
 menuBtn.on("click", function(event) {
     $(event.target).parent().css({"display": "none"})
