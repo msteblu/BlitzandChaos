@@ -100,7 +100,7 @@ let enterForest = function () {
 
 // ** User Choices: ** 
 let enterForestChoices = function () {
-    let choice1Txt = "To the River";
+    let choice1Txt = "You are surprised, and you find that you don’t quite trust her. You tell her that you cannot help.";
     let choice2Txt = "To the Deep Forest";
     let i = 0;
     let t = 0;

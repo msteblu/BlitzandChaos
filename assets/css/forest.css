@@ -53,9 +53,6 @@
 
 }
 
-main{
-  
-}
 button {
    font-family: 'Cheboygan', sans-serif;
    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
@@ -63,12 +60,7 @@ button {
    -webkit-text-fill-color: transparent; 
 }
 
-.card {
-   
-   width: 50%;
-   margin: 50px;
-   background-color: bisque;
-}
+
 /* .card-content {
    width: 80%;
 } */
@@ -88,33 +80,82 @@ button {
 .choiceBox {
    display:flex;
    font-size: 20px;
-   margin-left: 5%;
-   width: 40%;
-   padding-left:20px;
+   margin-left: 2%;
+   width: 25%;
+   padding-left:15px;
 
+}
+.card {
+   
+   width: 74%;
+   margin: 50px;
+   background-color: bisque;
 }
 
 
 
  /* Media Quries */
+ @media screen and (max-width: 1264px){
+   #mainTitle {
+      font-size: 60px;
+   }
+}
 
-@media screen and (max-width: 1264px){
-    #mainTitle {
-       font-size: 60px;
-       margin: 9% 10% 10% 10%;
-    }
- }
+@media screen and (max-width: 985px){
+   #mainTitle {
+      font-size: 46px;
+      margin: 8% 15% 0% 0%;
+   }
+}
+
+ @media screen and (max-width: 768px) {
+   #mainTitle {
+      font-size: 24px;
+      margin: 8% 7% 10% 10%;
+   }
+
+   #mainHeaderImage {
+      height:125px;
+      width:100%;
+     
+   
+   }
+
+   #mainSubHeading{
+      display: none;
+   }
+}
+
+@media screen and (max-width: 563px){
+   
+   #mainTitle {
+      font-size: 22px;
+      margin: 8% 7% 10% 0%;
+   }
+   
+   .choiceBoxContainer{
+      display:flex;
+      flex-direction: column;
+      width:80%;
+   }
+   .choiceBox{
+      font-size:16px;
+      display:flex;
+      flex-direction: column;
+      width: 95%;
+      height: auto;
+      margin-bottom: 10px;
+      margin-top:10px;
+   }
+  
+   button {
+      margin-top:-20px;
+   }
+}
+
+
+
+
+
  
- @media screen and (max-width: 725px) {
-    #mainTitle {
-       font-size: 28px;
-       margin: 10% 10% 10% 10%;
-    }
  
-    #mainHeaderImage {
-       height:125px;
-       width:100%;
-      
-    
-    }
- }
