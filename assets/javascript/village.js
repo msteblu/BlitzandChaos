@@ -145,37 +145,11 @@ let beginVillageContinue = function () {
 // ** BASIC STORYLINE: **
 let enterVillage = function () {
 
-    // First, set all of the containers back to empty
-    storyContainer.innerHTML = "";
-    choice1Container.innerHTML = "";
-    choice2Container.innerHTML = "";
-    continueContainer.innerHTML = "";
-
+    // First, set all of the containers back to empty by calling the remove() function.
     // We have to remove the buttons we created or they will just keep piling up each time we run a new function
-    // cardContinue.removeChild(cardContinue.lastElementChild);
-
-    console.log(cardContinue.lastElementChild.className); // TEST
-
-    function remove() {
-        if (card1.lastElementChild.className == 'button') {
-            card1.removeChild(card1.lastElementChild)
-        }
-
-        if (card2.lastElementChild.className == 'button') {
-            card2.removeChild(card2.lastElementChild)
-        }
-
-        if (cardContinue.lastElementChild.className == 'button') {
-            cardContinue.removeChild(cardContinue.lastElementChild)
-        }
-    };
+    // Once again, hide the containers before they're filled
 
     remove();
-
-    // Once again, hide the containers before they're filled
-    card1.style.display = "none";
-    card2.style.display = "none";
-    cardContinue.style.display = "none";
 
     // Start to play the music, after the first user interaction: 
     audioEl.play();
@@ -266,33 +240,7 @@ let enterVillageChoices = function () {
 // ** BASIC STORYLINE: **
 let theEnchanter = function () {
 
-    storyContainer.innerHTML = "";
-    choice1Container.innerHTML = "";
-    choice2Container.innerHTML = "";
-    continueContainer.innerHTML = "";
-
-    // card1.removeChild(card1.lastElementChild);
-    // card2.removeChild(card2.lastElementChild);
-
-    function remove() {
-        if (card1.lastElementChild.className == 'button') {
-            card1.removeChild(card1.lastElementChild)
-        }
-
-        if (card2.lastElementChild.className == 'button') {
-            card2.removeChild(card2.lastElementChild)
-        }
-
-        if (cardContinue.lastElementChild.className == 'button') {
-            cardContinue.removeChild(cardContinue.lastElementChild)
-        }
-    };
-
     remove();
-
-    card1.style.display = "none";
-    card2.style.display = "none";
-    cardContinue.style.display = "none";
 
     // Add points to storage:
     let pointsToAdd = 10;
@@ -368,33 +316,7 @@ let theEnchanterChoices = function () {
 // ** BASIC STORYLINE: **
 let getCompanion = function () {
 
-    storyContainer.innerHTML = "";
-    choice1Container.innerHTML = "";
-    choice2Container.innerHTML = "";
-    continueContainer.innerHTML = "";
-
-    // card1.removeChild(card1.lastElementChild);
-    // card2.removeChild(card2.lastElementChild);
-
-    function remove() {
-        if (card1.lastElementChild.className == 'button') {
-            card1.removeChild(card1.lastElementChild)
-        }
-
-        if (card2.lastElementChild.className == 'button') {
-            card2.removeChild(card2.lastElementChild)
-        }
-
-        if (cardContinue.lastElementChild.className == 'button') {
-            cardContinue.removeChild(cardContinue.lastElementChild)
-        }
-    };
-
     remove();
-
-    card1.style.display = "none";
-    card2.style.display = "none";
-    cardContinue.style.display = "none";
 
     // Write out the text for the main Story card: 
     let storyTxt = "You help by… She is so grateful that she offers to help with the rest of your quest, if you need any magical assistance. {Receive Companion.}";
@@ -438,34 +360,7 @@ let companionContinue = function () {
 // ** BASIC STORYLINE: **
 let theBook = function () {
 
-    storyContainer.innerHTML = "";
-    choice1Container.innerHTML = "";
-    choice2Container.innerHTML = "";
-    continueContainer.innerHTML = "";
-
-    // card1.removeChild(card1.lastElementChild);
-    // card2.removeChild(card2.lastElementChild);
-    // cardContinue.removeChild(cardContinue.lastElementChild);
-
-    function remove() {
-        if (card1.lastElementChild.className == 'button') {
-            card1.removeChild(card1.lastElementChild)
-        }
-
-        if (card2.lastElementChild.className == 'button') {
-            card2.removeChild(card2.lastElementChild)
-        }
-
-        if (cardContinue.lastElementChild.className == 'button') {
-            cardContinue.removeChild(cardContinue.lastElementChild)
-        }
-    };
-
     remove();
-
-    card1.style.display = "none";
-    card2.style.display = "none";
-    cardContinue.style.display = "none";
 
     // Adding game items to storage:
     gameObjects = updateGameObjects(gameObjects, "spellbook");
@@ -511,34 +406,7 @@ let bookContinue = function () {
 // ** BASIC STORYLINE: **
 let mainStoryline = function () {
    
-    storyContainer.innerHTML = "";
-    choice1Container.innerHTML = "";
-    choice2Container.innerHTML = "";
-    continueContainer.innerHTML = "";
-
-    // card1.removeChild(card1.lastElementChild);
-    // card2.removeChild(card2.lastElementChild);
-    // cardContinue.removeChild(cardContinue.lastElementChild);
-
-    function remove() {
-        if (card1.lastElementChild.className == 'button') {
-            card1.removeChild(card1.lastElementChild)
-        }
-
-        if (card2.lastElementChild.className == 'button') {
-            card2.removeChild(card2.lastElementChild)
-        }
-
-        if (cardContinue.lastElementChild.className == 'button') {
-            cardContinue.removeChild(cardContinue.lastElementChild)
-        }
-    };
-
     remove();
-
-    card1.style.display = "none";
-    card2.style.display = "none";
-    cardContinue.style.display = "none";
 
     // Run the same type of Typewriter functions
     let storyTxt = "You return back to the village... You do this. Maybe get an item.... "
@@ -581,34 +449,7 @@ let mainContinue = function () {
 // ** BASIC STORYLINE: ** 
 let endVillage = function () {
 
-    storyContainer.innerHTML = "";
-    choice1Container.innerHTML = "";
-    choice2Container.innerHTML = "";
-    continueContainer.innerHTML = "";
-
-    // card1.removeChild(card1.lastElementChild);
-    // card2.removeChild(card2.lastElementChild);
-    // cardContinue.removeChild(cardContinue.lastElementChild);
-
-    function remove() {
-        if (card1.lastElementChild.className == 'button') {
-            card1.removeChild(card1.lastElementChild)
-        }
-
-        if (card2.lastElementChild.className == 'button') {
-            card2.removeChild(card2.lastElementChild)
-        }
-
-        if (cardContinue.lastElementChild.className == 'button') {
-            cardContinue.removeChild(cardContinue.lastElementChild)
-        }
-    };
-
     remove();
-
-    card1.style.display = "none";
-    card2.style.display = "none";
-    cardContinue.style.display = "none";
 
     let storyTxt = "This is the ending sequence. You are moving on to the next location.";
     let i = 0;
@@ -664,6 +505,31 @@ let end = function () {
 
 // *********************************  REFERENCE FUNCTIONS  *******************************
 
+// REMOVE FUNCTION:
+
+let remove = function () {
+
+    storyContainer.innerHTML = "";
+    choice1Container.innerHTML = "";
+    choice2Container.innerHTML = "";
+    continueContainer.innerHTML = "";
+
+    if (card1.lastElementChild.className == 'button') {
+        card1.removeChild(card1.lastElementChild)
+    }
+
+    if (card2.lastElementChild.className == 'button') {
+        card2.removeChild(card2.lastElementChild)
+    }
+
+    if (cardContinue.lastElementChild.className == 'button continuebtn') {
+        cardContinue.removeChild(cardContinue.lastElementChild)
+    }
+
+    card1.style.display = "none";
+    card2.style.display = "none";
+    cardContinue.style.display = "none";
+};
 
 // MUSIC PAUSE / PLAY FUNCTION
 
@@ -736,9 +602,9 @@ let retrieveGameObjects = function () {
 
 
 // STAND-IN FUNCTIONS JUST FOR TESTING EVENT LISTENERS (without having functions to run yet): 
-let myFunctionReference = function () { alert("You clicked button 2") };
-let myFunctionReference1 = function () { alert("You clicked button 1") };
-let myContinueReference = function () { alert("You clicked continue") };
+// let myFunctionReference = function () { alert("You clicked button 2") };
+// let myFunctionReference1 = function () { alert("You clicked button 1") };
+// let myContinueReference = function () { alert("You clicked continue") };
 
 
 
