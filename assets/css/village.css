@@ -1,48 +1,158 @@
-#bg {
-    position: fixed;
+#mainHeaderImage {
+    text-align: center;
+    margin-right: 10px;
+    background-image: url(../images/mainHeader.jpg);
     width: 100%;
-    height: 100%;
-    top: 0px;
-    bottom: 0px;
-    z-index: -2;
-    min-width: 850px;
-}
-
-.hero {
-    /* background-image: url(../images/mainHeader.jpg); */
-}
-
-.title {
+    background-size:cover;
+    height:275px;
+   
+ 
+ } 
+ 
+  #mainTitle {
+    font-size: 70px;
     font-family: 'Cheboygan', sans-serif;
     background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
-}
+    float: right; 
+    margin: 7% 10% 0% 0%;
+   
+    z-index: 1;
+    position:relative;
+ }
 
-.subtitle {
-    font-family: 'Cheboygan', sans-serif;
+ #mainSubHeading {
+    font-size:24px;
     background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
-}
+    float: right; 
+    margin: 4% -16% 0% 0%;
+ }
+ .menu-text{
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;                                          
+ }
 
+#backgroundImage{
+   width: 100%;   
+   position:fixed;
+   z-index: -2;
+   top: 0px;
+   bottom: 0px; 
+   background-size: cover;
+   background:linear-gradient(rgba(19, 2, 2, 0.45),rgba(8, 1, 1, 0.45), rgba(5, 0, 0, 0.35), rgba(3, 0, 0, 0.15)),
+   /* url(../images/IMG_20200704_091637-2.jpg); */
+   background-position-y: 40%;
+   background-repeat: no-repeat;
+   min-width: 550px;
+ 
 
-#header {
-    height: 20%;
 }
 
 button {
-    font-family: 'Cheboygan', sans-serif;
-    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
+   font-family: 'Cheboygan', sans-serif;
+   background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent; 
 }
 
-.card {
-    margin: 50px;
-    background-color: bisque;
-};
 
 .storycard {
-    min-height: 250px;
+   width: 70%;
+   font-size: 20px;
 }
+
+.choiceBoxContainer {
+   display:flex;
+   text-align: center;
+   width:80%;
+   height: 20%;
+   margin-right: 5%;
+}
+
+.choiceBox {
+   display:flex;
+   font-size: 20px;
+   margin-left: 2%;
+   width: 25%;
+   padding-left:15px;
+
+}
+.card {
+   
+   width: 74%;
+   margin: 50px;
+   background-color: bisque;
+}
+
+
+
+ /* Media Quries */
+ @media screen and (max-width: 1264px){
+   #mainTitle {
+      font-size: 60px;
+   }
+}
+
+@media screen and (max-width: 985px){
+   #mainTitle {
+      font-size: 46px;
+      margin: 8% 15% 0% 0%;
+   }
+}
+
+ @media screen and (max-width: 768px) {
+   #mainTitle {
+      font-size: 24px;
+      margin: 8% 7% 10% 10%;
+   }
+
+   #mainHeaderImage {
+      height:125px;
+      width:100%;
+     
+   
+   }
+
+   #mainSubHeading{
+      display: none;
+   }
+}
+
+@media screen and (max-width: 563px){
+   
+   #mainTitle {
+      font-size: 22px;
+      margin: 8% 7% 10% 0%;
+   }
+   
+   .choiceBoxContainer{
+      display:flex;
+      flex-direction: column;
+      width:80%;
+   }
+   .choiceBox{
+      font-size:16px;
+      display:flex;
+      flex-direction: column;
+      width: 95%;
+      height: auto;
+      margin-bottom: 10px;
+      margin-top:10px;
+   }
+  
+   button {
+      margin-top:-20px;
+   }
+}
+
+
+
+
+
+ 
+ 
