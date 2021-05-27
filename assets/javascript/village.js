@@ -552,6 +552,8 @@ let setSpeed = function () {
 };
 
 autofill.addEventListener("click", setSpeed, false);
+choice1Container.addEventListener("click", setSpeed, false);
+choice2Container.addEventListener("click", setSpeed, false);
 
 
 // FUNCTIONS FOR MANAGING POINT COUNTS IN LOCAL STORAGE:
