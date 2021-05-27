@@ -12,34 +12,81 @@
 </head>
 
 <body>
-  
-    <header class="hero is-small">
-        <div class="hero-body has-text-right">
-            <h1 class="title"> 
-                Blitz and Chaos
-            </h1>
-            <p class="subtitle">
-                Village
-            </p>
-        </div>
+    <header id="mainHeader">
+        <h1 id="mainTitle">The Village</h1>
+        <h2 id="mainSubHeading">Blitz and Chaos</h2>
+        <div id="mainHeaderImage"></div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+              <h1 class="menu-text">Blitz and Chaos</h1>
+            </a>
+        
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+        
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <a href="index.html" class="navbar-item">
+                Home
+              </a>
+        
+              <a href="contributorsPage.html#project" class="navbar-item">
+                Project
+              </a>
+        
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a href="contributorsPage.html" class="navbar-link">
+                 Contributors
+                </a>
+        
+                <div class="navbar-dropdown">
+                  <a href="contributorsPage.html#heather" class="navbar-item">
+                    Heather Bjoin
+                  </a>
+                  <a href="contributorsPage.html#justin" class="navbar-item">
+                    Justin Hoch
+                  </a>
+                  <a href="contributorsPage.html#megan" class="navbar-item">
+                    Megan Steblay
+                  </a>
+                  <a href="contributorsPage.html#mike" class="navbar-item">
+                    Mike Steinmetz
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
     </header>
-
-    <img src="#" alt="Painting of Village" id="bg">
-    <!-- testing audio -->
+    
+    <img src="#" id="backgroundImage" alt="Painting of Forest" ></img>
     <audio id="audio" src="#"></audio>
+    <div class="has-text-right">
+        <button class="button" id="musicBtn">Toggle Music</button>
+    </div>
+    
 
     <main>
-        <div class="card has-text-centered storycard">
+        <!-- has-text-centered removed-->
+        <div class="card storycard"> 
             <div class="card-content story"></div>
+            <div class="has-text-right">
+                <button class="button" id="autofill">Proceed...</button>
+            </div>
         </div>
 
 
-        <div class="tile is-ancestor has-text-centered">
-            <div class="tile">
-                <div class="card tile is-parent is-vertical card1">
+        <div class="tile is-ancestor choiceBoxContainer">
+            <div class="tile choiceBox">
+                <div class="card tile is-parent is-vertical card1 choiceBox">
                     <div class="card-content tile is-child choice1"></div>
                 </div>
-                <div class="card tile is-parent is-vertical card2">
+                <div class="card tile is-parent is-vertical card2 choiceBox">
                     <div class="card-content tile is-child choice2"></div>
                 </div>
                 <div class="tile cardContinue">
@@ -49,6 +96,7 @@
         </div>
 
     </main>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/village.js"></script>
