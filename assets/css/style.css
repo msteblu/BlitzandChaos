@@ -333,7 +333,7 @@ h1 {
     #copyright-info {
         text-align: center;
         font-size: 25px;
-		margin: 200px auto 50px auto;
+		margin: 0 auto 50px auto;
 		width: 80%;
         max-width: 978px;
 		position: relative;
@@ -343,7 +343,8 @@ h1 {
 
     #copyrightBtn {
         margin-top: 35px;
-        padding: 5px;
+        padding: 10px;
+        font-size: 18px;
     }
     
     /* JavaScript Turned Off */
