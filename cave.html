@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/cave.css">
     <title>Document</title>
 </head>
 
@@ -36,41 +37,22 @@
         </ul>
         
     </div>
-    <div id="textAndChoices">
-        <div id="text">
-            <p id="displayedText"></p>
-            <p>You arrive at the cave!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla asperiores dolorum nam odio cum itaque
-                similique, maiores minus eos tempora ratione voluptates, laudantium molestiae? Maiores quam voluptas
-                ipsum doloribus omnis.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptate optio mollitia consectetur.
-                Soluta temporibus repellendus obcaecati hic sit laboriosam fuga nihil iste magni, tempora porro veniam,
-                labore error debitis!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam in voluptatibus fugiat ad vitae soluta,
-                debitis dignissimos fuga, dolorum minus sit recusandae delectus qui quis ducimus beatae vel? Non, totam?
-            </p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet eos, sed id exercitationem, unde
-                corporis consequuntur voluptatibus, recusandae sequi aliquid laborum? Modi nostrum quibusdam in,
-                distinctio id aliquam fuga corrupti.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dicta inventore nisi quo, in doloremque
-                doloribus vero ducimus quaerat? Magni totam doloremque molestias quo excepturi! Natus placeat quo minus
-                doloremque.</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum pariatur repudiandae libero,
-                possimus, non repellat alias tempora ipsam ipsa culpa qui eius dicta nam! Doloribus aspernatur explicabo
-                labore adipisci.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla provident, accusamus expedita enim atque
-                eaque esse delectus magnam facere, et in pariatur. Aperiam, vero explicabo magni autem illo aut
-                inventore?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam nemo perferendis quod obcaecati tenetur
-                natus facilis atque magni praesentium beatae fugit odit incidunt perspiciatis dolore, reiciendis ab,
-                molestiae quibusdam fugiat!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit eos ex sequi unde ad nesciunt
-                voluptatum non quia sunt ea accusamus, sed rem officiis reiciendis perspiciatis dolores cum vel
-                perferendis.</p>
+    <div class="card has-text-centered storycard">
+        <div class="card-content story">
+            <p id="currentText"></p>
         </div>
-        <button id="continue">
-            <p>Continue</p>
-        </button>
+    </div>
+    <div class="tile is-ancestor has-text-centered">
+        <div class="tile">
+            <div class="card tile is-parent is-vertical card1">
+                <div class="card-content tile is-child choice1" id="one">
+                </div>
+            </div>
+            <div class="card tile is-parent is-vertical card2">
+                <div class="card-content tile is-child choice2" id="two">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -79,3 +61,4 @@
 </body>
 
 </html>
+

@@ -48,23 +48,29 @@
             </div>
         </nav>
     </header>
-
-    <img src="#" alt="Painting of Village" id="bg">
-    <!-- testing audio -->
+    
+    <img src="#" id="backgroundImage" alt="Painting of Forest" ></img>
     <audio id="audio" src="#"></audio>
+    <div class="has-text-right">
+        <button class="button" id="musicBtn">Toggle Music</button>
+    </div>
+    
 
     <main class="center-everything">
         <div class="card has-text-centered storycard">
             <div class="card-content story"></div>
+            <div class="has-text-right">
+                <button class="button" id="autofill">Proceed...</button>
+            </div>
         </div>
 
 
-        <div class="tile is-ancestor has-text-centered">
-            <div class="tile">
-                <div class="card tile is-parent is-vertical card1">
+        <div class="tile is-ancestor choiceBoxContainer">
+            <div class="tile choiceBox">
+                <div class="card tile is-parent is-vertical card1 choiceBox">
                     <div class="card-content tile is-child choice1"></div>
                 </div>
-                <div class="card tile is-parent is-vertical card2">
+                <div class="card tile is-parent is-vertical card2 choiceBox">
                     <div class="card-content tile is-child choice2"></div>
                 </div>
                 <div class="tile cardContinue">
@@ -74,6 +80,7 @@
         </div>
 
     </main>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/village.js"></script>

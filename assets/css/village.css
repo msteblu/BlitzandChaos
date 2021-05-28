@@ -52,24 +52,37 @@
     background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
-}
+    float: right; 
+    margin: 7% 10% 0% 0%;
+   
+    z-index: 1;
+    position:relative;
+ }
 
-.subtitle {
-    font-family: 'Cheboygan', sans-serif;
+ #mainSubHeading {
+    font-size:24px;
     background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
-}
+    float: right; 
+    margin: 4% -16% 0% 0%;
+ }
+ .menu-text{
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;                                          
+ }
 
 #header {
     height: 20%;
 }
 
 button {
-    font-family: 'Cheboygan', sans-serif;
-    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
+   font-family: 'Cheboygan', sans-serif;
+   background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent; 
 }
 
 .card {
