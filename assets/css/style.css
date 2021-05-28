@@ -186,8 +186,181 @@
     background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}*/
+
+
+#mainHeaderImage {
+    text-align: center;
+    margin-right: 10px;
+    background-image: url(../images/mainHeader.jpg);
+    width: 100%;
+    background-size:cover;
+    height:275px;
+   
+ 
+ } 
+ 
+  #mainTitle {
+    font-size: 70px;
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    float: right; 
+    margin: 7% 10% 0% 0%;
+   
+    z-index: 1;
+    position:relative;
+ }
+
+ #mainSubHeading {
+    font-size:24px;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    float: right; 
+    margin: 4% -16% 0% 0%;
+ }
+
+
+.menu-text{
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;                                          
 }
 
+#bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    z-index: -2;
+    min-width: 850px;
+}
+
+.title {
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+.subtitle {
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+#header {
+    height: 20%;
+}
+
+button {
+    font-family: 'Cheboygan', sans-serif;
+    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+.card {
+    width: 50%;
+    margin: 50px;
+    background-color: bisque;
+}
+
+.storycard {
+    width: 70%;
+    font-size: 20px
+}
+
+/*  center all content within main */
+.center-everything {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* media queries */
+@media screen and (max-width: 1264px){
+    #mainTitle {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 725px) {
+    #mainTitle {
+        font-size: 28px;
+    }
+
+    #mainHeaderImage {
+    height:125px;
+    width:100%;
+    }
+}
+
+@media screen and (max-width: 985px){
+    #mainTitle {
+        font-size: 46px;
+        margin: 8% 15% 0% 0%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #mainTitle {
+        font-size: 24px;
+        margin: 8% 7% 10% 10%;
+    }
+    #mainHeaderImage {
+        height:125px;
+        width:100%;
+    }
+    #mainSubHeading{
+        display: none;
+    }
+    .tile {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 563px){
+    
+    #mainTitle {
+        font-size: 22px;
+        margin: 8% 7% 10% 0%;
+    }
+    .choiceBoxContainer{
+        display:flex;
+        flex-direction: column;
+        width:80%;
+    }
+    .choiceBox{
+        font-size:16px;
+        display:flex;
+        flex-direction: column;
+        width: 95%;
+        height: auto;
+        margin-bottom: 10px;
+        margin-top:10px;
+    }
+    .button {
+        margin-top:-20px;
+    }
+    .tile {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
 
 /* Preloading Index page styling */
 h1 {
@@ -371,178 +544,6 @@ h1 {
     #header h1 {
         font-size: 25px;
     }
-} */
+} 
 
 
-#mainHeaderImage {
-    text-align: center;
-    margin-right: 10px;
-    background-image: url(../images/mainHeader.jpg);
-    width: 100%;
-    background-size:cover;
-    height:275px;
-   
- 
- } 
- 
-  #mainTitle {
-    font-size: 70px;
-    font-family: 'Cheboygan', sans-serif;
-    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    float: right; 
-    margin: 7% 10% 0% 0%;
-   
-    z-index: 1;
-    position:relative;
- }
-
- #mainSubHeading {
-    font-size:24px;
-    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    float: right; 
-    margin: 4% -16% 0% 0%;
- }
-
-
-.menu-text{
-    font-family: 'Cheboygan', sans-serif;
-    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;                                          
-}
-
-#bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    bottom: 0px;
-    z-index: -2;
-    min-width: 850px;
-}
-
-.title {
-    font-family: 'Cheboygan', sans-serif;
-    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-}
-
-.subtitle {
-    font-family: 'Cheboygan', sans-serif;
-    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-}
-
-#header {
-    height: 20%;
-}
-
-button {
-    font-family: 'Cheboygan', sans-serif;
-    background: -webkit-linear-gradient(#261b04, #d83f03, #7d2800, #524e4e, #090101);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-}
-
-.card {
-    width: 50%;
-    margin: 50px;
-    background-color: bisque;
-}
-
-.storycard {
-    width: 70%;
-    font-size: 20px
-}
-
-/*  center all content within main */
-.center-everything {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* media queries */
-@media screen and (max-width: 1264px){
-    #mainTitle {
-        font-size: 60px;
-    }
-}
-
-@media screen and (max-width: 725px) {
-    #mainTitle {
-        font-size: 28px;
-    }
-
-    #mainHeaderImage {
-    height:125px;
-    width:100%;
-    }
-}
-
-@media screen and (max-width: 985px){
-    #mainTitle {
-        font-size: 46px;
-        margin: 8% 15% 0% 0%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #mainTitle {
-        font-size: 24px;
-        margin: 8% 7% 10% 10%;
-    }
-    #mainHeaderImage {
-        height:125px;
-        width:100%;
-    }
-    #mainSubHeading{
-        display: none;
-    }
-    .tile {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-@media screen and (max-width: 563px){
-    
-    #mainTitle {
-        font-size: 22px;
-        margin: 8% 7% 10% 0%;
-    }
-    .choiceBoxContainer{
-        display:flex;
-        flex-direction: column;
-        width:80%;
-    }
-    .choiceBox{
-        font-size:16px;
-        display:flex;
-        flex-direction: column;
-        width: 95%;
-        height: auto;
-        margin-bottom: 10px;
-        margin-top:10px;
-    }
-    .button {
-        margin-top:-20px;
-    }
-    .tile {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}
