@@ -12,6 +12,19 @@ let card1 = document.querySelector('.card1');
 let card2 = document.querySelector('.card2');
 let cardContinue = document.querySelector('.cardContinue');
 
+let menuEl = $("#menu");
+
+if (JSON.parse(localStorage.getItem("loading"))) {
+    var textNum = JSON.parse(localStorage.getItem("saveSpot")).textnum;
+    var currentLocation = JSON.parse(localStorage.getItem("saveSpot")).location;
+    var branch = JSON.parse(localStorage.getItem("saveSpot")).branch;
+    localStorage.setItem("loading", JSON.stringify(false));
+} else {
+    var textNum = 0;
+    var branch = 0;
+    var currentLocation = "village"
+}
+
 // Button to auto-fill text:
 let autofill = document.querySelector('#autofill');
 // Button to control music: 
@@ -83,7 +96,22 @@ let getMusic = function () {
                     audioEl.setAttribute("loop", "true");
 
                     // Finally, begin the storyline after we've gathered everything (so there won't be any conflicts): 
-                    beginVillage();
+                    if (branch === 0 && textNum === 0) {
+                        beginVillage();
+                    } else if (branch === 0 && textNum === 1) {
+                        enterVillage();
+                    } else if (branch === 0 && textNum === 2) {
+                        mainStoryline();
+                    } else if (branch === 1 && textNum === 0) {
+                        theEnchanter();
+                    } else if (branch === 1 && textNum === 1) {
+                        getCompanion();
+                    } else if (branch === 2 && textNum === 0) {
+                        theBook();
+                    } else if (textNum === 3) {
+                        endVillage();
+                    }
+                        
                 })
             }
         })
@@ -102,7 +130,8 @@ let getMusic = function () {
 // ** BASIC STORYLINE: **
 
 let beginVillage = function () {
-
+    branch = 0;
+    textNum = 0;
     let storyTxt = "The village is quiet in the morning. A dog barks, some people bustle in the market... etc.";
     let i = 0;
     speed = 30;
@@ -148,7 +177,7 @@ let enterVillage = function () {
     // First, set all of the containers back to empty by calling the remove() function.
     // We have to remove the buttons we created or they will just keep piling up each time we run a new function
     // Once again, hide the containers before they're filled
-
+    textNum = 1;
     remove();
 
     // Start to play the music, after the first user interaction: 
@@ -239,9 +268,9 @@ let enterVillageChoices = function () {
 
 // ** BASIC STORYLINE: **
 let theEnchanter = function () {
-
     remove();
-
+    branch = 1;
+    textNum = 0;
     // Add points to storage:
     let pointsToAdd = 10;
     addToCounter(pointsToAdd);
@@ -315,9 +344,8 @@ let theEnchanterChoices = function () {
 
 // ** BASIC STORYLINE: **
 let getCompanion = function () {
-
     remove();
-
+    textNum = 1;
     // Write out the text for the main Story card: 
     let storyTxt = "You help by… She is so grateful that she offers to help with the rest of your quest, if you need any magical assistance. {Receive Companion.}";
     let i = 0;
@@ -359,9 +387,9 @@ let companionContinue = function () {
 
 // ** BASIC STORYLINE: **
 let theBook = function () {
-
     remove();
-
+    branch = 2;
+    textNum = 0;
     // Adding game items to storage:
     gameObjects = updateGameObjects(gameObjects, "spellbook");
     console.log(retrieveGameObjects())
@@ -386,7 +414,6 @@ let theBook = function () {
 
 // ** CONTINUE: ** 
 let bookContinue = function () {
-
     // Continue Button
     let btnContinue = document.createElement('button');
     btnContinue.classList.add("button", "continuebtn");
@@ -405,9 +432,8 @@ let bookContinue = function () {
 
 // ** BASIC STORYLINE: **
 let mainStoryline = function () {
-   
     remove();
-
+    textNum = 2;
     // Run the same type of Typewriter functions
     let storyTxt = "You return back to the village... You do this. Maybe get an item.... "
     let i = 0;
@@ -429,7 +455,6 @@ let mainStoryline = function () {
 
 // ** USER CHOICES: ** 
 let mainContinue = function () {
-
     // Continue Button
     let btnContinue = document.createElement('button');
     btnContinue.classList.add("button", "continuebtn");
@@ -448,9 +473,9 @@ let mainContinue = function () {
 
 // ** BASIC STORYLINE: ** 
 let endVillage = function () {
-
     remove();
-
+    branch = 0
+    textNum = 3;
     let storyTxt = "This is the ending sequence. You are moving on to the next location.";
     let i = 0;
     speed = 30;
@@ -544,6 +569,24 @@ function togglePlay() {
 
 musicBtn.addEventListener("click", togglePlay);
 
+// SAVE AND LOAD FUNCTIONS
+
+function saveHere() {
+    localStorage.setItem("saveSpot", JSON.stringify({"location": currentLocation, "textnum": textNum, "branch": branch}))
+}
+
+menuEl.on("click", "div", function(event) {
+    if ($(event.target).text() === "Save") {
+        saveHere();
+    } else if ($(event.target).text() === "Load Save") {
+        localStorage.setItem("loading", JSON.stringify(true));
+        window.location.href = `${JSON.parse(localStorage.getItem("saveSpot")).location}.html`;
+    }
+})
+
+$(function() {
+    $("#menu").menu();
+});
 
 // FUNCTIONS FOR MANAGING TYPEWRITER: 
 
