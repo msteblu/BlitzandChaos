@@ -1,5 +1,8 @@
 // ********************************* VARIABLES ************************************ //
 
+
+let buttonContainer = $("#locationButtons");
+
 let background = document.querySelector('#backgroundImage');
 let audioEl = document.querySelector('#audio');
 
