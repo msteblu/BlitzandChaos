@@ -1,26 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
     <link href="http://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>The Forest</title>
 </head>
+
 <body>
-    <header id="header">
-        <img src="https://images.pexels.com/photos/97494/pexels-photo-97494.jpeg" alt="Blitz and Chaos header image">
-        <h1>Blitz and Chaos</h1>
-    </header>
-    <div id="locationButtons">
-        <button id="village"><p>Village</p></button><br>
-        <button id="mountain"><p>Mountains</p></button><br>
-        <button id="cave"><p>Cave</p></button><br>
-        <button id="forest"><p>Forest</p></button><br>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./assets/javascript/script.js"></script>
+    <header id="mainHeader">
+        <h1 id="mainTitle">Blitz and Chaos</h1>
+        <h2 id="mainSubHeading">An Interative Story</h2>
+        <div id="mainHeaderImage"></div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+              <h1 class="menu-text">Blitz and Chaos</h1>
+            </a>
+        
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+        
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <a href="index.html" class="navbar-item">
+                Home
+              </a>
+        
+              <a href="contributorsPage.html#project" class="navbar-item">
+                Project
+              </a>
+        
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                 Contributors
+                </a>
+        
+                <div class="navbar-dropdown">
+                  <a href="#heather" class="navbar-item">
+                    Heather Bjoin
+                  </a>
+                  <a href="#justin" class="navbar-item">
+                    Justin Hoch
+                  </a>
+                  <a href="#megan" class="navbar-item">
+                    Megan Steblay
+                  </a>
+                  <a href="#mike" class="navbar-item">
+                    Mike Steinmetz
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+       </header>
+    
+  
+    
+    <!-- testing audio -->
+    <audio id="audio" src="#"></audio>
+
+    <main class="center-everything">
+
+        <div  id="backgroundImage" alt="Painting of Forest" width="300" height="200"></div>
+
+        <div class="card has-text-centered storycard">
+            <div class="card-content story"></div>
+            <button>Continue</button>
+        </div>
+
+
+        <div class="tile is-ancestor has-text-centered choiceBoxContainer">
+            <div class="tile choiceBox">
+                <div class="card tile is-parent is-vertical card1 choiceBox">
+                    <div class="card-content tile is-child choice1"></div>
+                </div>
+                <div class="card tile is-parent is-vertical card2 choiceBox">
+                    <div class="card-content tile is-child choice2"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./assets/javascript/forest.js"></script>
 </body>
+
 </html>
