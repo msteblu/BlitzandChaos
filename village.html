@@ -13,54 +13,39 @@
 
 <body>
     <header id="mainHeader">
-        <h1 id="mainTitle">The Village</h1>
+        <h1 id="mainTitle">Village</h1>
         <h2 id="mainSubHeading">Blitz and Chaos</h2>
         <div id="mainHeaderImage"></div>
         <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-              <h1 class="menu-text">Blitz and Chaos</h1>
-            </a>
-        
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
-        
-          <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-              <a href="index.html" class="navbar-item">
-                Home
-              </a>
-        
-              <a href="contributorsPage.html#project" class="navbar-item">
-                Project
-              </a>
-        
-              <div class="navbar-item has-dropdown is-hoverable">
-                <a href="contributorsPage.html" class="navbar-link">
-                 Contributors
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                <h1 class="menu-text">Blitz and Chaos</h1>
                 </a>
-        
-                <div class="navbar-dropdown">
-                  <a href="contributorsPage.html#heather" class="navbar-item">
-                    Heather Bjoin
-                  </a>
-                  <a href="contributorsPage.html#justin" class="navbar-item">
-                    Justin Hoch
-                  </a>
-                  <a href="contributorsPage.html#megan" class="navbar-item">
-                    Megan Steblay
-                  </a>
-                  <a href="contributorsPage.html#mike" class="navbar-item">
-                    Mike Steinmetz
-                  </a>
-                </div>
-              </div>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
-          </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a href="index.html" class="navbar-item"> Home </a>
+
+                    <a href="contributorsPage.html#project" class="navbar-item">
+                    Project
+                    </a>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"> Contributors </a>
+                </div>
+                <div class="navbar-dropdown">
+                    <a href="#heather" class="navbar-item"> Heather Bjoin </a>
+                    <a href="#justin" class="navbar-item"> Justin Hoch </a>
+                    <a href="#megan" class="navbar-item"> Megan Steblay </a>
+                    <a href="#mike" class="navbar-item"> Mike Steinmetz </a>
+                </div>
+            </div>
         </nav>
     </header>
     
@@ -71,9 +56,8 @@
     </div>
     
 
-    <main>
-        <!-- has-text-centered removed-->
-        <div class="card storycard"> 
+    <main class="center-everything">
+        <div class="card has-text-centered storycard">
             <div class="card-content story"></div>
             <div class="has-text-right">
                 <button class="button" id="autofill">Proceed...</button>
@@ -91,7 +75,7 @@
                 </div>
                 <div class="tile cardContinue">
                     <div class="tile continue"></div>
-                 </div>
+                </div>
             </div>
         </div>
 

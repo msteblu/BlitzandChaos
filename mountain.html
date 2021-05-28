@@ -1,54 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"/>
+        <link href="http://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet"/>
+        <link rel="stylesheet" href="./assets/css/mountain.css" />
+        <title>The Mountain</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-    <link href="http://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/village.css" />
-    <title>The Mountain</title>
-</head>
+    <body>
+        <header id="mainHeader">
+            <h1 id="mainTitle">Blizzard to Fire</h1>
+            <h2 id="mainSubHeading">Blitz and Chaos</h2>
+            <div id="mainHeaderImage"></div>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                    <h1 class="menu-text">Blitz and Chaos</h1>
+                    </a>
 
-<body>
-  
-    <header class="hero is-small">
-        <div class="hero-body has-text-right">
-            <h1 class="title"> 
-                Blitz and Chaos
-            </h1>
-            <p class="subtitle">
-                Mountain
-            </p>
-        </div>
-    </header>
-
-    <img src="#" alt="Photo of Mountains" id="bg">
-    <!-- testing audio -->
-    <audio id="audio" src="#"></audio>
-
-    <main>
-        <div class="card has-text-centered storycard">
-            <div class="card-content story"></div>
-        </div>
-
-
-        <div class="tile is-ancestor has-text-centered">
-            <div class="tile">
-                <div class="card tile is-parent is-vertical card1">
-                    <div class="card-content tile is-child choice1"></div>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
                 </div>
-                <div class="card tile is-parent is-vertical card2">
-                    <div class="card-content tile is-child choice2"></div>
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a href="index.html" class="navbar-item"> Home </a>
+
+                        <a href="contributorsPage.html#project" class="navbar-item">
+                        Project
+                        </a>
+                    </div>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link"> Contributors </a>
+                    </div>
+                    <div class="navbar-dropdown">
+                        <a href="#heather" class="navbar-item"> Heather Bjoin </a>
+                        <a href="#justin" class="navbar-item"> Justin Hoch </a>
+                        <a href="#megan" class="navbar-item"> Megan Steblay </a>
+                        <a href="#mike" class="navbar-item"> Mike Steinmetz </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <img src="#" alt="Photo of Mountains" id="bg" />
+        <!-- testing audio -->
+        <audio id="audio" src="#"></audio>
+
+        <main class="center-everything">
+            <div class="card has-text-centered storycard">
+            <div class="card-content story"></div>
+            </div>
+
+            <div class="tile is-ancestor has-text-centered ChoiceBoxContainer">
+            <div class="tile">
+                <div class="card tile is-parent is-vertical card1 ChoiceBox">
+                <div class="card-content tile is-child choice1"></div>
+                </div>
+                <div class="card tile is-parent is-vertical card2 ChoiceBox">
+                <div class="card-content tile is-child choice2"></div>
                 </div>
             </div>
-        </div>
+            </div>
+        </main>
 
-    </main>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="./assets/javascript/mountain.js"></script>
-</body>
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="./assets/javascript/mountain.js"></script>
+    </body>
 </html>
