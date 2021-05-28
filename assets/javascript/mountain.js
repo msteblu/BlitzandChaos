@@ -24,7 +24,7 @@ let gameObjects = [];
 let speed = 0;
 
 // Run variable
-let runFunction = 'begin'
+let runFunction
 
 // Variables for text
 let storyTxt = ''
@@ -88,96 +88,50 @@ let getMusic = function () {
                     //     runFunction = getRunFunction()
                     // }
 
-                    runStory(runFunction);
+                    determineWin(); // Test to see if Win / Lose
 
                 })
             }
         })
 };
 
-// Function to run story lines
+
+// FUNCTION TO RUN STORYLINES:
 let runStory = function () {
-    // setRunFunction();  // This will eventually be a way to Save location
+    setRunFunction();  // This is a way to Save location
     clearScreen(); // Each time this runs, first clear the screen
     switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
-        case 'begin':
-            // initalizeGameObjects() // Testing. Would put these here only on Index.html to clear localstorage
-            // initializeCounter()
-            storyTxt = 'When the days become warmer, the nights become darker. In those dark nights things. . . monstrous things wake. Now, some people say this is just folklore; a tale to tell for metaphorical reasons, or perhaps just to pass the time. Those are the lucky ones, the ones who got to live their lives in peace, never seeing the darkest of nights filled with smoke, flames and death. I am an old man. Very old, indeed. I have seen too much of those things I care not to remember. Those of us who survived that dark night remember the death and destruction of everything we loved and with that we remember the vow we made: to survive long enough to stop the next blitz and chaos. '
+        case 'win':
+            storyTxt = 'You make it to the mountain...'
             singleMessage(); // Run the function to display only one continue button
-            runFunction = 'begin2' // Set runFunction to the subsequent "case"... called "next"
+            runFunction = 'win2' // Set runFunction to the subsequent "case"... called "next"
             break; // break out of the switch function
-        case 'begin2':
-            storyTxt = '"The time is upon us again, child. The time has come for Fraener to fly again. He has waited patiently for this day. Sleeping in his cave beneath the mountains. It is said that this time nothing will survive his flames."' + '<br>' + 'The old man looked up from an almost empty whiskey glass. His eyes glazed in fear. '
+        case 'win2':
+            storyTxt = 'You have prepared well. You fight the dragon and win...'
             // Start to play the music, after the first user interaction: 
             audioEl.play();
             singleMessage();
-            runFunction = 'begin3'
+            runFunction = 'end'
             break;
-        case 'begin3':
-            storyTxt = " 'Elden, no one wants to hear an old man's crazy talk.' The bartender said as he poured the man a shot. /n Elden ignored the bartender. 'Child, you can think me crazy, think me a fool, but I beg you to hear my story.' "
-            choice1Txt = 'Why are you telling me this?'
-            choice2Txt = 'I just came here to drink in peace, leave me alone.'
-            doubleMessage();
-            runFunction = 'beginChoices' // This will be passed in for the case name in selectionMade after everything is written to the screen: to allow for cascading
-            break;
-        case 'beg':
-            storyTxt = "“If you don’t heed my advice everything will soon become fire and ash. Everyone! Everything! Destroyed! Do you hear me? Everyone! Everything!” The old man jumped from his chair, knocking the glass to the floor. The entire tavern fell silent, but only for a second. After the glass shattered and sprawled across the floor, they all continued with their conversations and the room filled with noise and laughter. It was as though the man standing was just another drunk in a tavern late on a warm winter's night. "
+        case 'lost':
+            storyTxt = 'You make it to the mountain...'
             singleMessage()
-            runFunction = 'beg2'
+            runFunction = 'lost2'
             break;
-        case 'beg2':
-            storyTxt = 'The bartender rolled his eyes, as he grabbed a broom. It was just another late night in a tavern. /n The old man turned towards me. Then forced his hands on my shoulders. “I am not a fool, I am a drunk, yes; but not a fool. I know the words I speak, and what they mean. The choice is yours. Save the world or watch it burn."'
-            choice1Txt = '"What do you want from me, old man?"'
-            choice2Txt = 'Finish the drink and walk out of the tavern.'
-            doubleMessage();
-            runFunction = 'begChoices'
-            break;
-        case 'rumble':
-            storyTxt = "I took his hands from my shoulders. Drank the rest of my ale and left the man where he stood. What an old fool he was. He can claim he wasn’t. I know a fool when I see one. I’ve heard those stories before. I can’t recall where, but I have heard of them. The night was warm and the smell of autumn was lingering in the air. I stopped for a moment, taking in a breath. My exhaustion was getting the better of me. Long days and sleepless nights have a way to make people feel constricted. As though they are destined to live a linear path that forces you somewhere you don’t want to be. But that breath, that fresh air always found a way to release all the chains bound to me. "
-            singleMessage()
-            runFunction = 'rumble2'
-            break;
-        case 'rumble2':
-            storyTxt = '“Child, please one last time, let me beg you. Listen to me. Please!” I heard his voice and began to turn towards him, but as I did the ground beneath me began to rumble. The trees swayed furiously, the lanterns shook from their chains and shattered on the dirt beneath them. The night became darker.'
-            singleMessage()
-            runFunction = 'main'
-            break;
-        case 'main':
-            storyTxt = 'The man stared blankly. Thinking for a moment before he spoke, “You are the conscript. The only one alive who can put the beast to his final resting place. There will be trials, but I promise you will not be alone. The elders who still live hold the vow that will help you to finish your task. Do keep the knowledge, child, not all can be trusted. But believe me when I say, you are the only one who can save us all. '
+        case 'lost2':
+            storyTxt = "You were unprepared. The dragon scorches the earth..."
             singleMessage()
             runFunction = 'end'
             break;
         case 'end':
-            window.location.href = 'index.html'
+            clearScreen();
+            end();
             break;
     }
-}
+};
 
-// Function to handle question branching
-let selectionMade = function (event) {  // pass in button that was clicked
-    switch (runFunction) { // pass in the name of runFunction (which we set up in runStory)
-        case 'beginChoices':
-            if (event.target.innerText === 'Choice 1') { // get value of that button
-                runFunction = 'main' //set to a new "case"
-            }
-            else {
-                runFunction = 'beg' // set to a new "case"
-            }
-            break;
-        case 'begChoices':
-            if (event.target.innerText === 'Choice 1') {
-                runFunction = 'main'
-            }
-            else {
-                runFunction = 'rumble'
-            }
-            break;
-    }
-    runStory(); // return to runStory, grabbing a new "case"
-}
 
-// For the storylines that only have one continue choice: 
+// FOR STORYLINES WITH ONLY ONE CONTINUE CHOICE:
 let singleMessage = function () {
 
     let smTypeWriter = function () {
@@ -188,7 +142,12 @@ let singleMessage = function () {
 
         function typeWriter() {
             if (i < storyTxt.length) {
-                storyContainer.innerHTML += storyTxt.charAt(i);
+                if (storyTxt.charAt(i) == "*") {
+                    storyContainer.innerHTML += "<br />";
+                }
+                else {
+                    storyContainer.innerHTML += storyTxt.charAt(i);
+                }
                 i++;
                 setTimeout(typeWriter, speed);
             } else {
@@ -207,95 +166,40 @@ let singleMessage = function () {
         // Create a continue Button
         let btnContinue = document.createElement('button');
         btnContinue.classList.add("button", "continuebtn");
-        // btnContinue.setAttribute("id", "continueBtn"); //add
         btnContinue.innerHTML = "Continue";
-        btnContinue.addEventListener('click', runStory, true);  // on click, move to the next Storyline (enterVillage)
+        btnContinue.addEventListener('click', runStory, true);  // on click, move to the next Storyline
         // Display the card that we initially had hidden: 
         cardContinue.style.display = "inline";
         cardContinue.appendChild(btnContinue);
 
     };
     smTypeWriter();
-}
-
-// For the storylines that have two choices: 
-doubleMessage = function () {
-    // ** Writing out the Story paragraph part: ** 
-    let dmTypeWriter = function () {
-
-        let i = 0;
-        speed = 30;
-
-        function typeWriter() {
-            if (i < storyTxt.length) {
-                storyContainer.innerHTML += storyTxt.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            } else {
-                // Once the script has been written out, display the user's options: 
-                dmChoices();
-            }
-        }
-
-        typeWriter();
-
-    };
-
-    // ** Writing out the two choices: ** 
-    let dmChoices = function () {
-
-        let i = 0;
-        let t = 0;
-        speed = 50;
+};
 
 
-        // Create a button and add Event Listener for Choice 1
-        let button1 = document.createElement('button');
-        button1.classList.add("button");
-        button1.innerHTML = "Choice 1";
-        button1.addEventListener('click', selectionMade, false); // Brings you to function that determines which Double choice you clicked
+// FUNCTION FOR ENDING THE GAME: 
 
-        // Create a button and add Event Listener for Choice 2
-        let button2 = document.createElement('button');
-        button2.classList.add("button");
-        button2.innerHTML = "Choice 2";
-        button2.addEventListener('click', selectionMade, false); // Brings you to function that determines which Double choice you clicked
+let end = function () {
+    let btnEnd = document.createElement('button');
+    btnEnd.classList.add("button", "continuebtn");
+    btnEnd.innerHTML = "Restart Game";
+    btnEnd.addEventListener('click', restart, true);  // on click, run restart: 
+    // Display the card that we initially had hidden: 
+    cardContinue.style.display = "inline";
+    cardContinue.appendChild(btnEnd);
+};
 
-        // Display the card that we initially had hidden: 
-        card1.style.display = "inline";
+let restart = function () {
+    initalizeGameObjects();
+    initializeCounter();
+    initalizeRunFunction();
+    window.location.href = './index.html'
+};
 
-        // Type out Choice 1
-        function typeWriter() {
-            if (i < choice1Txt.length) {
-                choice1Container.innerHTML += choice1Txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            } else {
-                // Display the button: 
-                card1.appendChild(button1);
-                // Display the second card and begin displaying Choice 2
-                card2.style.display = "inline";
-                typeWriter2();
-            }
-        };
 
-        // Type out Choice 2
-        function typeWriter2() {
-            if (t < choice2Txt.length) {
-                choice2Container.innerHTML += choice2Txt.charAt(t);
-                t++;
-                setTimeout(typeWriter2, speed);
-            } else {
-                // Display the button: 
-                card2.appendChild(button2);
-            }
-        }
-        typeWriter();
-    };
-    dmTypeWriter();
-}
 
-// The function that clears everything on the screen for re-load: 
+// FUNCTION FOR CLEARING THE SCREEN FOR RE-WRITES
+
 let clearScreen = function () {
 
     // First, set all of the containers back to empty
@@ -398,20 +302,38 @@ let retrieveGameObjects = function () {
 
 let setRunFunction = function () {
     console.log(runFunction)
-    localStorage.setItem("runfunctionStory1", JSON.stringify(runFunction));
+    localStorage.setItem("runfunctionStory5", JSON.stringify(runFunction));
 };
 
 let getRunFunction = function () {
-    return JSON.parse(localStorage.getItem("runfunctionStory1"));
+    return JSON.parse(localStorage.getItem("runfunctionStory5"));
 };
 
+let initalizeRunFunction = function () {
+    localStorage.setItem("runfunctionStory1", JSON.stringify([])); // Index
+    localStorage.setItem("runfunctionStory2", JSON.stringify([])); // Village
+    localStorage.setItem("runfunctionStory3", JSON.stringify([])); // Forest
+    localStorage.setItem("runfunctionStory4", JSON.stringify([])); // Cave
+    localStorage.setItem("runfunctionStory5", JSON.stringify([])); // Mountain
+};
+
+// FUNCTIONS FOR DETERMING WINS
+
+let determineWin = function () {
+    let finalPoints = retrieveCounter()
+    let finalObjects = retrieveGameObjects()
+    if (finalPoints > 10 && finalObjects.includes("wand") && finalObjects.includes("sword")) {
+        runFunction = "win"
+        runStory(runFunction);
+
+    }
+    else {
+        runFunction = "lost"
+        runStory(runFunction);
+    }
+
+};
 
 // **************************** RUN FUNCTIONS AT INITIALIZE: ******************** 
 
 hideInit();
-
-
-
-
-
-
