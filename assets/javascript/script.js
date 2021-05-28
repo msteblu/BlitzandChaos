@@ -3,7 +3,7 @@
 
 let buttonContainer = $("#locationButtons");
 
-let background = document.querySelector('#backgroundImage');
+let background = document.querySelector('#bg');
 let audioEl = document.querySelector('#audio');
 
 let storyContainer = document.querySelector('.story');
@@ -112,7 +112,7 @@ let getMusic = function () {
 
 let begin = function () {
 
-    let storyTxt = "First paragraph here.";
+    let storyTxt = '"When the days become warmer, the nights become darker. In those dark nights things. . . monstrous things wake. Now, some people say this is just folklore; a tale to tell for metaphorical reasons, or perhaps just to pass the time. Those are the lucky ones, the ones who got to live their lives in peace, never seeing the darkest of nights filled with smoke, flames and death. I am an old man. Very old, indeed. I have seen too much of those things I care not to remember. Those of us who survived that dark night remember the death and destruction of everything we loved and with that we remember the vow we made: to survive long enough to stop the next blitz and chaos.' ;
     let i = 0;
     speed = 30;
 
@@ -157,7 +157,7 @@ let begin2 = function () {
     audioEl.play();
 
     // Write out the text for the main Story card: 
-    let storyTxt = "The time is upon...";
+    let storyTxt = 'The time is upon us again, child. The time has come for Fraener to fly again. He has waited patiently for this day. Sleeping in his cave beneath the mountains. It is said that this time nothing will survive his flames." The old man looked up from an almost empty whiskey glass. His eyes glazed in fear.';
     let i = 0;
     speed = 30;
 
