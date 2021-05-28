@@ -6,10 +6,7 @@ let option2 = $(".choice2");
 let headerImg = $("#header").children().eq(0);
 let menuEl = $("#menu");
 let menuBtn = $("#showmenu");
-
 let textEl = $("#currentText");
-
-
 let audioEl = document.querySelector("#audio");
 let apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370";
 let textCSS = { "display": "block", "width": "100%", "height": "100%", "font-size": "20px", "padding": "10px", "border-radius": "5px", "background-color": "background-color: #ffe4c4" };
@@ -17,20 +14,26 @@ let charNum = 0;
 let textt = "";
 let myVar;
 let finished = false;
-
 let line = "";
 let choiceNum;
 let run = false;
 let leaveCave = false;
 let choices = false;
-// if (JSON.parse(localStorage.getItem("loading")) === true) {
-//     var textNum = JSON.parse(localStorage.getItem("saveSpot")).textnum;
-//     var currentLocation = JSON.parse(localStorage.getItem("saveSpot")).location;
-//     var currentDay = JSON.parse(localStorage.getItem("saveSpot")).day;
-//     localStorage.setItem("loading", JSON.stringify(false));
-// } else {
-var textNum = 0;
-// }
+let mainLine = false;
+let choiceFinished = false;
+
+if (JSON.parse(localStorage.getItem("loading")) === true) {
+    var textNum = JSON.parse(localStorage.getItem("saveSpot")).textnum;
+    var currentLocation = JSON.parse(localStorage.getItem("saveSpot")).location;
+    var currentPoints = JSON.parse(localStorage.getItem("saveSpot")).currentpoints;
+    var branch = JSON.parse(localStorage.getItem("saveSpot")).branch;
+    localStorage.setItem("loading", JSON.stringify(false));
+} else {
+    var textNum = 0;
+    var currentLocation = "cave"
+    var currentPoints = 0;
+    var branch = 0;
+}
 option1.text("continue")
 option2.parent().css({"display": "none"})
 
@@ -63,14 +66,13 @@ fetch("https://freesound.org/apiv2/sounds/343741?token=qz79q7DsbN3veU3EUNMHVH0GB
             audioEl.setAttribute("src", data.previews["preview-lq-mp3"]);
             audioEl.volume = 0.3;
             audioEl.setAttribute("loop", "true");
-            continueBtn.on("click", nextText);
-            option1.on("click", nextText);
-            option2.on("click", nextText);
+            option1.on("click", choice)
+            option2.on("click", choice)
         })
     })
 
 function saveHere() {
-    localStorage.setItem("saveSpot", JSON.stringify({"location": currentLocation, "textnum": textNum, "day": currentDay}))
+    localStorage.setItem("saveSpot", JSON.stringify({"location": currentLocation, "textnum": textNum, "branch": branch, "currentpoints": currentPoints}))
 }
 
 function typeWriter() {
@@ -87,7 +89,9 @@ function typeWriter() {
         textt = "";
         choiceNum = 1;
         if (choices) {
-            option2.parent().css({"display": "inline"})
+            option1.text("");
+            option2.text("");
+            option2.parent().css({"display": "inline"});
             choiceTypeWriter();
         }
     }
@@ -95,6 +99,7 @@ function typeWriter() {
 
 
 function choiceTypeWriter() {
+    choiceFinished = false;
     option2.parent().css({"display": "inline"})
     if (choiceNum === 1) {
         if (charNum < choice1.length) {
@@ -118,6 +123,7 @@ function choiceTypeWriter() {
         } else {
             charNum = 0;
             textt = "";
+            choiceFinished = true;
             clearTimeout(myVar);
         }
     }
@@ -126,35 +132,112 @@ function choiceTypeWriter() {
 function choice(event) {
     let object = $(event.target);
     if (finished === false && option1.text() === "continue") {
-        console.log("pog")
         clearTimeout(myVar);
-        option2.parent().css({"display": "inline"})
         finished = true;
         charNum = 0;
         textt = "";
         choiceNum = 1;
-        textEl.text(line)
+        textEl.text(line);
         if (choices) {
+            option1.text("");
+            option2.text("");
+            option2.parent().css({"display": "inline"});
             choiceTypeWriter();
         }
+        option1.text("continue")
+        option2.text("")
+        option2.parent().css({"display": "none"})
     } else {
-        if (textNum === 0 && finished) {
-            if (object[0].id === "one") {
-                textNum++;
-                run = false;
-            } else {
-                textNum++
-                leaveCave = true;
-            } 
+        if (!(choiceFinished)) {
+            finished = true;
+            choiceFinished = true;
+            option1.text(choice1);
+            option2.text(choice2);
+            charNum = 0;
+            textt = "";
+            choiceNum = 1;
+            clearTimeout(myVar);
+        } else {
+            if (branch === 0) {
+                if (textNum === 0 && finished && choiceFinished) {
+                    textNum++;
+                    if (object[0].id === "one") {
+                        run = false;
+                    } else {
+                        run = false;
+                        branch = 1;
+                    } 
+                    option1.text("continue");
+                    option2.text("");
+                    option2.parent().css({"display": "none"});
+                } else if (textNum === 1 && finished && choiceFinished) {
+                    textNum++;
+                    if (object[0].id === "one") {
+                        run = false;
+                    } else {
+                        run = false;
+                        branch = 1;
+                    }
+                    option1.text("continue");
+                    option2.text("");
+                    option2.parent().css({"display": "none"});
+                } else if (textNum === 2 && finished && choiceFinished) {
+                    textNum++;
+                    if (object[0].id === "one") {
+                        run = false;
+                    }
+                    option1.text("continue");
+                    option2.text("");
+                    option2.parent().css({"display": "none"});
+                } else if (textNum === 3 && finished && choiceFinished) {
+                    textNum++;
+                    if (object[0].id === "one") {
+                        run = false;
+                    } else {
+                        run = false;
+                        branch = 1;
+                    }
+                    option1.text("continue");
+                    option2.text("");
+                    option2.parent().css({"display": "none"});
+                } else if (textNum === 4 && finished && choiceFinished) {
+                    textNum++;
+                    if (object[0].id === "one") {
+                        run = false;
+                    } else {
+                        run = false;
+                        branch = 1;
+                    }
+                    option1.text("continue");
+                    option2.text("");
+                    option2.parent().css({"display": "none"});
+                } else if (textNum === 5 && finished && choiceFinished) {
+                    textNum++;
+                    if (object[0].id === "one") {
+                        run = false;
+                    }
+                    option1.text("continue");
+                    option2.text("");
+                    option2.parent().css({"display": "none"});
+                } else if (textNum === 6 && finished && choiceFinished) {
+                    textNum++;
+                    if (object[0].id === "one") {
+                        run = false;
+                    }
+                    option1.text("continue");
+                    option2.text("");
+                    option2.parent().css({"display": "none"});
+                }
+            } else if (branch === 1) {
+                if (textNum === 0 && finished && choiceFinished) {
+                    console.log("pog")
+                }
+            }
         }
     }
-    option1.text("continue")
-    option2.text("")
-    option2.parent().css({"display": "none"})
 }
 
-option1.on("click", choice)
-option2.on("click", choice)
+
 
 menuBtn.on("click", function(event) {
     $(event.target).parent().css({"display": "none"})
@@ -176,7 +259,8 @@ menuEl.on("click", "div", function(event) {
 })
 
 function leftCave() {
-    if (textNum === 1 && run === false) {
+    if (textNum === 0 && run === false) {
+        finished = false;
         line = "You left the cave.";
         choices = false;
         typeWriter();
@@ -184,35 +268,62 @@ function leftCave() {
 }
 
 function main() {
-    if (textNum === 0 && run === false) {
-        finished = false;
-        choices = true;
-        line = "You arrive at the cave.";
-        choice1 = "Enter.";
-        choice2 = "Leave.";
-        typeWriter()
-    } else if (textNum === 1 && run === false) {
-        finished = false;
-        choices = true;
-        line = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, porro. Odio accusamus, pariatur eos, nobis ipsa minus sequi ad atque cupiditate porro dolorum obcaecati optio recusandae iusto, nisi vel ut.";
-        choice1 = "Enter2.";
-        choice2 = "Leave2.";
-        typeWriter();
-    }
-    if (leaveCave) {
-        run = false;
+    if (branch === 0) {
+        if (textNum === 0 && run === false) {
+            finished = false;
+            choices = true;
+            line = "You arrive at the cave.";
+            choice1 = "Enter.";
+            choice2 = "Leave.";
+            typeWriter();
+        } else if (textNum === 1 && run === false) {
+            finished = false;
+            choices = true;
+            line = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, porro. Odio accusamus, pariatur eos, nobis ipsa minus sequi ad atque cupiditate porro dolorum obcaecati optio recusandae iusto, nisi vel ut.";
+            choice1 = "Enter2.";
+            choice2 = "Leave2.";
+            typeWriter();
+        } else if (textNum === 2 && run === false) {
+            finished = false;
+            choices = false;
+            line = "sit amet consectetur adipisicing elit. Sunt, porro. Odio accusamus, pariatur eos, nobis ipsa minus sequi ad atque cupiditate porro dolorum obcaecati optio recusandae iusto, nisi vel ut. asdfasdfasdfdsa";
+            typeWriter();
+        } else if (textNum === 3 && run === false) {
+            finished = false;
+            choices = true;
+            line = "You arrive at the cave.";
+            choice1 = "Enter3.";
+            choice2 = "Leave3.";
+            typeWriter();
+        } else if (textNum === 4 && run === false) {
+            finished = false;
+            choices = true;
+            line = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, porro. Odio accusamus, pariatur eos, nobis ipsa minus sequi ad atque cupiditate porro dolorum obcaecati optio recusandae iusto, nisi vel ut.";
+            choice1 = "Enter4.";
+            choice2 = "Leave4.";
+            typeWriter();
+        } else if (textNum === 5 && run === false) {
+            finished = false;
+            choices = false;
+            line = "dolor sit amet consectetur adipisicing elit. Sunt, porro. Odio accusamus, pariatur eos, nobis ipsa minus sequi ad atque cupiditate porro dolorum obcaecati optio recusandae iusto, nisi vel ut. asdfasdfasdfdsa";
+            typeWriter();
+        } else if (textNum === 6 && run === false) {
+            finished = false;
+            choices = false;
+            line = "I'm getting tired, I guess I should head home.";
+            typeWriter();
+        }
+    } else if (branch === 1) {
+        textNum = 0;
         leftCave();
-        clearInterval(interval);
     }
 }
 
+
+
+
+
 let interval = setInterval(main, 500);
-
-
-
-
-
-
 
 $(function() {
     $("#menu").menu();
