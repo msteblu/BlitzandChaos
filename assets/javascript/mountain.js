@@ -84,7 +84,7 @@ let getMusic = function () {
                     audioEl.setAttribute("loop", "true");
 
                     // // Saving location: 
-                    // runFunction = getRunFunction();
+                    runFunction = getRunFunction();
                     determineWin(); // Test to see if Win / Lose
 
                 })
@@ -95,7 +95,7 @@ let getMusic = function () {
 
 // FUNCTION TO RUN STORYLINES:
 let runStory = function () {
-    // setRunFunction();  // This is a way to Save location
+    setRunFunction();  // This is a way to Save location
     clearScreen(); // Each time this runs, first clear the screen
     switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
         case 'win':
@@ -187,10 +187,8 @@ let end = function () {
 };
 
 let restart = function () {
-    initalizeGameObjects();
-    initializeCounter();
-    initalizeRunFunction();
-    window.location.href = './index.html'
+    window.localStorage.clear(); // Clear everything from LocalStorage
+    window.location.href = './index.html' // Redirect to the opening page again! 
 };
 
 
@@ -251,11 +249,6 @@ choice2Container.addEventListener("click", setSpeed, false);
 
 // FUNCTIONS FOR MANAGING POINT COUNTS IN LOCAL STORAGE:
 
-let initializeCounter = function () {
-    let gamecounter = 0;
-    localStorage.setItem("gamecounter", JSON.stringify(gamecounter));
-};
-
 let addToCounter = function (number) {
     let gamecounter = JSON.parse(localStorage.getItem("gamecounter"));
     gamecounter += number;
@@ -277,11 +270,6 @@ let retrieveCounter = function () {
 
 
 // FUNCTIONS FOR MANAGING GAME ITEMS IN LOCAL STORAGE: 
-
-let initalizeGameObjects = function () {
-    localStorage.setItem("gameObjects", JSON.stringify([]))
-};
-
 
 let updateGameObjects = function (gameObjects, gameObject) {
     gameObjects = retrieveGameObjects();
@@ -305,20 +293,12 @@ let setRunFunction = function () {
 };
 
 let getRunFunction = function () {
-    if (localStorage.getItem("runfunctionStory1") !== null) {
-        return JSON.parse(localStorage.getItem("runfunctionStory1"));
+    if (localStorage.getItem("runfunctionStory5") !== null) {
+        return JSON.parse(localStorage.getItem("runfunctionStory5"));
     }
     else {
         return
     }
-};
-
-let initalizeRunFunction = function () {
-    localStorage.setItem("runfunctionStory1", JSON.stringify([])); // Index
-    localStorage.setItem("runfunctionStory2", JSON.stringify([])); // Village
-    localStorage.setItem("runfunctionStory3", JSON.stringify([])); // Forest
-    localStorage.setItem("runfunctionStory4", JSON.stringify([])); // Cave
-    localStorage.setItem("runfunctionStory5", JSON.stringify([])); // Mountain
 };
 
 // FUNCTIONS FOR DETERMING WINS
