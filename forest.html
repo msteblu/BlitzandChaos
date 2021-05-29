@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
     <link href="http://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/script.css" />
+    <link rel="stylesheet" href="./assets/css/forest.css" />
     <title>The Forest</title>
 </head>
 
@@ -65,9 +65,10 @@
        </header>
     
   
-    
-    <!-- testing audio -->
     <audio id="audio" src="#"></audio>
+    <div class="has-text-right">
+      <button class="button" id="musicBtn">Toggle Music</button>
+    </div>
 
     <main>
 
@@ -75,7 +76,7 @@
 
         <div class="card has-text-centered storycard">
             <div class="card-content story"></div>
-            <button class="button">Continue</button>
+            <button class="button" id="autofill">Continue</button>
         </div>
 
 
@@ -87,6 +88,9 @@
                 <div class="card tile is-parent is-vertical card2 choiceBox">
                     <div class="card-content tile is-child choice2"></div>
                 </div>
+                <div class="tile cardContinue">
+                  <div class="tile continue"></div>
+              </div>
             </div>
         </div>
 
