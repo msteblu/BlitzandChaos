@@ -116,31 +116,34 @@ let runStory = function () {
             runFunction = 'indexBegin3'
             break;
         case 'indexBegin3':
-            storyTxt = `Elden ignored the bartender. "Child, think me a drunk, think me a fool, but I beg you to hear my story!" `
+            storyTxt = `Elden ignored the bartender. "Child, think me a drunk, think me crazy; but I beg you, hear my story!" `
             choice1Txt = `I have the time, go ahead old man, tell me your story.`
             choice2Txt = 'I just came here to drink in peace, leave me alone.'
             doubleMessage();
             runFunction = 'indexBeginChoices' // This will be passed in for the case name in selectionMade after everything is written to the screen: to allow for cascading
             break;
         case 'indexBeg':
-            storyTxt = `“If you don’t heed my advice everything will soon become fire and ash. Everyone! Everything! Destroyed! Do you hear me? Everyone! Everything!” The old man jumped from his chair, knocking the glass to the floor. The entire tavern fell silent, but only for a second. After the glass shattered and sprawled across the floor, all the people sitting in their stools or standing around the wooden tables continued their conversations, filling the room with noise and laughter. It was as though the man standing was just another drunk in a tavern on a late, warm winter's night. `
+            storyTxt = `“If you don’t heed my advice everything will soon become fire and ash. Everyone! Everything! Destroyed! Do you hear me? Everyone! Everything!” The old man jumped from his chair, knocking the glass to the floor. The entire tavern fell silent, but only for a second. After the glass shattered and sprawled across the floor, all the people sitting in their stools and standing around the wooden tables continued their conversations, filling the room with noise and laughter. It was as though the man standing was just another drunk in a tavern on a late, warm winter's night. `
             singleMessage()
             runFunction = 'indexBeg2'
             break;
         case 'indexBeg2':
-            storyTxt = 'The bartender rolled his eyes..'
+            storyTxt = `The bartender rolled his eyes and grabbed a broom. For him it was just another night working in the tavern. **
+
+            The old man turned towards me. Then forced his hands on my shoulders. “I am not a fool, I am a drunk, yes; but not a fool. I know the words I speak, and what they mean. The choice is yours. Save the world or watch it burn. 
+            `
             choice1Txt = '"What do you want from me, old man?"'
             choice2Txt = 'Finish the drink and walk out of the tavern.'
             doubleMessage();
             runFunction = 'indexBegChoices'
             break;
         case 'indexRumble':
-            storyTxt = "I took his hands from my... "
+            storyTxt = `I took his hands from my shoulders. Drank the rest of my ale and left the man where he stood. What an old fool he was. He can claim he wasn’t. I know a fool when I see one. I’ve heard those stories before. I can’t recall where, but I have heard of them. The night was warm and the smell of autumn was lingering in the air. I stopped for a moment, taking in a breath. My exhaustion was getting the better of me. Long days and sleepless nights have a way to make people feel constricted. As though they are destined to live a linear path that forces you somewhere you don’t want to be. But that breath, that fresh air always found a way to release all the chains bound to me.`
             singleMessage()
             runFunction = 'indexRumble2'
             break;
         case 'indexRumble2':
-            storyTxt = '“Child, please... '
+            storyTxt = `“Child, please one last time, let me beg you. Listen to me. Please!” His voice called from the doorway of the tavern. I turned towards him, and as I did the ground beneath me began to rumble. The trees swayed furiously, the lanterns shook from their chains and shattered on the dirt beneath them. The night became darker.`
             singleMessage()
             runFunction = 'indexMain'
             break;
@@ -149,13 +152,18 @@ let runStory = function () {
 
             “Only if you take it with you. I’ve told you no more of your stories in here. The last one cost me five broken stools, two broken tables and poor Johnny nearly lost an eye and broke his nose. I lost a good customer that night, Elden and you will owe me.” **
             
-            “I paid you the cost for the stools and tables. Besides that lousy scum bucket was sticking his fat nose where it doesn’t belong.” 
+            “I paid you the cost for the stools and tables. Besides that lousy scum bucket was sticking his fat nose where it doesn’t belong.” **
+            
+            Jack shook his head and pulled a half empty bottle of whiskey from the top shelf. He poured with one hand and pointed towards the door with the other, “Doesn’t matter, outside.”
             `
             singleMessage()
             runFunction = 'indexMain'
             break;
         case 'indexMain':
-            storyTxt = 'The man stared...'
+            storyTxt = `The man stared blankly. Thinking for a moment before he spoke, “You are the conscript. The only one alive who can put the beast to his final resting place. There will be trials, but I promise, you will not be alone. The elders who still live hold the vow that will help you to finish your task. Do keep the knowledge, child, not all can be trusted. There has always been evil in the world and evil will always be incessant. But believe me when I say, you are the only one who can save us all.” **
+            
+            The man moved his eyes from left to right as though he was ensuring no one was watching. He pulled an envelope from the inside of his cloak, “Take this, take this and do not open it until you are home. Keep it safe, child. Keep it safe and you will always find what you are looking for.  
+            `
             // addToCounter(5) // This is an example of adding 5 points
             // updateGameObjects(gameObjects, "map") // This is an example of adding a Map object
             singleMessage()
