@@ -1,238 +1,343 @@
-// ********************** VARIABLES *********************** //
+// ********************************* VARIABLES ************************************ / /
+
+let background = document.querySelector('#bg');
+let audioEl = document.querySelector('#audio');
 
 let storyContainer = document.querySelector('.story');
 let choice1Container = document.querySelector('.choice1');
 let choice2Container = document.querySelector('.choice2');
-let background = document.querySelector('#bg');
+let continueContainer = document.querySelector('.continue');
 
 let card1 = document.querySelector('.card1');
 let card2 = document.querySelector('.card2');
+let cardContinue = document.querySelector('.cardContinue');
+
+// Button to auto-fill text:
+let autofill = document.querySelector('#autofill');
+// Button to control music: 
+let musicBtn = document.querySelector('#musicBtn');
+
+// Array for collecting Items: 
+let gameObjects;
+
+// Speed for typewriter functions: 
+let speed = 0;
+
+// Run variable
+let runFunction
+
+// Variables for text
+let storyTxt = ''
+let choice1Txt = '';
+let choice2Txt = '';
 
 
-// Local Storage variables: 
-// Add Local Storage variables here to push to...
+// ************************************** FUNCTIONS ************************************ //
+
+// ***** The Initial function:  *****
+
+let hideInit = function () {
+    // Hide cards first: 
+    card1.style.display = "none";
+    card2.style.display = "none";
+    cardContinue.style.display = "none";
 
 
-
-// ***************************** FUNCTIONS ***************************** //
+    // Then, get the background image: 
+    getImage();
+};
 
 // *** Get background image function: ***
 
 let getImage = function () {
     let apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370"
 
-    fetch( "https://api.pexels.com/v1/photos/1450082/", { headers: { "Authorization": apiKey } })
-    .then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data) {
+    fetch("https://api.pexels.com/v1/photos/1450082/", { headers: { "Authorization": apiKey } })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
 
-                // set url to be able to call it later: 
-                background.setAttribute("src", data.src.original)
-                hideInit();
-            });
-        } else {
-            alert('Error: ' + response.statusText);
-        }
-    })
-    .catch(function (error) {
-        alert('Unable to connect to API');
-    });
+                    // set url:
+                    background.setAttribute("src", data.src.original)
+
+                    // Next, load the background music: 
+                    getMusic();
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect to API');
+        });
+};
+
+// *** Get background music function: ***
+
+let getMusic = function () {
+    fetch("https://freesound.org/apiv2/sounds/376415/?token=VarP0dKebdRzKHFvZOPxw81IsdKK6OH3iLAgQRwY")
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    audioEl.setAttribute("src", data.previews["preview-lq-mp3"]);
+                    audioEl.volume = 0.2;
+                    audioEl.setAttribute("loop", "true");
+
+                    // // Saving location: 
+                    // runFunction = getRunFunction();
+                    determineWin(); // Test to see if Win / Lose
+
+                })
+            }
+        })
 };
 
 
-// Testing Music: !!!!!!!!!!!!!!!
-
-
-// ***** The Initial function:  *****
-
-let hideInit = function () {
-    card1.style.display = "none";
-    card2.style.display = "none";
-
-    // start the story sequence:
-    enterMountain();
-};
-
-
-//******************************* STORYLINES  ********************************/
-
-// ************* Enter Town Storyline: **************
-
-// ** Basic Storyline: **
-let enterMountain = function () {
-
-    let storyTxt = "You enter the mountain. Lorem ipsum lorem ipsum";
-    let i = 0;
-    let speed = 25;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            enterMountainChoices();
-        }
+// FUNCTION TO RUN STORYLINES:
+let runStory = function () {
+    // setRunFunction();  // This is a way to Save location
+    clearScreen(); // Each time this runs, first clear the screen
+    switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
+        case 'win':
+            storyTxt = 'You make it to the mountain...'
+            singleMessage(); // Run the function to display only one continue button
+            runFunction = 'win2' // Set runFunction to the subsequent "case"... called "next"
+            break; // break out of the switch function
+        case 'win2':
+            storyTxt = 'You have prepared well. You fight the dragon and win...'
+            // Start to play the music, after the first user interaction: 
+            audioEl.play();
+            singleMessage();
+            runFunction = 'end'
+            break;
+        case 'lost':
+            storyTxt = 'You make it to the mountain...'
+            singleMessage()
+            runFunction = 'lost2'
+            break;
+        case 'lost2':
+            storyTxt = "You were unprepared. The dragon scorches the earth..."
+            singleMessage()
+            runFunction = 'end'
+            break;
+        case 'end':
+            clearScreen();
+            end();
+            break;
     }
-
-    typeWriter();
-    
 };
 
-// ** User Choices: ** 
-let enterMountainChoices = function () {
-    let choice1Txt = "You’re too busy. You ignore her and carry on.";
-    let choice2Txt = "You agree and follow her.";
-    let i = 0;
-    let t = 0;
-    let speed = 30;
 
-    // Create a button and add Event Listener for Choice 1
-    let button1 = document.createElement('button');
-    button1.classList.add("button");
-    button1.innerHTML = "Choice 1";
-    button1.addEventListener('click', myFunctionReference1 , false);
+// FOR STORYLINES WITH ONLY ONE CONTINUE CHOICE:
+let singleMessage = function () {
 
-    // Create a button and add Event Listener for Choice 2
-    let button2 = document.createElement('button');
-    button2.classList.add("button");
-    button2.innerHTML = "Choice 2";
-    button2.addEventListener('click', theEnchanter , false);
+    let smTypeWriter = function () {
 
-    // Display the card that we initially had hidden: 
-    card1.style.display = "inline"; 
+        // let storyTxt = "";
+        let i = 0;
+        speed = 30;
 
-    // Type out Choice 1
-    function typeWriter() {
-        if (i < choice1Txt.length) {
-            choice1Container.innerHTML += choice1Txt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Display the button: 
-            card1.appendChild(button1);
-            // Display the second card and begin displaying Choice 2
-            card2.style.display = "inline";
-            typeWriter2();
-        }
-        
+        function typeWriter() {
+            if (i < storyTxt.length) {
+                if (storyTxt.charAt(i) == "*") {
+                    storyContainer.innerHTML += "<br />";
+                }
+                else {
+                    storyContainer.innerHTML += storyTxt.charAt(i);
+                }
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Once the script has been written out, display the user's options: 
+                smScreenDraw();
+            }
+        };
+
+        typeWriter();
+
     };
 
-    // Type out Choice 2
-    function typeWriter2() {
-        if (t < choice2Txt.length) {
-            choice2Container.innerHTML += choice2Txt.charAt(t);
-            t++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Display the button: 
-            card2.appendChild(button2);
-        }
-    }
+    // ** CONTINUE: ** 
+    let smScreenDraw = function () {
 
-    typeWriter();
+        // Create a continue Button
+        let btnContinue = document.createElement('button');
+        btnContinue.classList.add("button", "continuebtn");
+        btnContinue.innerHTML = "Continue";
+        btnContinue.addEventListener('click', runStory, true);  // on click, move to the next Storyline
+        // Display the card that we initially had hidden: 
+        cardContinue.style.display = "inline";
+        cardContinue.appendChild(btnContinue);
+
+    };
+    smTypeWriter();
 };
 
-// STAND-IN FUNCTIONS JUST FOR TESTING EVENT LISTENERS (without having functions to run yet): 
-let myFunctionReference = function() { alert("You clicked button 2")};
-let myFunctionReference1 = function() { alert("You clicked button 1")};
+
+// FUNCTION FOR ENDING THE GAME: 
+
+let end = function () {
+    let btnEnd = document.createElement('button');
+    btnEnd.classList.add("button", "continuebtn");
+    btnEnd.innerHTML = "Restart Game";
+    btnEnd.addEventListener('click', restart, true);  // on click, run restart: 
+    // Display the card that we initially had hidden: 
+    cardContinue.style.display = "inline";
+    cardContinue.appendChild(btnEnd);
+};
+
+let restart = function () {
+    initalizeGameObjects();
+    initializeCounter();
+    initalizeRunFunction();
+    window.location.href = './index.html'
+};
 
 
 
-// ***************** The Enchanter Storyline: *******************
+// FUNCTION FOR CLEARING THE SCREEN FOR RE-WRITES
 
-// Each new storyline/choices is simply copied and modified from the initial function. 
+let clearScreen = function () {
 
-// ** Basic Storyline: **
-let theEnchanter = function () {
     // First, set all of the containers back to empty
     storyContainer.innerHTML = "";
     choice1Container.innerHTML = "";
     choice2Container.innerHTML = "";
+    continueContainer.innerHTML = "";
 
     // We have to remove the buttons we created or they will just keep piling up each time we run a new function
-    card1.removeChild(card1.lastElementChild);
-    card2.removeChild(card2.lastElementChild);
+
+    if (card1.lastElementChild.className == 'button') {
+        card1.removeChild(card1.lastElementChild)
+    }
+
+    if (card2.lastElementChild.className == 'button') {
+        card2.removeChild(card2.lastElementChild)
+    }
+    if (cardContinue.lastElementChild.className == 'button continuebtn') {
+        cardContinue.removeChild(cardContinue.lastElementChild)
+    }
 
     // Once again, hide the containers before they're filled
     card1.style.display = "none";
     card2.style.display = "none";
-
-    // Run the same type of Typewriter functions
-    let storyTxt = "Example text... lorem ipsum lorem ipsum "
-    let i = 0;
-    let speed = 25;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Run the function to display user choices
-            theEnchanterChoices();
-        }
-    };
-
-    typeWriter();
-};
-
-// ** User Choices: **
-let theEnchanterChoices = function () {
-    let choice1Txt = "Choice one is this lorem ipsum.";
-    let choice2Txt = "Choice two is this, lorem ipsum";
-    let i = 0;
-    let t = 0;
-    let speed = 30;
-
-    let buttonEnchanter1 = document.createElement('button');
-    buttonEnchanter1.classList.add("button");
-    buttonEnchanter1.innerHTML = "Choice 1";
-    buttonEnchanter1.addEventListener('click', myFunctionReference1 , false);
-
-    let buttonEnchanter2 = document.createElement('button');
-    buttonEnchanter2.classList.add("button");
-    buttonEnchanter2.innerHTML = "Choice 2";
-    buttonEnchanter2.addEventListener('click', myFunctionReference , false);
-
-    card1.style.display = "inline";
-
-    function typeWriter() {
-        if (i < choice1Txt.length) {
-            choice1Container.innerHTML += choice1Txt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            card1.appendChild(buttonEnchanter1);
-            card2.style.display = "inline";
-            typeWriter2();
-        }
-        
-    }
-
-    function typeWriter2() {
-        if (t < choice2Txt.length) {
-            choice2Container.innerHTML += choice2Txt.charAt(t);
-            t++;
-            setTimeout(typeWriter, speed);
-        } else {
-            card2.appendChild(buttonEnchanter2);
-        }
-    }
-
-    typeWriter();
+    cardContinue.style.display = "none";
 };
 
 
-// This same method can continue for each storyline for the page. 
+// MUSIC PAUSE / PLAY FUNCTION
+
+function togglePlay() {
+    if (audioEl.paused) {
+        audioEl.play();
+    }
+    else {
+        audioEl.pause();
+    }
+};
+
+musicBtn.addEventListener("click", togglePlay);
+
+// FUNCTION AND EVENT LISTENERS FOR MANAGING TYPEWRITER SPEED: 
+
+let setSpeed = function () {
+    speed = 0;
+};
+
+autofill.addEventListener("click", setSpeed, false);
+choice1Container.addEventListener("click", setSpeed, false);
+choice2Container.addEventListener("click", setSpeed, false);
 
 
+// FUNCTIONS FOR MANAGING POINT COUNTS IN LOCAL STORAGE:
+
+let initializeCounter = function () {
+    let gamecounter = 0;
+    localStorage.setItem("gamecounter", JSON.stringify(gamecounter));
+};
+
+let addToCounter = function (number) {
+    let gamecounter = JSON.parse(localStorage.getItem("gamecounter"));
+    gamecounter += number;
+    localStorage.setItem("gamecounter", JSON.stringify(gamecounter));
+};
+
+let subtractFromCounter = function (number) {
+    let gamecounter = JSON.parse(localStorage.getItem("gamecounter"));
+    gamecounter -= number;
+    if (gamecounter < 0) {
+        gamecounter = 0;
+    }
+    localStorage.setItem("gamecounter", JSON.stringify(gamecounter));
+};
+
+let retrieveCounter = function () {
+    return JSON.parse(localStorage.getItem("gamecounter"));
+};
 
 
+// FUNCTIONS FOR MANAGING GAME ITEMS IN LOCAL STORAGE: 
+
+let initalizeGameObjects = function () {
+    localStorage.setItem("gameObjects", JSON.stringify([]))
+};
 
 
-// ************* RUN FUNCTIONS AT INITIALIZE: ******************** 
+let updateGameObjects = function (gameObjects, gameObject) {
+    gameObjects = retrieveGameObjects();
 
-// To start the rolling by getting the background image:
-getImage();
+    if (!gameObjects.includes(gameObject)) {
+        gameObjects.push(gameObject);
+        localStorage.setItem("gameObjects", JSON.stringify(gameObjects));
+    }
+    return gameObjects;
+};
+
+let retrieveGameObjects = function () {
+    return JSON.parse(localStorage.getItem("gameObjects"))
+};
+
+// FUNCTIONS FOR SAVING LOCATION
+
+let setRunFunction = function () {
+    console.log(runFunction)
+    localStorage.setItem("runfunctionStory5", JSON.stringify(runFunction));
+};
+
+let getRunFunction = function () {
+    if (localStorage.getItem("runfunctionStory1") !== null) {
+        return JSON.parse(localStorage.getItem("runfunctionStory1"));
+    }
+    else {
+        return
+    }
+};
+
+let initalizeRunFunction = function () {
+    localStorage.setItem("runfunctionStory1", JSON.stringify([])); // Index
+    localStorage.setItem("runfunctionStory2", JSON.stringify([])); // Village
+    localStorage.setItem("runfunctionStory3", JSON.stringify([])); // Forest
+    localStorage.setItem("runfunctionStory4", JSON.stringify([])); // Cave
+    localStorage.setItem("runfunctionStory5", JSON.stringify([])); // Mountain
+};
+
+// FUNCTIONS FOR DETERMING WINS
+
+let determineWin = function () {
+    let finalPoints = retrieveCounter()
+    let finalObjects = retrieveGameObjects()
+    if (finalPoints > 30 && finalObjects.includes("map") && finalObjects.includes("enchanter") && finalObjects.includes("spellbook") && finalObjects.includes("sword")) {
+        runFunction = "win"
+        runStory(runFunction);
+
+    }
+    else {
+        runFunction = "lost"
+        runStory(runFunction);
+    }
+
+};
+
+// **************************** RUN FUNCTIONS AT INITIALIZE: ******************** 
+
+hideInit();
