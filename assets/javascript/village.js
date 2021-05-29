@@ -48,6 +48,9 @@ let hideInit = function () {
 };
 
 // *** Get background image function: ***
+// Using Art Institute of Chicago API: https://api.artic.edu/docs/#iiif-image-api
+// Artwork: https://www.artic.edu/artworks/20314/village
+// Maurice de Vlaminck. Village, 1912. The Art Institute of Chicago.
 
 let getImage = function () {
     let apiUrl = "https://api.artic.edu/api/v1/artworks/20314"
@@ -77,6 +80,9 @@ let getImage = function () {
 };
 
 // *** Get background music function: ***
+// Using Freesound API: https://freesound.org/docs/api/authentication.html
+// Sound: https://freesound.org/people/Metzik/sounds/371222/
+// "Medieval market" by Metzik
 
 let getMusic = function () {
     fetch("https://freesound.org/apiv2/sounds/371222/?token=VarP0dKebdRzKHFvZOPxw81IsdKK6OH3iLAgQRwY")
@@ -88,7 +94,7 @@ let getMusic = function () {
                     audioEl.setAttribute("loop", "true");
 
                     // Saving location: 
-                    // runFunction = getRunFunction();
+                    runFunction = getRunFunction();
                     runStory();
                 })
             }
@@ -97,7 +103,7 @@ let getMusic = function () {
 
 // FUNCTION TO RUN STORYLINES:
 let runStory = function () {
-    // setRunFunction();  // This will eventually be a way to Save location
+    setRunFunction();  // Save location
     clearScreen(); // Each time this runs, first clear the screen
     switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
         case 'vilBegin':
@@ -383,38 +389,15 @@ let retrieveCounter = function () {
     return JSON.parse(localStorage.getItem("gamecounter"));
 };
 
-
-// FUNCTIONS FOR MANAGING GAME ITEMS IN LOCAL STORAGE: 
-
-let initalizeGameObjects = function () {
-    localStorage.setItem("gameObjects", JSON.stringify([]))
-};
-
-
-let updateGameObjects = function (gameObjects, gameObject) {
-    gameObjects = retrieveGameObjects();
-
-    if (!gameObjects.includes(gameObject)) {
-        gameObjects.push(gameObject);
-        localStorage.setItem("gameObjects", JSON.stringify(gameObjects));
-    }
-    return gameObjects;
-};
-
-let retrieveGameObjects = function () {
-    return JSON.parse(localStorage.getItem("gameObjects"))
-};
-
 // FUNCTIONS FOR SAVING LOCATION
 
 let setRunFunction = function () {
-    console.log(runFunction)
     localStorage.setItem("runfunctionStory2", JSON.stringify(runFunction));
 };
 
 let getRunFunction = function () {
-    if (localStorage.getItem("runfunctionStory1") !== null) {
-        return JSON.parse(localStorage.getItem("runfunctionStory1"));
+    if (localStorage.getItem("runfunctionStory2") !== null) {
+        return JSON.parse(localStorage.getItem("runfunctionStory2"));
     }
     else {
         return "vilBegin"
