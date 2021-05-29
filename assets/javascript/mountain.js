@@ -48,6 +48,9 @@ let hideInit = function () {
 };
 
 // *** Get background image function: ***
+// Using Pexels API: https://www.pexels.com/api/
+// Image: https://www.pexels.com/photo/mountain-scenery-1450082/
+
 
 let getImage = function () {
     let apiKey = "563492ad6f917000010000015b7284fdeb3c4957b9976cdc11fb5370"
@@ -73,6 +76,9 @@ let getImage = function () {
 };
 
 // *** Get background music function: ***
+// Using Freesound API: https://freesound.org/docs/api/authentication.html
+// Sound: https://freesound.org/people/InspectorJ/sounds/376415/
+// "Wind, Synthesized, A.wav" by InspectorJ (www.jshaw.co.uk) of Freesound.org
 
 let getMusic = function () {
     fetch("https://freesound.org/apiv2/sounds/376415/?token=VarP0dKebdRzKHFvZOPxw81IsdKK6OH3iLAgQRwY")
@@ -117,6 +123,7 @@ let runStory = function () {
             break;
         case 'lost2':
             storyTxt = "You were unprepared. The dragon scorches the earth..."
+            audioEl.play();
             singleMessage()
             runFunction = 'end'
             break;
@@ -269,26 +276,9 @@ let retrieveCounter = function () {
 };
 
 
-// FUNCTIONS FOR MANAGING GAME ITEMS IN LOCAL STORAGE: 
-
-let updateGameObjects = function (gameObjects, gameObject) {
-    gameObjects = retrieveGameObjects();
-
-    if (!gameObjects.includes(gameObject)) {
-        gameObjects.push(gameObject);
-        localStorage.setItem("gameObjects", JSON.stringify(gameObjects));
-    }
-    return gameObjects;
-};
-
-let retrieveGameObjects = function () {
-    return JSON.parse(localStorage.getItem("gameObjects"))
-};
-
 // FUNCTIONS FOR SAVING LOCATION
 
 let setRunFunction = function () {
-    console.log(runFunction)
     localStorage.setItem("runfunctionStory5", JSON.stringify(runFunction));
 };
 
@@ -305,8 +295,8 @@ let getRunFunction = function () {
 
 let determineWin = function () {
     let finalPoints = retrieveCounter()
-    let finalObjects = retrieveGameObjects()
-    if (finalPoints > 30 && finalObjects.includes("map") && finalObjects.includes("enchanter") && finalObjects.includes("spellbook") && finalObjects.includes("sword")) {
+    // let finalObjects = retrieveGameObjects()
+    if (finalPoints > 30 ) {
         runFunction = "win"
         runStory(runFunction);
 
