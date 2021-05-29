@@ -102,26 +102,28 @@ let runStory = function () {
     clearScreen(); // Each time this runs, first clear the screen
     switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
         case 'indexBegin':
-            storyTxt = 'When the days become warmer, the nights... ** Testing Line Break '
+            storyTxt = `"When the days become warmer, the nights become darker. In those dark nights things. . . monstrous things wake. Now, some people say this is just folklore; a tale to tell for metaphorical reasons, or perhaps just to pass the time. Those are the lucky ones, the ones who got to live their lives in peace, never seeing the darkest of nights filled with smoke, flames and death. I am an old man. Very old, indeed. I have seen too much of those things I care not to remember. Those of us who survived that dark night remember the death and destruction of everything we loved and with that we remember the vow we made: to survive long enough to stop the next blitz and chaos. `
             singleMessage(); // Run the function to display only one continue button
             runFunction = 'indexBegin2' // Set runFunction to the subsequent "case"
             break; // break out of the switch function
         case 'indexBegin2':
-            storyTxt = '"The time is upon us again, child....'
+            storyTxt = `The time is upon us again, child. The time has come for Fraener to fly again. He has waited patiently for this day. Sleeping in his cave beneath the mountains. It is said that this time nothing will survive his flames." **
+            The old man looked up from an almost empty whiskey glass. His eyes glazed in fear. **
+            "Elden, no one wants to hear an old man's crazy talk." The bartender said as he poured the man another shot.`
             // Start to play the music, after the first user interaction: 
             audioEl.play();
             singleMessage();
             runFunction = 'indexBegin3'
             break;
         case 'indexBegin3':
-            storyTxt = " 'Elden, no one wants to hear an old... "
-            choice1Txt = 'Why are you telling me this?'
+            storyTxt = `Elden ignored the bartender. "Child, think me a drunk, think me a fool, but I beg you to hear my story!" `
+            choice1Txt = `I have the time, go ahead old man, tell me your story.`
             choice2Txt = 'I just came here to drink in peace, leave me alone.'
             doubleMessage();
             runFunction = 'indexBeginChoices' // This will be passed in for the case name in selectionMade after everything is written to the screen: to allow for cascading
             break;
         case 'indexBeg':
-            storyTxt = "“If you don’t heed my advice..."
+            storyTxt = `“If you don’t heed my advice everything will soon become fire and ash. Everyone! Everything! Destroyed! Do you hear me? Everyone! Everything!” The old man jumped from his chair, knocking the glass to the floor. The entire tavern fell silent, but only for a second. After the glass shattered and sprawled across the floor, all the people sitting in their stools or standing around the wooden tables continued their conversations, filling the room with noise and laughter. It was as though the man standing was just another drunk in a tavern on a late, warm winter's night. `
             singleMessage()
             runFunction = 'indexBeg2'
             break;
@@ -139,6 +141,16 @@ let runStory = function () {
             break;
         case 'indexRumble2':
             storyTxt = '“Child, please... '
+            singleMessage()
+            runFunction = 'indexMain'
+            break;
+        case 'indexMainIntro':
+            storyTxt = `“Jack, pour us another drink! This ones on me.” Elden said, his voice bellowed cheerfully. **
+
+            “Only if you take it with you. I’ve told you no more of your stories in here. The last one cost me five broken stools, two broken tables and poor Johnny nearly lost an eye and broke his nose. I lost a good customer that night, Elden and you will owe me.” **
+            
+            “I paid you the cost for the stools and tables. Besides that lousy scum bucket was sticking his fat nose where it doesn’t belong.” 
+            `
             singleMessage()
             runFunction = 'indexMain'
             break;
@@ -160,7 +172,7 @@ let selectionMade = function (event) {  // pass in button that was clicked
     switch (runFunction) { // pass in the name of runFunction (which we set up in runStory)
         case 'indexBeginChoices':
             if (event.target.innerText === 'Choice 1') { // get value of that button
-                runFunction = 'indexMain' //set to a new "case"
+                runFunction = 'indexMainIntro' //set to a new "case"
             }
             else {
                 runFunction = 'indexBeg' // set to a new "case"
