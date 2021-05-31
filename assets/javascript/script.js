@@ -1,6 +1,6 @@
-// ********************************* VARIABLES ************************************ //
+// ********************************* VARIABLES ************************************ / /
 
-let background = document.querySelector('#backgroundImage');
+let background = document.querySelector('#bg');
 let audioEl = document.querySelector('#audio');
 
 let storyContainer = document.querySelector('.story');
@@ -23,9 +23,13 @@ let gameObjects = [];
 // Speed for typewriter functions: 
 let speed = 0;
 
+// Run variable
+let runFunction = 'indexBegin'
 
-
-
+// Variables for text
+let storyTxt = ''
+let choice1Txt = '';
+let choice2Txt = '';
 
 
 // ************************************** FUNCTIONS ************************************ //
@@ -38,17 +42,15 @@ let hideInit = function () {
     card2.style.display = "none";
     cardContinue.style.display = "none";
 
-     // For first page, initialize count
-    initializeCounter();
-
-    // For first page, initalize gameObjects 
-    initalizeGameObjects();
 
     // Then, get the background image: 
     getImage();
 };
 
 // *** Get background image function: ***
+// Using Art Institute of Chicago API: https://api.artic.edu/docs/#iiif-image-api
+// Artwork: https://www.artic.edu/artworks/70047/the-cock-tavern-from-in-thackeray-s-london
+// Francis Hopkinson Smith. The Cock Tavern, from In Thackeray’s London,  1913. The Art Institute of Chicago.
 
 let getImage = function () {
     let apiUrl = "https://api.artic.edu/api/v1/artworks/70047"
@@ -78,9 +80,12 @@ let getImage = function () {
 };
 
 // *** Get background music function: ***
+// Using Freesound API: https://freesound.org/docs/api/authentication.html
+// Sound: https://freesound.org/people/ralexpdx/sounds/321220/
+// "My Tavern 1.wav" by ralexpdx
 
 let getMusic = function () {
-    fetch("https://freesound.org/apiv2/sounds/321220/?token=VarP0dKebdRzKHFvZOPxw81IsdKK6OH3iLAgQRwY")  // CHOOSE A DIF SOUND
+    fetch("https://freesound.org/apiv2/sounds/321220/?token=VarP0dKebdRzKHFvZOPxw81IsdKK6OH3iLAgQRwY") 
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
@@ -88,466 +93,263 @@ let getMusic = function () {
                     audioEl.volume = 0.2;
                     audioEl.setAttribute("loop", "true");
 
-                    // Finally, begin the storyline after we've gathered everything (so there won't be any conflicts): 
-                    begin();
+                    // // Saving location: 
+                    runFunction = getRunFunction();
+
+                    runStory(runFunction);
                 })
             }
         })
 };
 
+// FUNCTION TO RUN STORYLINES:
+let runStory = function () {
+    setRunFunction();  // This saves location
+    clearScreen(); // Each time this runs, first clear the screen
+    switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
+        case 'indexBegin':
+            storyTxt = `"When the days become warmer, the nights become darker. In those dark nights things. . . monstrous things wake. Now, some people say this is just folklore; a tale to tell for metaphorical reasons, or perhaps just to pass the time. Those are the lucky ones, the ones who got to live their lives in peace, never seeing the darkest of nights filled with smoke, flames and death. I am an old man. Very old, indeed. I have seen too much of those things I care not to remember. Those of us who survived that dark night remember the death and destruction of everything we loved and with that we remember the vow we made: to survive long enough to stop the next blitz and chaos. `
+            singleMessage(); // Run the function to display only one continue button
+            runFunction = 'indexBegin2' // Set runFunction to the subsequent "case"
+            break; // break out of the switch function
+        case 'indexBegin2':
+            storyTxt = `The time is upon us again, child. The time has come for Fraener to fly again. He has waited patiently for this day. Sleeping in his cave beneath the mountains. It is said that this time nothing will survive his flames." **
+            The old man looked up from an almost empty whiskey glass. His eyes glazed in fear. **
+            "Elden, no one wants to hear an old man's crazy talk." The bartender said as he poured the man another shot.`
+            // Start to play the music, after the first user interaction: 
+            audioEl.play();
+            singleMessage();
+            runFunction = 'indexBegin3'
+            break;
+        case 'indexBegin3':
+            storyTxt = `Elden ignored the bartender. "Child, think me a drunk, think me crazy; but I beg you, hear my story!" `
+            choice1Txt = `I have the time, go ahead old man, tell me your story.`
+            choice2Txt = 'I just came here to drink in peace, leave me alone.'
+            doubleMessage();
+            runFunction = 'indexBeginChoices' // This will be passed in for the case name in selectionMade after everything is written to the screen: to allow for cascading
+            break;
+        case 'indexBeg':
+            storyTxt = `“If you don’t heed my advice everything will soon become fire and ash. Everyone! Everything! Destroyed! Do you hear me? Everyone! Everything!” The old man jumped from his chair, knocking the glass to the floor. The entire tavern fell silent, but only for a second. After the glass shattered and sprawled across the floor, all the people sitting in their stools and standing around the wooden tables continued their conversations, filling the room with noise and laughter. It was as though the man standing was just another drunk in a tavern on a late, warm winter's night. `
+            singleMessage()
+            runFunction = 'indexBeg2'
+            break;
+        case 'indexBeg2':
+            storyTxt = `The bartender rolled his eyes and grabbed a broom. For him it was just another night working in the tavern. **
 
+            The old man turned towards me. Then forced his hands on my shoulders. “I am not a fool, I am a drunk, yes; but not a fool. I know the words I speak, and what they mean. The choice is yours. Save the world or watch it burn. 
+            `
+            choice1Txt = '"What do you want from me, old man?"'
+            choice2Txt = 'Finish the drink and walk out of the tavern.'
+            doubleMessage();
+            runFunction = 'indexBegChoices'
+            break;
+        case 'indexRumble':
+            storyTxt = `I took his hands from my shoulders. Drank the rest of my ale and left the man where he stood. What an old fool he was. He can claim he wasn’t. I know a fool when I see one. I’ve heard those stories before. I can’t recall where, but I have heard of them. The night was warm and the smell of autumn was lingering in the air. I stopped for a moment, taking in a breath. My exhaustion was getting the better of me. Long days and sleepless nights have a way to make people feel constricted. As though they are destined to live a linear path that forces you somewhere you don’t want to be. But that breath, that fresh air always found a way to release all the chains bound to me.`
+            singleMessage()
+            runFunction = 'indexRumble2'
+            break;
+        case 'indexRumble2':
+            storyTxt = `“Child, please one last time, let me beg you. Listen to me. Please!” His voice called from the doorway of the tavern. I turned towards him, and as I did the ground beneath me began to rumble. The trees swayed furiously, the lanterns shook from their chains and shattered on the dirt beneath them. The night became darker.`
+            singleMessage()
+            runFunction = 'indexMain'
+            break;
+        case 'indexMainIntro':
+            storyTxt = `“Jack, pour us another drink! This ones on me.” Elden said, his voice bellowed cheerfully. **
 
+            “Only if you take it with you. I’ve told you no more of your stories in here. The last one cost me five broken stools, two broken tables and poor Johnny nearly lost an eye and broke his nose. I lost a good customer that night, Elden and you will owe me.” **
+            
+            “I paid you the cost for the stools and tables. Besides that lousy scum bucket was sticking his fat nose where it doesn’t belong.” **
+            
+            Jack shook his head and pulled a half empty bottle of whiskey from the top shelf. He poured with one hand and pointed towards the door with the other, “Doesn’t matter, outside.”
+            `
+            singleMessage()
+            runFunction = 'indexMain'
+            break;
+        case 'indexMain':
+            storyTxt = `The man stared blankly. Thinking for a moment before he spoke, “You are the conscript. The only one alive who can put the beast to his final resting place. There will be trials, but I promise, you will not be alone. The elders who still live hold the vow that will help you to finish your task. Do keep the knowledge, child, not all can be trusted. There has always been evil in the world and evil will always be incessant. But believe me when I say, you are the only one who can save us all.” **
+            
+            The man moved his eyes from left to right as though he was ensuring no one was watching. He pulled an envelope from the inside of his cloak, “Take this, take this and do not open it until you are home. Keep it safe, child. Keep it safe and you will always find what you are looking for.  
+            `
 
+            singleMessage()
+            runFunction = 'indexEnd'
+            break;
+        case 'indexEnd':
+            window.location.href = './village.html' // Re-direct to next location: Village
+            break;
+    }
+}
 
-//************************************ STORYLINES  ***************************************/
+// FUNCTION TO HANDLE CHOICES/CASCADING:
+let selectionMade = function (event) {  // pass in button that was clicked
+    switch (runFunction) { // pass in the name of runFunction (which we set up in runStory)
+        case 'indexBeginChoices':
+            if (event.target.innerText === 'Choice 1') { // get value of that button
+                runFunction = 'indexMainIntro' //set to a new "case"
+            }
+            else {
+                runFunction = 'indexBeg' // set to a new "case"
+            }
+            break;
+        case 'indexBegChoices':
+            if (event.target.innerText === 'Choice 1') {
+                runFunction = 'indexMain'
+            }
+            else {
+                runFunction = 'indexRumble'
+            }
+            break;
+    }
+    runStory(); // return to runStory, grabbing a new "case"
+}
 
+// FOR STORYLINES WITH ONLY ONE CONTINUE CHOICE:
+let singleMessage = function () {
 
+    let smTypeWriter = function () {
 
-// ******************** BEGINNING STORYLINE: ******************
+        // let storyTxt = "";
+        let i = 0;
+        speed = 30;
 
-// ** BASIC STORYLINE: **
+        function typeWriter() {
+            if (i < storyTxt.length) {
+                if (storyTxt.charAt(i) == "*") {
+                    storyContainer.innerHTML += "<br />";
+                }
+                else {
+                    storyContainer.innerHTML += storyTxt.charAt(i);
+                }
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Once the script has been written out, display the user's options: 
+                smScreenDraw();
+            }
+        };
 
-let begin = function () {
+        typeWriter();
 
-    let storyTxt = "First paragraph here.";
-    let i = 0;
-    speed = 30;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            beginContinue();
-        }
     };
 
-    typeWriter();
+    // ** CONTINUE: ** 
+    let smScreenDraw = function () {
 
-};
+        // Create a continue Button
+        let btnContinue = document.createElement('button');
+        btnContinue.classList.add("button", "continuebtn");
+        btnContinue.innerHTML = "Continue";
+        btnContinue.addEventListener('click', runStory, true); 
+        // Display the card that we initially had hidden: 
+        cardContinue.style.display = "inline";
+        cardContinue.appendChild(btnContinue);
 
-// ** CONTINUE: ** 
-let beginContinue = function () {
+    };
+    smTypeWriter();
+}
 
-    // Create a continue Button
-    let btnContinue = document.createElement('button');
-    btnContinue.classList.add("button", "continuebtn");
-    // btnContinue.setAttribute("id", "continueBtn"); // ADD AN ID FOR STYLING??
-    btnContinue.innerHTML = "Continue";
-    btnContinue.addEventListener('click', begin2, false);  // on click, move to the next Storyline (enterVillage)
+// FOR STORYLINES WITH TWO CHOICES:
+doubleMessage = function () {
+    // ** Writing out the Story paragraph part: ** 
+    let dmTypeWriter = function () {
 
+        let i = 0;
+        speed = 30;
 
-    // Display the card that we initially had hidden: 
-    cardContinue.style.display = "inline";
-    cardContinue.appendChild(btnContinue);
-
-};
-
-// ** BASIC STORYLINE: **
-let begin2 = function () {
-
-    remove();
-
-    // Start to play the music, after the first user interaction: 
-    audioEl.play();
-
-    // Write out the text for the main Story card: 
-    let storyTxt = "The time is upon...";
-    let i = 0;
-    speed = 30;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            begin2Continue();
+        function typeWriter() {
+            if (i < storyTxt.length) {
+                if (storyTxt.charAt(i) == "*") {
+                    storyContainer.innerHTML += "<br />";
+                }
+                else {
+                    storyContainer.innerHTML += storyTxt.charAt(i);
+                }
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Once the script has been written out, display the user's options: 
+                dmChoices();
+            }
         }
-    }
 
-    typeWriter();
+        typeWriter();
 
-};
-
-// ** CONTINUE: ** 
-let begin2Continue = function () {
-
-    // Create a continue Button
-    let btnContinue = document.createElement('button');
-    btnContinue.classList.add("button", "continuebtn");
-    // btnContinue.setAttribute("id", "continueBtn"); // ADD AN ID FOR STYLING??
-    btnContinue.innerHTML = "Continue";
-    btnContinue.addEventListener('click', begin3, false); 
-
-
-    // Display the card that we initially had hidden: 
-    cardContinue.style.display = "inline";
-    cardContinue.appendChild(btnContinue);
-
-};
-
-// ** BASIC STORYLINE: **
-let begin3 = function () {
-
-    remove();
-
-    // Add points to storage:
-    addToCounter(10); // CHOOSE THE NUMBER OF POINTS TO ADD
-
-    // Write out the text for the main Story card: 
-    let storyTxt = " 'Elden, no one wants...' ";
-    let i = 0;
-    speed = 30;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            begin3Choices();
-        }
-    }
-
-    typeWriter();
-
-};
-
-// ** USER CHOICES: **
-let begin3Choices = function () {
-    let choice1Txt = "Choice One";
-    let choice2Txt = "Choice Two";
-    let i = 0;
-    let t = 0;
-    speed = 50;
-
-    let button1 = document.createElement('button');
-    button1.classList.add("button");
-    button1.innerHTML = "Choice 1";
-    button1.addEventListener('click', mainStory, false); 
-
-    let button2 = document.createElement('button');
-    button2.classList.add("button");
-    button2.innerHTML = "Choice 2";
-    button2.addEventListener('click', beg, false); 
-
-    card1.style.display = "inline";
-
-    function typeWriter() {
-        if (i < choice1Txt.length) {
-            choice1Container.innerHTML += choice1Txt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            card1.appendChild(button1);
-            card2.style.display = "inline";
-            typeWriter2();
-        }
     };
 
-    function typeWriter2() {
-        if (t < choice2Txt.length) {
-            choice2Container.innerHTML += choice2Txt.charAt(t);
-            t++;
-            setTimeout(typeWriter, speed);
-        } else {
-            card2.appendChild(button2);
+    // ** Writing out the two choices: ** 
+    let dmChoices = function () {
+
+        let i = 0;
+        let t = 0;
+        speed = 50;
+
+
+        // Create a button and add Event Listener for Choice 1
+        let button1 = document.createElement('button');
+        button1.classList.add("button");
+        button1.innerHTML = "Choice 1";
+        button1.addEventListener('click', selectionMade, false); // Brings you to function that determines which Double choice you clicked
+
+        // Create a button and add Event Listener for Choice 2
+        let button2 = document.createElement('button');
+        button2.classList.add("button");
+        button2.innerHTML = "Choice 2";
+        button2.addEventListener('click', selectionMade, false); // Brings you to function that determines which Double choice you clicked
+
+        // Display the card that we initially had hidden: 
+        card1.style.display = "inline";
+
+        // Type out Choice 1
+        function typeWriter() {
+            if (i < choice1Txt.length) {
+                if (choice1Txt.charAt(i) == "*") {
+                    choice1Container.innerHTML += "<br />";
+                }
+                else {
+                    choice1Container.innerHTML += choice1Txt.charAt(i);
+                }
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Display the button: 
+                card1.appendChild(button1);
+                // Display the second card and begin displaying Choice 2
+                card2.style.display = "inline";
+                typeWriter2();
+            }
+        };
+
+        // Type out Choice 2
+        function typeWriter2() {
+            if (t < choice2Txt.length) {
+                if (choice2Txt.charAt(t) == "*") {
+                    choice2Container.innerHTML += "<br />";
+                }
+                else {
+                    choice2Container.innerHTML += choice2Txt.charAt(t);
+                }
+                t++;
+                setTimeout(typeWriter2, speed);
+            } else {
+                // Display the button: 
+                card2.appendChild(button2);
+            }
         }
+        typeWriter();
     };
+    dmTypeWriter();
+}
 
-    typeWriter();
-};
+// FUNCTION FOR CLEARING THE SCREEN FOR RE-WRITES: 
+let clearScreen = function () {
 
-// ***************** BEG STORYLINE: *******************
-
-// ** BASIC STORYLINE: **
-let beg = function () {
-
-    remove();
-
-    // Add points to storage:
-    addToCounter(15); // CHOOSE THE NUMBER OF POINTS TO ADD
-
-    // Write out the text for the main Story card: 
-    let storyTxt = "Beg paragraph....";
-    let i = 0;
-    speed = 30;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            begContinue();
-        }
-    }
-
-    typeWriter();
-
-};
-
-// ** CONTINUE: ** 
-let begContinue = function () {
-
-    // Create a continue Button
-    let btnContinue = document.createElement('button');
-    btnContinue.classList.add("button", "continuebtn");
-    // btnContinue.setAttribute("id", "continueBtn"); // ADD AN ID FOR STYLING??
-    btnContinue.innerHTML = "Continue";
-    btnContinue.addEventListener('click', beg2, false); 
-
-
-    // Display the card that we initially had hidden: 
-    cardContinue.style.display = "inline";
-    cardContinue.appendChild(btnContinue);
-
-};
-
-// ** BASIC STORYLINE: **
-let beg2 = function () {
-
-    remove();
-
-    // Write out the text for the main Story card: 
-    let storyTxt = "The bartender rolled... ";
-    let i = 0;
-    speed = 30;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            beg2Choices();
-        }
-    }
-
-    typeWriter();
-
-};
-
-// ** USER CHOICES: **
-let beg2Choices = function () {
-    let choice1Txt = "Choice One";
-    let choice2Txt = "Choice Two";
-    let i = 0;
-    let t = 0;
-    speed = 50;
-
-    let button1 = document.createElement('button');
-    button1.classList.add("button");
-    button1.innerHTML = "Choice 1";
-    button1.addEventListener('click', mainStory, false); 
-
-    let button2 = document.createElement('button');
-    button2.classList.add("button");
-    button2.innerHTML = "Choice 2";
-    button2.addEventListener('click', rumble, false); 
-
-    card1.style.display = "inline";
-
-    function typeWriter() {
-        if (i < choice1Txt.length) {
-            choice1Container.innerHTML += choice1Txt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            card1.appendChild(button1);
-            card2.style.display = "inline";
-            typeWriter2();
-        }
-    };
-
-    function typeWriter2() {
-        if (t < choice2Txt.length) {
-            choice2Container.innerHTML += choice2Txt.charAt(t);
-            t++;
-            setTimeout(typeWriter, speed);
-        } else {
-            card2.appendChild(button2);
-        }
-    };
-
-    typeWriter();
-};
-
-
-// ***************** RUMBLE STORYLINE: *******************
-
-// ** BASIC STORYLINE: **
-let rumble = function () {
-
-    remove();
-
-    // Add points to storage:
-    addToCounter(15); // CHOOSE THE NUMBER OF POINTS TO ADD
-
-    // Write out the text for the main Story card: 
-    let storyTxt = "Rumble paragraph....";
-    let i = 0;
-    speed = 30;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            rumbleContinue();
-        }
-    }
-
-    typeWriter();
-
-};
-
-// ** CONTINUE: ** 
-let rumbleContinue = function () {
-
-    // Create a continue Button
-    let btnContinue = document.createElement('button');
-    btnContinue.classList.add("button", "continuebtn");
-    // btnContinue.setAttribute("id", "continueBtn"); // ADD AN ID FOR STYLING??
-    btnContinue.innerHTML = "Continue";
-    btnContinue.addEventListener('click', rumble2, false); 
-
-
-    // Display the card that we initially had hidden: 
-    cardContinue.style.display = "inline";
-    cardContinue.appendChild(btnContinue);
-
-};
-
-// ** BASIC STORYLINE: **
-let rumble2 = function () {
-
-    remove();
-
-    // Write out the text for the main Story card: 
-    let storyTxt = "'Child, please...'";
-    let i = 0;
-    speed = 30;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            rumble2Continue();
-        }
-    }
-
-    typeWriter();
-
-};
-
-// ** CONTINUE: ** 
-let rumble2Continue = function () {
-
-    // Create a continue Button
-    let btnContinue = document.createElement('button');
-    btnContinue.classList.add("button", "continuebtn");
-    // btnContinue.setAttribute("id", "continueBtn"); // ADD AN ID FOR STYLING??
-    btnContinue.innerHTML = "Continue";
-    btnContinue.addEventListener('click', mainStory, false); 
-
-
-    // Display the card that we initially had hidden: 
-    cardContinue.style.display = "inline";
-    cardContinue.appendChild(btnContinue);
-
-};
-
-
-// ***************** MAIN STORYLINE: *******************
-
-// ** BASIC STORYLINE: **
-let mainStory = function () {
-
-    remove();
-
-    // Add points to storage:
-    addToCounter(10); // CHOOSE THE NUMBER OF POINTS TO ADD
-    
-    // Write out the text for the main Story card: 
-    let storyTxt = "The man stared blankly....";
-    let i = 0;
-    speed = 30;
-
-    function typeWriter() {
-        if (i < storyTxt.length) {
-            storyContainer.innerHTML += storyTxt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Once the script has been written out, display the user's options: 
-            mainContinue();
-        }
-    }
-
-    typeWriter();
-
-};
-
-// ** CONTINUE: ** 
-let mainContinue = function () {
-
-    // Create a continue Button
-    let btnContinue = document.createElement('button');
-    btnContinue.classList.add("button", "continuebtn");
-    // btnContinue.setAttribute("id", "continueBtn"); // ADD AN ID FOR STYLING??
-    btnContinue.innerHTML = "Continue";
-    btnContinue.addEventListener('click', end, false); 
-
-
-    // Display the card that we initially had hidden: 
-    cardContinue.style.display = "inline";
-    cardContinue.appendChild(btnContinue);
-
-};
-
-
-
-
-// ******************* REDIRECT TO NEXT LOCATION ******************
-
-let end = function () {
+    // First, set all of the containers back to empty
     storyContainer.innerHTML = "";
     choice1Container.innerHTML = "";
     choice2Container.innerHTML = "";
     continueContainer.innerHTML = "";
 
-    card1.style.display = "none";
-    card2.style.display = "none";
-    cardContinue.style.display = "none";
-
-    document.location.replace("./village.html")
-};
-
-
-
-// *********************************  REFERENCE FUNCTIONS  *******************************
-
-// REMOVE FUNCTION:
-
-let remove = function () {
-
-    storyContainer.innerHTML = "";
-    choice1Container.innerHTML = "";
-    choice2Container.innerHTML = "";
-    continueContainer.innerHTML = "";
+    // We have to remove the buttons we created or they will just keep piling up each time we run a new function
 
     if (card1.lastElementChild.className == 'button') {
         card1.removeChild(card1.lastElementChild)
@@ -556,15 +358,16 @@ let remove = function () {
     if (card2.lastElementChild.className == 'button') {
         card2.removeChild(card2.lastElementChild)
     }
-
     if (cardContinue.lastElementChild.className == 'button continuebtn') {
         cardContinue.removeChild(cardContinue.lastElementChild)
     }
 
+    // Once again, hide the containers before they're filled
     card1.style.display = "none";
     card2.style.display = "none";
     cardContinue.style.display = "none";
 };
+
 
 // MUSIC PAUSE / PLAY FUNCTION
 
@@ -579,8 +382,7 @@ function togglePlay() {
 
 musicBtn.addEventListener("click", togglePlay);
 
-
-// FUNCTIONS FOR MANAGING TYPEWRITER: 
+// FUNCTION AND EVENT LISTENERS FOR MANAGING TYPEWRITER SPEED: 
 
 let setSpeed = function () {
     speed = 0;
@@ -618,44 +420,22 @@ let retrieveCounter = function () {
 };
 
 
-// FUNCTIONS FOR MANAGING GAME ITEMS IN LOCAL STORAGE: 
+// FUNCTIONS FOR SAVING LOCATION
 
-let initalizeGameObjects = function () {
-    localStorage.setItem("gameObjects", JSON.stringify([]))
+let setRunFunction = function () {
+    localStorage.setItem("runfunctionStory1", JSON.stringify(runFunction));
 };
 
-
-let updateGameObjects = function (gameObjects, gameObject) {
-    if (!gameObjects.includes(gameObject)) {
-        gameObjects.push(gameObject);
-        localStorage.setItem("gameObjects", JSON.stringify(gameObjects));
+let getRunFunction = function () {
+    if (localStorage.getItem("runfunctionStory1") !== null) {
+        return JSON.parse(localStorage.getItem("runfunctionStory1"));
     }
-    return gameObjects;
+    else {
+        return "indexBegin"
+    }
 };
-
-let retrieveGameObjects = function () {
-    return JSON.parse(localStorage.getItem("gameObjects"))
-};
-
 
 
 // **************************** RUN FUNCTIONS AT INITIALIZE: ******************** 
 
-// To start the ball rolling:
 hideInit();
-
-
-// LOCATION BUTTON FUNCTION (previous)
-// let buttonContainer = $("#locationButtons");
-
-// function goToLocation(event) {
-//     let object = $(event.target)
-//     if (object.is( ":button" )) {
-//         window.location.href = `${object["0"].id}.html`
-//     } else {
-//         window.location.href = `${object.parent()["0"].id}.html`
-//     }
-
-// }
-
-// buttonContainer.on("click", "button", goToLocation)
