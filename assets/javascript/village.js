@@ -107,12 +107,17 @@ let runStory = function () {
     clearScreen(); // Each time this runs, first clear the screen
     switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
         case 'vilBegin':
-            storyTxt = 'You enter the village... descriptions'
+            storyTxt = `The night walk through the village  left me with an uneasy feeling that grew in the pit of my stomach. I clenched onto the paper the old man gave to me before I left him. I rubbed my finger back and forth along the seal that had yet to be broken. **
+            There was something about the entire scene that made me question if I had gone mad. I'm still not sure what had prompted me to believe the old man, to take the sealed piece of paper from his hands and store it in the inside pocket of my long coat. What made me believe his madness, believe that I and I alone was the only human that could prevent the end of days. Yet, there I was walking the village streets. They were quieter than usual that night. All the differences added to an eeriness that was covering the world. 
+            `
             singleMessage(); // Run the function to display only one continue button
             runFunction = 'vilBegin2' // Set runFunction to the subsequent "case"... called "next"
             break; // break out of the switch function
         case 'vilBegin2':
-            storyTxt = 'A strange woman stares at you. She beckons and asks you to follow her.'
+            storyTxt = `There came a hushed call from the dark alley, "Psst, you there, come, come here my dearie." I stopped where I was and squinted my eyes trying to see who was hiding in the shadows. **
+
+            "Yes you, come, come here. Come help an old woman in need."
+            `
             choice1Txt = 'You’re too busy. You ignore her and carry on.'
             choice2Txt = 'You agree and follow her.'
             audioEl.play();
@@ -120,33 +125,88 @@ let runStory = function () {
             runFunction = 'vilBeginChoices' // This will be passed in for the case name in selectionMade after everything is written to the screen: to allow for cascading
             break;
         case 'vilEnchanter':
-            storyTxt = 'The woman leads you to a dark shop filled with strange items. There’s a buzz of magic in the air. She tells you she is an enchanter and that she can sense that you are the one who can save the town from some disaster. She asks you to…'
+            storyTxt = `There was something about her voice that called to me. It could have been something that the old man said that made me feel as though it was my duty to help her. I stepped into the alley and although it was hard to see where I was going I followed her voice and silhouette that led me through a doorway. **
+
+            "The little devil got himself stuck again. Stuck beneath the boxes, over there. Can you get him for me?" The old woman asked.**
+
+            The small shop smelled of old books and incense. Trinkets, stones and small boxes were tossed wherever they could fit. I had never seen the small shop and my curiosity peaked. What were these things in the jars, the oils, the herbs.
+            `
             choice1Txt = 'You are surprised, but you agree to help.'
             choice2Txt = 'You are surprised, and you find that you don’t quite trust her. You tell her that you cannot help.'
             doubleMessage();
             runFunction = 'vilEnchanterChoices'
             break;
         case 'vilCompanion':
-            storyTxt = "You help by… She is so grateful that she offers to help with the rest of your quest, if you need any magical assistance. "
+            storyTxt =`“Curious child you are, curious but quiet, go ahead and ask all the questions about the magic that fills this place. Ah, yes, but an ol’ woman like myself can sense things deary, that we can. We know things, and this ol’ woman knows who you are. You are the conscript, the one who will deliver our rest. Aye, I know of you, deary. Come, come with me.”  **
+
+            I heard a soft meow coming from a darkened corner. “He’s stuck in there. Always getting himself into tight places and never able to get out. I’m too old to fight with the devil. Help an ol’ lady will you, sir?” 
+            `
             addToCounter(15)
-            updateGameObjects(gameObjects, "enchanter")
             singleMessage()
             runFunction = 'vilBook'
             break;
         case 'vilBook':
-            storyTxt = 'On your way out, the enchanter points at a small leatherbound book. She tells you that it is a spellbook and will be necessary to what you need to do. Somehow, it feels like the book belongs with you. You take it. {Receive Spellbook.} You flip through the pages… a “holding spell.” It says something about needing “Item”... you think you could find that in a forest...'
-            updateGameObjects(gameObjects, "spellbook")
+            storyTxt = `It was a quick job of moving around a few heavy boxes and opening the lid of the cage. In my mind I questioned if she herself stuck the cat in the cage, then waited around for me to help. I handed her the cat and she smiled a crooked grin. “Come, follow me deary.” **
+
+            I followed her to the far side of the shop, she stopped and pointed her long crooked finger to a ladder that laid propped against a bookshelf. I looked from the bookshelf to the old lady. **
+            
+            "What do you need from up there?" **
+            
+            "You'll know, if you're the one, you'll know."
+            `
             singleMessage()
             runFunction = 'vilMain'
             break;
-        case 'vilMain':
-            storyTxt = 'You continue on into the village square. You…'
-            singleMessage()
+        case 'vilBook2':
+            storyTxt = `I climbed the ladder one step at a time. Looking for something that caught my eye and pulled my attention. There was nothing on the first shelf, the second, the third, the fourth, or the five. I felt like a fool the higher I climbed. Finally, I stopped climbing. A leatherbound book with gold trim seemed to glisten in the little bit of light that filled the room. I grabbed the book from the shelf and headed back down the ladder.**
+
+            “Aye, I see. You are the one! There are great hopes that come from you deary. Come tomorrow before the sun rises you must leave for the forest. Go there, and you will find all you are looking for.” **
+            
+            “But what am I looking for?” I asked. **
+            
+            She smiled, her crooked witch grin and said, “You’ll know deary, you’ll know. Just beware, not all can be trusted. But tonight, tonight deary you have earned mine. When you need me, call, call and I will come.”**
+
+            After leaving the shop I felt more sure about things. About creatures that wake during a warm winter night, and a single human able to defeat the beast. The rest of the walk home was quiet.
+             `
+             singleMessage()
             runFunction = 'vilEnd'
+            break;
+        case 'vilMain':
+            storyTxt = `The walk home through village did not clear my mind or help me make sense of what was supposed to be my destiny. I walked into my home, lit the small lantern that hung by the door and pulled the envelope from my pocket. Exhaustion had consumed my mind and as I sat down at the table, my finger across the seal. If I broke it open and read its content would that be the same as me accepting a contract without knowing the details? **
+
+            A harsh knock came to the door. Startled, I jumped from the chair. “Who’s there?” I asked. **
+            
+            There was no verbal response. Only another knock at the door. **
+            
+            “Who’s there?” I asked again. 
+            `
+            singleMessage()
+            runFunction = 'vilMain2'
+            break;
+        case 'vilMain2':
+            storyTxt = `Again, no voice called back, but instead of the gentle knock like before whoever was on the other side, pounded on the door in anger.**
+
+            I opened the door to find the old hag from the alley. She was hunched over and the hood of her cloak covered most of her face. “Rude, rude children you all are. No consideration for an ol’ lady, no none.  Can’t even help an old lady get a book from a shelf? No, of course not. Why would you? I’m just an ol’ hag, huh? Yes, yes, deary, I know your thoughts. I know just what you are thinking. Here,” she said, shoving the book into my chest. The force behind the woman’s shove left a bruise where she slammed the book against my skin. “Take the damn thing.”**
+            
+            I clutched the book to my chest, and watched her limp away. I wanted to call out, say something, anything. I wanted answers. I wanted to know the right choice to make **
+            
+            “No, no, no.” she called out as she walked. “Thinkin about asking an old woman for help when you can’t even help her get a book off a shelf. Well, this woman, she aint got no help for you, no she don’t.” `
+            singleMessage()
+            runFunction = 'vilMain3'
+            break;
+        case 'vilMain3': 
+            storyTxt = `I closed the door, and sat down at the table. Staring at the envelope my mind battled between opening it or tossing it into the fire. The old man told me the option was mine. 
+        `
+        choice1Txt = 'Accept the quest'
+        choice2Txt = `burn it in fire`
+            doubleMessage()
+            runFunction = 'vilFinalChoices'
             break;
         case 'vilEnd':
             window.location.href = './forest.html'
             break;
+        case 'vilEndStory':
+            window.location.href = './mountain.html'
     }
 }
 
@@ -166,7 +226,15 @@ let selectionMade = function (event) {  // pass in button that was clicked
                 runFunction = 'vilCompanion'
             }
             else {
-                runFunction = 'vilBook'
+                runFunction = 'vilMain'
+            }
+            break;
+        case 'vilFinalChoices':
+            if (event.target.innerText === 'Choice 1'){// get value of that button
+                runFunction = 'vilEnd'
+            } 
+            else {
+                runFunction = 'vilEndStory'
             }
             break;
     }
