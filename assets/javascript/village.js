@@ -70,11 +70,11 @@ let getImage = function () {
                     getMusic();
                 });
             } else {
-                alert('Error: ' + response.statusText);
+                console.log('Error: ' + response.statusText);
             }
         })
         .catch(function (error) {
-            alert('Unable to connect to API');
+            console.log('Unable to connect to API');
         });
 
 };
@@ -137,7 +137,7 @@ let runStory = function () {
             runFunction = 'vilEnchanterChoices'
             break;
         case 'vilCompanion':
-            storyTxt =`“Curious child you are, curious but quiet, go ahead and ask all the questions about the magic that fills this place. Ah, yes, but an ol’ woman like myself can sense things deary, that we can. We know things, and this ol’ woman knows who you are. You are the conscript, the one who will deliver our rest. Aye, I know of you, deary. Come, come with me.”  **
+            storyTxt = `“Curious child you are, curious but quiet, go ahead and ask all the questions about the magic that fills this place. Ah, yes, but an ol’ woman like myself can sense things deary, that we can. We know things, and this ol’ woman knows who you are. You are the conscript, the one who will deliver our rest. Aye, I know of you, deary. Come, come with me.”  **
 
             I heard a soft meow coming from a darkened corner. “He’s stuck in there. Always getting himself into tight places and never able to get out. I’m too old to fight with the devil. Help an ol’ lady will you, sir?” 
             `
@@ -168,7 +168,7 @@ let runStory = function () {
 
             After leaving the shop I felt more sure about things. About creatures that wake during a warm winter night, and a single human able to defeat the beast. The rest of the walk home was quiet.
              `
-             singleMessage()
+            singleMessage()
             runFunction = 'vilEnd'
             break;
         case 'vilMain':
@@ -194,11 +194,11 @@ let runStory = function () {
             singleMessage()
             runFunction = 'vilMain3'
             break;
-        case 'vilMain3': 
+        case 'vilMain3':
             storyTxt = `I closed the door, and sat down at the table. Staring at the envelope my mind battled between opening it or tossing it into the fire. The old man told me the option was mine. 
         `
-        choice1Txt = 'Accept the quest'
-        choice2Txt = `burn it in fire`
+            choice1Txt = 'Accept the quest'
+            choice2Txt = `burn it in fire`
             doubleMessage()
             runFunction = 'vilFinalChoices'
             break;
@@ -230,9 +230,9 @@ let selectionMade = function (event) {  // pass in button that was clicked
             }
             break;
         case 'vilFinalChoices':
-            if (event.target.innerText === 'Choice 1'){// get value of that button
+            if (event.target.innerText === 'Choice 1') {// get value of that button
                 runFunction = 'vilEnd'
-            } 
+            }
             else {
                 runFunction = 'vilEndStory'
             }

@@ -65,11 +65,11 @@ let getImage = function () {
                     getMusic();
                 });
             } else {
-                alert('Error: ' + response.statusText);
+                console.log('Error: ' + response.statusText);
             }
         })
         .catch(function (error) {
-            alert('Unable to connect to API');
+            console.log('Unable to connect to API');
         });
 };
 
@@ -341,7 +341,7 @@ let getRunFunction = function () {
 let determineWin = function () {
 
     let finalPoints = retrieveCounter()
-    if (finalPoints > 30 ) {
+    if (finalPoints > 30) {
         runFunction = "win"
         runStory(runFunction);
 
