@@ -139,7 +139,7 @@ let runStory = function () {
             runFunction = 'win7'
             break;
         case 'win7':
-            storyTxt = `You have saved the land from Fraener’s wrath. Just how it always happens, those who doubted the most are the ones to most loudly praise the destruction of the dragon. The celebrations go on for weeks — you at the center. The land rests easy, safe in the knowledge that a great danger has passed. ** 
+            storyTxt = `You have saved the land from Fraener’s wrath. Just how it always happens, those who doubted the most are the ones to most loudly praise the destruction of the dragon. The celebrations go on for weeks — you at the center. The land rests easy, safe in the knowledge that a great danger has passed. *** 
 
             And yet, Fraener’s knowing eyes will forever haunt you, those eyes of blitz and chaos.`
             singleMessage();
@@ -164,7 +164,7 @@ let runStory = function () {
             runFunction = 'lost4'
             break;
         case 'lost4':
-            storyTxt = `In the end, you are helpless, and so, too, is the world. **
+            storyTxt = `In the end, you are helpless, and so, too, is the world. ***
 
             You end in blitz and chaos.`
             singleMessage()

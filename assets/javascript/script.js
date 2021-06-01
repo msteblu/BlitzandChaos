@@ -108,7 +108,7 @@ let runStory = function () {
     clearScreen(); // Each time this runs, first clear the screen
     switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
         case 'indexBegin':
-            storyTxt = `"When the days become warmer, the nights become darker. In those dark nights things. . . monstrous things wake. Now, some people say this is just folklore; a tale to tell for metaphorical reasons, or perhaps just to pass the time. Those are the lucky ones, the ones who got to live their lives in peace, never seeing the darkest of nights filled with smoke, flames and death. I am an old man. Very old, indeed. I have seen too much of those things I care not to remember. Those of us who survived that dark night remember the death and destruction of everything we loved and with that we remember the vow we made: to survive long enough to stop the next blitz and chaos. `
+            storyTxt = `"When the days become warmer, the nights become darker. In those dark nights things. . . monstrous things. . . wake. Now, some people say this is just folklore; a tale to tell for metaphorical reasons, or perhaps just to pass the time. Those are the lucky ones, the ones who got to live their lives in peace, never seeing the darkest of nights filled with smoke, flames, and death. I am an old man. Very old, indeed. I have seen too much of those things I care not to remember. Those of us who survived that dark night remember the death and destruction of everything we loved, and with that, we remember the vow we made: to survive long enough to stop the next blitz and chaos." `
             singleMessage(); // Run the function to display only one continue button
             runFunction = 'indexBegin2' // Set runFunction to the subsequent "case"
             break; // break out of the switch function
@@ -137,7 +137,7 @@ let runStory = function () {
         case 'indexBeg2':
             storyTxt = `The bartender rolled his eyes and grabbed a broom. For him it was just another night working in the tavern. **
 
-            The old man turned towards me. Then forced his hands on my shoulders. “I am not a fool, I am a drunk, yes; but not a fool. I know the words I speak, and what they mean. The choice is yours. Save the world or watch it burn. 
+            The old man turned towards me. Then he forced his hands on my shoulders. “I am not a fool, I am a drunk, yes; but not a fool. I know the words I speak, and what they mean. The choice is yours. Save the world or watch it burn." 
             `
             choice1Txt = '"What do you want from me, old man?"'
             choice2Txt = 'Finish the drink and walk out of the tavern.'
@@ -145,20 +145,20 @@ let runStory = function () {
             runFunction = 'indexBegChoices'
             break;
         case 'indexRumble':
-            storyTxt = `I took his hands from my shoulders. Drank the rest of my ale and left the man where he stood. What an old fool he was. He can claim he wasn’t. I know a fool when I see one. I’ve heard those stories before. I can’t recall where, but I have heard of them. The night was warm and the smell of autumn was lingering in the air. I stopped for a moment, taking in a breath. My exhaustion was getting the better of me. Long days and sleepless nights have a way to make people feel constricted. As though they are destined to live a linear path that forces you somewhere you don’t want to be. But that breath, that fresh air always found a way to release all the chains bound to me.`
+            storyTxt = `I took his hands from my shoulders. Drank the rest of my ale and left the man where he stood. What an old fool he was. He can claim he wasn’t. I know a fool when I see one. I’ve heard those stories before. I can’t recall where, but I have heard of them. The night was warm and the smell of autumn was lingering in the air. I stopped for a moment, taking in a breath. My exhaustion was getting the better of me. Long days and sleepless nights have a way to make people feel constricted. As though they are destined to live a linear path that forces you somewhere you don’t want to be. But that breath, that fresh air, always found a way to release all the chains bound to me.`
             singleMessage()
             addToCounter(5)
             runFunction = 'indexRumble2'
             break;
         case 'indexRumble2':
-            storyTxt = `“Child, please one last time, let me beg you. Listen to me. Please!” His voice called from the doorway of the tavern. I turned towards him, and as I did the ground beneath me began to rumble. The trees swayed furiously, the lanterns shook from their chains and shattered on the dirt beneath them. The night became darker.`
+            storyTxt = `“Child, please, one last time, let me beg you. Listen to me. Please!” His voice called from the doorway of the tavern. I turned towards him, and as I did the ground beneath me began to rumble. The trees swayed furiously, the lanterns shook from their chains and shattered on the dirt beneath them. The night became darker.`
             singleMessage()
             runFunction = 'indexMain'
             break;
         case 'indexMainIntro':
-            storyTxt = `“Jack, pour us another drink! This ones on me.” Elden said, his voice bellowed cheerfully. **
+            storyTxt = `“Jack, pour us another drink! This ones on me.” Elden's voice bellowed cheerfully. **
 
-            “Only if you take it with you. I’ve told you no more of your stories in here. The last one cost me five broken stools, two broken tables and poor Johnny nearly lost an eye and broke his nose. I lost a good customer that night, Elden and you will owe me.” **
+            “Only if you take it with you. I’ve told you no more of your stories in here. The last one cost me five broken stools, two broken tables, and poor Johnny nearly lost an eye and broke his nose. I lost a good customer that night, Elden, and you will owe me.” **
             
             “I paid you the cost for the stools and tables. Besides that lousy scum bucket was sticking his fat nose where it doesn’t belong.” **
             
@@ -169,9 +169,9 @@ let runStory = function () {
             runFunction = 'indexMain'
             break;
         case 'indexMain':
-            storyTxt = `The man stared blankly. Thinking for a moment before he spoke, “You are the conscript. The only one alive who can put the beast to his final resting place. There will be trials, but I promise, you will not be alone. The elders who still live hold the vow that will help you to finish your task. Do keep the knowledge, child, not all can be trusted. There has always been evil in the world and evil will always be incessant. But believe me when I say, you are the only one who can save us all.” **
+            storyTxt = `The man stared blankly, thinking for a moment before he spoke. “You are the conscript. The only one alive who can put the beast to his final resting place. There will be trials, but I promise, you will not be alone. The elders who still live hold the vow that will help you to finish your task. Do keep the knowledge, child, not all can be trusted. There has always been evil in the world and evil will always be incessant. But believe me when I say, you are the only one who can save us all.” **
             
-            The man moved his eyes from left to right as though he was ensuring no one was watching. He pulled an envelope from the inside of his cloak, “Take this, take this and do not open it until you are home. Keep it safe, child. Keep it safe and you will always find what you are looking for.  
+            The man moved his eyes from left to right as though he was ensuring no one was watching. He pulled an envelope from the inside of his cloak, “Take this, take this, and do not open it until you are home. Keep it safe, child. Keep it safe and you will always find what you are looking for.  
             `
 
             singleMessage()

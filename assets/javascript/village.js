@@ -129,7 +129,7 @@ let runStory = function () {
 
             "The little devil got himself stuck again. Stuck beneath the boxes, over there. Can you get him for me?" The old woman asked.**
 
-            The small shop smelled of old books and incense. Trinkets, stones and small boxes were tossed wherever they could fit. I had never seen the small shop and my curiosity peaked. What were these things in the jars, the oils, the herbs.
+            The small shop smelled of old books and incense. Trinkets, stones, and small boxes were tossed wherever they could fit. I had never seen the small shop and my curiosity peaked. What were these things in the jars, the oils, the herbs?
             `
             choice1Txt = 'You are surprised, but you agree to help.'
             choice2Txt = 'You are surprised, and you find that you don’t quite trust her. You tell her that you cannot help.'
@@ -149,7 +149,7 @@ let runStory = function () {
         case 'vilBook':
             storyTxt = `It was a quick job of moving around a few heavy boxes and opening the lid of the cage. In my mind I questioned if she herself stuck the cat in the cage, then waited around for me to help. I handed her the cat and she smiled a crooked grin. “Come, follow me deary.” **
 
-            I followed her to the far side of the shop, she stopped and pointed her long crooked finger to a ladder that laid propped against a bookshelf. I looked from the bookshelf to the old lady. **
+            I followed her to the far side of the shop. She stopped and pointed her long crooked finger to a ladder that laid propped against a bookshelf. I looked from the bookshelf to the old lady. **
             
             "What do you need from up there?" **
             
@@ -160,13 +160,13 @@ let runStory = function () {
             runFunction = 'vilBook2'
             break;
         case 'vilBook2':
-            storyTxt = `I climbed the ladder one step at a time. Looking for something that caught my eye and pulled my attention. There was nothing on the first shelf, the second, the third, the fourth, or the five. I felt like a fool the higher I climbed. Finally, I stopped climbing. A leatherbound book with gold trim seemed to glisten in the little bit of light that filled the room. I grabbed the book from the shelf and headed back down the ladder.**
+            storyTxt = `I climbed the ladder one step at a time. Looking for something that caught my eye and pulled my attention. There was nothing on the first shelf, the second, the third, the fourth, or the fifth. I felt like a fool the higher I climbed. Finally, I stopped climbing. A leatherbound book with gold trim seemed to glisten in the little bit of light that filled the room. I grabbed the book from the shelf and headed back down the ladder.**
 
             “Aye, I see. You are the one! There are great hopes that come from you deary. Come tomorrow before the sun rises you must leave for the forest. Go there, and you will find all you are looking for.” **
             
             “But what am I looking for?” I asked. **
             
-            She smiled, her crooked witch grin and said, “You’ll know deary, you’ll know. Just beware, not all can be trusted. But tonight, tonight deary you have earned mine. When you need me, call, call and I will come.”**
+            She smiled her crooked witch grin and said, “You’ll know deary, you’ll know. Just beware, not all can be trusted. But tonight, tonight deary you have earned mine. When you need me, call, call and I will come.”**
 
             After leaving the shop I felt more sure about things. About creatures that wake during a warm winter night, and a single human able to defeat the beast. The rest of the walk home was quiet.
              `
@@ -174,7 +174,7 @@ let runStory = function () {
             runFunction = 'vilMain3'
             break;
         case 'vilMain':
-            storyTxt = `The walk home through village did not clear my mind or help me make sense of what was supposed to be my destiny. I walked into my home, lit the small lantern that hung by the door and pulled the envelope from my pocket. Exhaustion had consumed my mind and as I sat down at the table, my finger across the seal. If I broke it open and read its content would that be the same as me accepting a contract without knowing the details? **
+            storyTxt = `The walk home through village did not clear my mind or help me make sense of what was supposed to be my destiny. I walked into my home, lit the small lantern that hung by the door and pulled the envelope from my pocket. Exhaustion had consumed my mind and as I sat down at the table, my finger slid across the seal. If I broke it open and read its content, would that be the same as me accepting a contract without knowing the details? **
 
             A harsh knock came to the door. Startled, I jumped from the chair. “Who’s there?” I asked. **
             
@@ -186,7 +186,7 @@ let runStory = function () {
             runFunction = 'vilMain2'
             break;
         case 'vilMain2':
-            storyTxt = `Again, no voice called back, but instead of the gentle knock like before whoever was on the other side, pounded on the door in anger.**
+            storyTxt = `Again, no voice called back, but instead of the gentle knock like before, whoever was on the other side pounded on the door in anger.**
 
             I opened the door to find the old hag from the alley. She was hunched over and the hood of her cloak covered most of her face. “Rude, rude children you all are. No consideration for an ol’ lady, no none.  Can’t even help an old lady get a book from a shelf? No, of course not. Why would you? I’m just an ol’ hag, huh? Yes, yes, deary, I know your thoughts. I know just what you are thinking. Here,” she said, shoving the book into my chest. The force behind the woman’s shove left a bruise where she slammed the book against my skin. “Take the damn thing.”**
             
@@ -200,7 +200,7 @@ let runStory = function () {
             storyTxt = `I closed the door to my home and sat down at the table. Staring at the envelope my mind battled between opening it or tossing it into the fire. The old man told me the option was mine. 
         `
             choice1Txt = 'Accept the quest'
-            choice2Txt = `burn it in fire`
+            choice2Txt = `Burn it in fire`
             doubleMessage()
             runFunction = 'vilFinalChoices'
             break;
