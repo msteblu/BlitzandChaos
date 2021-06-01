@@ -131,7 +131,8 @@ let runStory = function () {
         case 'indexBeg':
             storyTxt = `“If you don’t heed my advice everything will soon become fire and ash. Everyone! Everything! Destroyed! Do you hear me? Everyone! Everything!” The old man jumped from his chair, knocking the glass to the floor. The entire tavern fell silent, but only for a second. After the glass shattered and sprawled across the floor, all the people sitting in their stools and standing around the wooden tables continued their conversations, filling the room with noise and laughter. It was as though the man standing was just another drunk in a tavern on a late, warm winter's night. `
             singleMessage()
-            runFunction = 'indexBeg2'
+            addToCounter(5)
+            runFunction = 'indexBeg2'            
             break;
         case 'indexBeg2':
             storyTxt = `The bartender rolled his eyes and grabbed a broom. For him it was just another night working in the tavern. **
@@ -146,6 +147,7 @@ let runStory = function () {
         case 'indexRumble':
             storyTxt = `I took his hands from my shoulders. Drank the rest of my ale and left the man where he stood. What an old fool he was. He can claim he wasn’t. I know a fool when I see one. I’ve heard those stories before. I can’t recall where, but I have heard of them. The night was warm and the smell of autumn was lingering in the air. I stopped for a moment, taking in a breath. My exhaustion was getting the better of me. Long days and sleepless nights have a way to make people feel constricted. As though they are destined to live a linear path that forces you somewhere you don’t want to be. But that breath, that fresh air always found a way to release all the chains bound to me.`
             singleMessage()
+            addToCounter(5)
             runFunction = 'indexRumble2'
             break;
         case 'indexRumble2':
@@ -162,7 +164,8 @@ let runStory = function () {
             
             Jack shook his head and pulled a half empty bottle of whiskey from the top shelf. He poured with one hand and pointed towards the door with the other, “Doesn’t matter, outside.”
             `
-            singleMessage()
+            singleMessage();
+            addToCounter(5);
             runFunction = 'indexMain'
             break;
         case 'indexMain':
@@ -172,6 +175,7 @@ let runStory = function () {
             `
 
             singleMessage()
+            addToCounter(15)
             runFunction = 'indexEnd'
             break;
         case 'indexEnd':

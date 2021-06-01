@@ -341,7 +341,7 @@ let getRunFunction = function () {
 let determineWin = function () {
 
     let finalPoints = retrieveCounter()
-    if (finalPoints > 30) {
+    if (finalPoints > 45) {
         runFunction = "win"
         runStory(runFunction);
 
