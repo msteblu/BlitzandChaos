@@ -133,6 +133,7 @@ let runStory = function () {
             `
             choice1Txt = 'You are surprised, but you agree to help.'
             choice2Txt = 'You are surprised, and you find that you don’t quite trust her. You tell her that you cannot help.'
+            addToCounter(5);
             doubleMessage();
             runFunction = 'vilEnchanterChoices'
             break;
@@ -155,6 +156,7 @@ let runStory = function () {
             "You'll know, if you're the one, you'll know."
             `
             singleMessage()
+            addToCounter(25)
             runFunction = 'vilMain'
             break;
         case 'vilBook2':
@@ -215,6 +217,7 @@ let selectionMade = function (event) {  // pass in button that was clicked
     switch (runFunction) { // pass in the name of runFunction (which we set up in runStory)
         case 'vilBeginChoices':
             if (event.target.innerText === 'Choice 1') { // get value of that button
+                subtractFromCounter(10)
                 runFunction = 'vilMain' //set to a new "case"
             }
             else {
@@ -234,6 +237,7 @@ let selectionMade = function (event) {  // pass in button that was clicked
                 runFunction = 'vilEnd'
             }
             else {
+                subtractFromCounter(50);
                 runFunction = 'vilEndStory'
             }
             break;
