@@ -157,7 +157,7 @@ let runStory = function () {
             `
             singleMessage()
             addToCounter(25)
-            runFunction = 'vilMain'
+            runFunction = 'vilBook2'
             break;
         case 'vilBook2':
             storyTxt = `I climbed the ladder one step at a time. Looking for something that caught my eye and pulled my attention. There was nothing on the first shelf, the second, the third, the fourth, or the five. I felt like a fool the higher I climbed. Finally, I stopped climbing. A leatherbound book with gold trim seemed to glisten in the little bit of light that filled the room. I grabbed the book from the shelf and headed back down the ladder.**
@@ -171,7 +171,7 @@ let runStory = function () {
             After leaving the shop I felt more sure about things. About creatures that wake during a warm winter night, and a single human able to defeat the beast. The rest of the walk home was quiet.
              `
             singleMessage()
-            runFunction = 'vilEnd'
+            runFunction = 'vilMain3'
             break;
         case 'vilMain':
             storyTxt = `The walk home through village did not clear my mind or help me make sense of what was supposed to be my destiny. I walked into my home, lit the small lantern that hung by the door and pulled the envelope from my pocket. Exhaustion had consumed my mind and as I sat down at the table, my finger across the seal. If I broke it open and read its content would that be the same as me accepting a contract without knowing the details? **
@@ -197,7 +197,7 @@ let runStory = function () {
             runFunction = 'vilMain3'
             break;
         case 'vilMain3':
-            storyTxt = `I closed the door, and sat down at the table. Staring at the envelope my mind battled between opening it or tossing it into the fire. The old man told me the option was mine. 
+            storyTxt = `I closed the door to my home and sat down at the table. Staring at the envelope my mind battled between opening it or tossing it into the fire. The old man told me the option was mine. 
         `
             choice1Txt = 'Accept the quest'
             choice2Txt = `burn it in fire`
