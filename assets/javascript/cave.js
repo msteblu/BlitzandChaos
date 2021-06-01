@@ -21,19 +21,28 @@ let leaveCave = false;
 let choices = false;
 let mainLine = false;
 let choiceFinished = false;
-
-if (JSON.parse(localStorage.getItem("loading")) === true) {
-    var textNum = JSON.parse(localStorage.getItem("saveSpot")).textnum;
-    var currentLocation = JSON.parse(localStorage.getItem("saveSpot")).location;
-    var currentPoints = JSON.parse(localStorage.getItem("saveSpot")).currentpoints;
-    var branch = JSON.parse(localStorage.getItem("saveSpot")).branch;
-    localStorage.setItem("loading", JSON.stringify(false));
-} else {
+if (JSON.parse(localStorage.getItem("runfunctionStory4")) === null) {
     var textNum = 0;
-    var currentLocation = "cave"
-    var currentPoints = 0;
-    var branch = 0;
+    var branch = 0
+} else {
+    var textNum = JSON.parse(localStorage.getItem("runfunctionStory4"))[0]
+    var branch = JSON.parse(localStorage.getItem("runfunctionStory4"))[1]
 }
+if (textNum === 14) {
+    window.location.href = "mountain.html"
+}
+// if (JSON.parse(localStorage.getItem("loading")) === true) {
+//     var textNum = JSON.parse(localStorage.getItem("saveSpot")).textnum;
+//     var currentLocation = JSON.parse(localStorage.getItem("saveSpot")).location;
+//     var currentPoints = JSON.parse(localStorage.getItem("saveSpot")).currentpoints;
+//     var branch = JSON.parse(localStorage.getItem("saveSpot")).branch;
+//     localStorage.setItem("loading", JSON.stringify(false));
+// } else {
+//     var textNum = 0;
+//     var currentLocation = "cave"
+//     var currentPoints = 0;
+//     var branch = 0;
+// }
 option1.text("continue")
 option2.parent().css({ "display": "none" })
 
@@ -69,9 +78,9 @@ fetch("https://freesound.org/apiv2/sounds/343741?token=qz79q7DsbN3veU3EUNMHVH0GB
         })
     })
 
-function saveHere() {
-    localStorage.setItem("saveSpot", JSON.stringify({ "location": currentLocation, "textnum": textNum, "branch": branch, "currentpoints": currentPoints }))
-}
+// function saveHere() {
+//     localStorage.setItem("saveSpot", JSON.stringify({ "location": currentLocation, "textnum": textNum, "branch": branch, "currentpoints": currentPoints }))
+// }
 
 function typeWriter() {
     run = true;
@@ -129,6 +138,7 @@ function choiceTypeWriter() {
 function choice(event) {
     let object = $(event.target);
     if (finished === false && option1.text() === "continue") {
+        audioEl.play()
         clearTimeout(myVar);
         finished = true;
         charNum = 0;
@@ -159,6 +169,7 @@ function choice(event) {
         } else {
             if (branch === 0) {
                 if (textNum === 0 && finished && choiceFinished) {
+                    audioEl.play()
                     textNum++;
                     if (object[0].id === "one") {
                         run = false;
@@ -337,28 +348,29 @@ function choice(event) {
                     option2.parent().css({ "display": "none" });
                 }
             }
+            localStorage.setItem("runfunctionStory4", JSON.stringify([textNum, branch]))
         }
     }
 }
 
-menuBtn.on("click", function (event) {
-    $(event.target).parent().css({ "display": "none" })
-    $(event.target).parent().siblings().eq(0).css({ "display": "block" })
-})
+// menuBtn.on("click", function (event) {
+//     $(event.target).parent().css({ "display": "none" })
+//     $(event.target).parent().siblings().eq(0).css({ "display": "block" })
+// })
 
-menuEl.on("click", "div", function (event) {
-    if ($(event.target).text() === "Save") {
-        saveHere()
-    } else if ($(event.target).text() === "Close Menu") {
-        menuBtn.css({ "display": "block" })
-        $(event.target).parent().parent().parent().css({ "display": "none" })
-    } else if ($(event.target).text() === "Load Save") {
-        menuBtn.css({ "display": "block" })
-        $(event.target).parent().parent().parent().css({ "display": "none" })
-        localStorage.setItem("loading", JSON.stringify(true))
-        window.location.href = `${JSON.parse(localStorage.getItem("saveSpot")).location}.html`
-    }
-})
+// menuEl.on("click", "div", function (event) {
+//     if ($(event.target).text() === "Save") {
+//         saveHere()
+//     } else if ($(event.target).text() === "Close Menu") {
+//         menuBtn.css({ "display": "block" })
+//         $(event.target).parent().parent().parent().css({ "display": "none" })
+//     } else if ($(event.target).text() === "Load Save") {
+//         menuBtn.css({ "display": "block" })
+//         $(event.target).parent().parent().parent().css({ "display": "none" })
+//         localStorage.setItem("loading", JSON.stringify(true))
+//         window.location.href = `${JSON.parse(localStorage.getItem("saveSpot")).location}.html`
+//     }
+// })
 
 function deadEnd() {
     if (textNum === 0 && run === false) {
@@ -479,6 +491,6 @@ function main() {
 
 let interval = setInterval(main, 250);
 
-$(function () {
-    $("#menu").menu();
-});
+// $(function () {
+//     $("#menu").menu();
+// });
