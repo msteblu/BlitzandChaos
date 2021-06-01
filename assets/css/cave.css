@@ -82,6 +82,10 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.navbar {
+    height: 50px;
+}
+
 #menuDiv {
     width: 150px;
 }
