@@ -284,7 +284,9 @@ let singleMessage = function () {
         btnContinue.addEventListener('click', runStory, true);  // on click, move to the next Storyline (enterVillage)
         // Display the card that we initially had hidden: 
         cardContinue.style.display = "inline";
+        cardContinue.style.backgroundColor = 'black';
         cardContinue.appendChild(btnContinue);
+
 
     };
     smTypeWriter();
