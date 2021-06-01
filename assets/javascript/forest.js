@@ -105,40 +105,156 @@ let runStory = function () {
     clearScreen(); // Each time this runs, first clear the screen
     switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
         case 'forBegin':
-            storyTxt = 'When days become warmer, the nights become more dark. Things, monstrous creatures wake. Now, some people say this is just folklore; a tale to tell for metaphorical reasons, or perhaps just to pass the time. Those are the lucky ones who got to live their lives in peace, never seeing the darkest of nights filled with smoke, flames and death. I am an old man. There are few of us left who have witnessed the death and destruction of everything we once loved. And the time is upon us again, child. The time has come for Fraener to fly again. He has waited patiently for this day. Sleeping in his cave beneath the mountains. It is said that this time nothing will survive his flames.'
+            storyTxt = `The wind against my face was cold. Cold, yet warmer than it should have been for that time of year. The village ground should have been covered in snow, and yet the leaves were still changing and taking their time to fall.**
+
+            As instructed, I left the next morning before the sun had a chance to rise. The pack I carried contained a few things, some food, water, a few pairs of clothes, the book from the old woman and the now unsealed envelope. The third elder lived somewhere deep within the forest. Where exactly was unknown. Something was telling me I would find my way, I had to. Getting lost or losing my way was not an option. Time was moving and with each passing second the wakening of Fraener was drawing closer. I moved swiftly, I wanted to keep warm, and the other part of me wanted to get to where I needed to be. But where was that? 
+            `
             singleMessage(); // Run the function to display only one continue button
+            
             runFunction = 'forBegin2' // Set runFunction to the subsequent "case"... called "next"
             break; // break out of the switch function
-        case 'forBegin2':
-            storyTxt = 'Even with the sun out the forest is dark, but light beams down through the trees onto the path. After walking there is a fork in the path with a sign...'
-            choice1Txt = 'You take the left.'
-            choice2Txt = 'You take the right.'
+        case 'forBegin2': 
+            storyTxt = `Stopping for a moment at the edge of the forest, I analyzed the dirt path that was dry and dusty with green grass still around its edges. The sun was finally rising and slowly making its way over the dense forest. I closed my eyes and prayed that something would guide me. The forest was not known for its kindness, more so to strangers who never wander through the trees.  **
+
+            A shaking came from deep beneath the ground. **
+            
+            I held my stance firm to keep from falling over and watched the roots of the trees because I was too scared to look up. Were the trees going to crash to the ground? The sky fall from up above me? Would I look up to see a beast with a wing span the size of a fully grown sequoia tree? Oh, the stupid thoughts. Yet, there I was, standing, just waiting for the rumbling to stop. 
+             `
             audioEl.play();
+            singleMessage()
+            
+            runFunction = `forBegin3`
+            break;
+        case 'forBegin3':
+            storyTxt = `The first few steps were disorienting. More so with the ground still moving, but something was pushing me towards the forest, telling me it was time to go. Not a second more could be wasted with just standing and waiting. So I walked, even though I truly felt the need to crawl. **
+
+            The ground stopped moving as I passed the beginning edge of the forest. Thank the gods, so did the dizziness that came with the movement. **
+            
+            Even with the sun creeping into the sky, beneath the trees was still dark. I wondered if light ever reached this far below the top of the trees. To be honest, I couldn’t control my thoughts. They were scattered.  I still believe it was a way for my brain to fight the fear of what was to come.**
+            
+            The path in the forest widened through the trees and shrubs. A sign appeared on the path with arrows pointing in two directions. 
+            `
+            choice1Txt = `To the River`
+            choice2Txt = `To the Deep Forest`            
             doubleMessage();
+            addToCounter(15)
             runFunction = 'forBeginChoices' // This will be passed in for the case name in selectionMade after everything is written to the screen: to allow for cascading
             break;
-        case 'forLeft':
-            storyTxt = 'There is a shack.'
-            choice1Txt = 'You knock.'
-            choice2Txt = 'You continue on.'
-            addToCounter(5)
+        case 'theRiver':
+            storyTxt = `Trees became less dense the further I walked. The grass on the other hand was overgrown and taking over small to large sections of the path.  A small stream flowed from a hill. It weaved itself between the deep rooted shrubs and trees. **
+
+            The stream and I followed the same path that eventually led us to the river. The sound of the water crashing along the banks made me more cold than I already was. I imagined myself sitting at home, next to a warm fire that I always built in the fireplace on cold days. The wind gushed back and forth making me wish I would have followed the other path into the deep forest. I didn’t, though. Instead, I was still waiting for the sun to warm the sky just enough so I could sit on the ground and eat the small meal I had stashed away in my bag. 
+             `
+            singleMessage()
+            addToCounter(15)
+            runFunction = 'theRiver2'
+            break;
+        case 'theRiver2':
+            storyTxt = `The walk along the river gave me peace. The sound of rushing water washed away all the bad, and as the sun warmed the ground the walk became more enjoyable. When the sun reached the high peak, I found a large boulder next to the river and sat for a moment, pulling out the sandwich I made and watching the world around me. **
+
+            The birds whistled, the squirrels jumped from tree to tree, and a mama bear and her cubs went down to the river for their lunch time fishing. 
+            `
+            singleMessage();
+            runFunction = 'theRiver3'
+            break;
+        case 'theRiver3': 
+            storyTxt = `I pulled the book from my bag and flipped the pages to the back of the book to a page that contained a map of the forest. The path that runs by the river was a longer way to the blacksmith's cottage. It was better to take the time to keep from going through the deep woods. It was said to be safer for travel. **
+
+            After making sure I was on the right path I packed up all my things and again started down the path. 
+            `
+            singleMessage();
+            runFunction ='forMain'
+            break;
+        case 'deepForest':
+            storyTxt = `The path was a straight incline up the small mountain. The cold didn't feel so bad as my body worked to get to the top. As it grew steeper wooden stairs came into view making the climb a little easier. ** 
+
+            I reached the top and took a small break. The creatures of the forest were watching my every move. I could feel their eyes on me, watching, waiting. They wanted me to step off the path. See, it is said that a long time ago the witch casted a spell along the paths in the forest. A protection spell of sorts. Any creature that came along the path to do harm, would suffer a horrible death. I don’t know the truth of that story, but as I walked I chose to believe it. The thought gave me comfort. 
+            `
+            singleMessage()
+            runFunction = 'deepForest2'
+            break;
+        case 'deepForest2':
+            storyTxt = 'A few hours in I could feel the hunger kicking in. And down the path a ways was a lake, a nice like just off the path that I could stop at, enjoy a nice lunch. I debated in my mind on if I should keep pressing on, or stop for a short break.'
+            choice1Txt = `Stop for a short break`
+            choice2Txt = `Continue through the forest`
             doubleMessage();
-            runFunction = 'forLeftChoices'
+            runFunction ='demonsOrMain'
             break;
-        case 'forCompanion':
-            storyTxt = "A man opens the door of the shack."
-            addToCounter(5)
-            singleMessage()
-            runFunction = 'forTorch'
+        case 'demonsAtTheLake': 
+            storyTxt = `I found a spot right off the path, perfect for sitting and viewing the lake. I pulled out the sandwich I made earlier that morning along with some water. The lake was peaceful and made me calm, relaxed. Almost too relaxed. I had things to do and a mission to complete, but there was time. I was taking the shortcut through the forest, which was saving some time. **
+
+            I pulled the book, food and water from the bag, leaving just the clothes inside of it. I rolled it up and placed it beneath my head. I just needed a moment to rest my eyes. **
+             `
+            singleMessage();
+            runFunction = `demonsAtTheLake2`
             break;
-        case 'forTorch':
-            storyTxt = 'On your way out, you find a nice torch.'
+        case 'demonsAtTheLake2': 
+            storyTxt = `A snarling sound woke me. In a frantic mess I sat up and looked around.  No one was there. Infact, nothing was there but off in the distance I heard a dog or some kind of canine barking frantically. I wiped the dirt from my face, took a sip of water and packed my bag. When I went to grab the book it was gone! My heart paced a million miles a minute. I reached my hand inside my pack and found the envelope. At the very least I still had that.`
             singleMessage()
+            subtractFromCounter(100)
             runFunction = 'forMain'
             break;
         case 'forMain':
-            storyTxt = 'You continue on into the forest. You…'
+            storyTxt = `Rising smoke was the first sign of the cottage. The next was how the path went from dirt to stone. **
+
+            Nervousness found its place in the pit of my stomach. Something felt off, not quite right. The air contained an unsettling stillness. No birds could be heard, the wind never blew. All was silent and the only sound that could be heard was that of my footsteps. **
+            
+            The cottage came into view. It was small but built to last centuries. The closer I got the more my nerves kicked into overdrive. 
+            `
+            singleMessage();
+            runFunction = 'forMain2'
+            break;
+        case 'forMain2':
+            storyTxt = `A wild dog rushed from the door of the cottage straight towards me. There was a deep growl coming from the back of his throat as he stopped directly in front of me. **
+
+            I stopped where I was and tried to calm it. ** 
+            
+            A man stepped out of the cottage and made his way down the path. ** 
+            
+            "Now what do we have here, Captain? Looks like you gone and found yourself a fool."
+            `
+            choice1Txt = `Who are you calling a fool? `
+            choice2Txt = `Sorry to bother you, sir. I was told you could help me.`
+            doubleMessage();
+            runFunction = 'foolOrNot'
+            break;
+        case 'theFool':
+            storyTxt = `Perhaps, my response was not what it should have been. The day was long, and although that is no excuse, I still should have understood my position. I was not the one in control, and I needed the man. I needed instruction and guidance. But instead, what came was a  door in the face, and me, just another human, lost in a dense forest searching for a way out, praying I would finish the tasks before it was too late.  `
             singleMessage()
+            subtractFromCounter(100)
+            runFunction = `theFool2`
+            break;
+        case 'theFool2':
+            window.location.href = './mountain.html'
+            break;
+        case 'forTorch':
+            storyTxt = `The old man groaned, and if I heard it right, the dog did too. The man turned from me and went inside his home. I went to follow, assuming that was what I was supposed to do. As I took a step forward, the dog growled, showing his sharp teeth. I took a step back.**
+
+            “Okay, okay. I’ll wait here then.” The dog sat down, his tail wagging one whip. And there we waited, just like that. Captain’s eyes never left mine, and I never moved a muscle. ** 
+            Five minutes later the old man came back outside, and began to walk down the path. “Now where is he going?” I asked the dog.
+            `
+            singleMessage()
+            runFunction = 'forTorch2'
+            break;
+        case 'forTorch2':
+            storyTxt =`The old man whistled, Captain’s ears perked up and without another moment's hesitation he went to the man's side. **
+
+            I stayed put. Waiting for instruction. The man stopped, turned around and glared. The dog stopped, turned around and growled. **
+            
+            “Are you coming or not?” the old man grumbled. “Damn fool. Supposed to save the world, can you believe that Captain?” **
+            
+            I swear I saw the dog shake his head. I have never seen a human and animal with such a connection. I had questions, plenty of them. But,  it didn’t seem this man was willing to answer a single one. 
+            `
+            singleMessage()
+            runFunction = 'forTorch3'
+            break;
+        case 'forTorch3':
+            storyTxt = `We walked until my ankles were swollen, my calves and thighs sore. We stopped for a moment and I sat down on the dirt. **
+
+            “You’re not done, yet.” he said. “He pulled out a torch from his bag and handed it down to me. “If you’re the one, you’ll find the way. I’m supposed to say if you need me or Captain. . . “ The dog growled. “We’ll come. But we won’t. No one will. You’re on your own. Let us all hope your not as stupid as look. Captain, come.” And it was there they left me in the middle of the forest to finish a quest that was supposed to save the world. 
+             `
+            singleMessage();
+            addToCounter(10);
             runFunction = 'forEnd'
             break;
         case 'forEnd':
@@ -152,15 +268,23 @@ let selectionMade = function (event) {  // pass in button that was clicked
     switch (runFunction) { // pass in the name of runFunction (which we set up in runStory)
         case 'forBeginChoices':
             if (event.target.innerText === 'Choice 1') { // get value of that button
-                runFunction = 'forLeft' //set to a new "case"
+                runFunction = 'theRiver' //set to a new "case"
             }
             else {
-                runFunction = 'forMain' // set to a new "case"
+                runFunction = `deepForest` // set to a new "case"
             }
             break;
-        case 'forLeftChoices':
+        case 'demonsOrMain':
+            if (event.target.innerText === 'Choice 1'){
+                runFunction ='demonsAtTheLake'
+            }
+            else {
+                runFunction = 'forMain'
+            }
+            break;
+        case 'foolOrNot':
             if (event.target.innerText === 'Choice 1') {
-                runFunction = 'forCompanion'
+                runFunction = 'theFool'
             }
             else {
                 runFunction = 'forTorch'
