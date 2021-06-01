@@ -1,194 +1,3 @@
-/* body {
-    width: 100%;
-    height: 100%;
-    min-width: 375px;
-    overflow: hidden;
-}
-
-#header {
-    width: 100%;
-    height: 200px;
-}
-
-#header img {
-    position: absolute;
-    width: 100%;
-    height: 200px;
-    z-index: -1;
-    min-width: 375px;
-}
-
-#header h1 {
-    text-align: right;
-    margin-right: 5%;
-    font-family: cheboygan, sans-serif;
-    font-size: 45px;
-    color: red;
-    background: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding-top: 30px;
-}
-
-#location {
-    padding: 0px;
-    color: red;
-    background: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#menuDiv {
-    width: 150px;
-}
-
-#menu, #menu ul {
-    position: absolute;
-    background-color: black;
-    display: none;
-}
-
-#menu ul li {
-    opacity: 1;
-}
-
-#menu div, #menu ul div{
-    padding: 0px;
-}
-
-#menu div:hover {
-    background-color: #0084ff;
-    border: 1px solid white;
-}
-
-#menu ul:hover {
-    cursor: default;
-}
-
-#menu div p {
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-    font-size: 20px;
-    font-family: cheboygan, sans-serif;
-    color: red;
-    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#showmenu {
-    position: fixed;
-    width: 100px;
-    height: 50px;
-    background-color: black;
-    border: 0px solid black;
-    
-}
-
-#showmenu p {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    font-size: 20px;
-    font-family: cheboygan, sans-serif;
-    color: red;
-    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: 1px solid #696969;
-    border-radius: 5px;
-}
-
-#locationButtons button {
-    width: 100px;
-    height: 50px;
-    margin: 10px;
-    background-color: black;
-    border-radius: 5px;
-}
-
-#locationButtons button p {
-    font-family: cheboygan, sans-serif;
-    color: red;
-    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: 1px solid #696969;
-    border-radius: 5px;
-}
-
-#caveImage {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    bottom: 0px;
-    z-index: -2;
-    min-width: 850px;
-}
-
-#textAndChoices {
-    position: relative;
-    margin-top: 10px;
-    margin-left: 15%;
-    width: 70%;
-    height: fit-content;
-    top: 20%;
-}
-
-#text {
-    width: 100%;
-    height: 100%;
-}
-
-#text p {
-    display: none;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #ffe4c4;
-}
-
-#continue {
-    width: 100px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: black;
-    margin-top: 10px;
-}
-
-#continue p {
-    font-size: 20px;
-    font-family: cheboygan, sans-serif;
-    color: red;
-    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#option1, #option2 {
-    display: none;
-    width: 100px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: black;
-    margin-top: 10px;
-}
-
-#option1 p, #option2 p{
-    font-size: 20px;
-    font-family: cheboygan, sans-serif;
-    color: red;
-    background-image: -webkit-linear-gradient(#261B04, #D83F03, #7D2800, #524E4E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}*/
-
-
 #mainHeaderImage {
     text-align: center;
     margin-right: 10px;
@@ -367,6 +176,8 @@ h1 {
     color: #EEEEEE;
 }
 
+
+
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -379,7 +190,7 @@ h1 {
     display: block;
     position: relative;
     left: 50%;
-    top: 50%;
+    top: 15%;
     width: 150px;
     height: 150px;
     margin: -75px 0 0 -75px;
@@ -505,14 +316,15 @@ h1 {
     /* copyright content */
     #copyright-info {
         text-align: center;
-        font-size: 25px;
-		margin: 0 auto 50px auto;
+        font-size: 18px;
+		margin: 0 auto 20px auto;
 		width: 80%;
         max-width: 978px;
 		position: relative;
 		z-index: 10001;
         color: #EEEEEE;
     }
+
 
     #copyrightBtn {
         margin-top: 35px;
