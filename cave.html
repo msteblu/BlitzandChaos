@@ -22,23 +22,55 @@
             <h1 id="location">Cave</h1>
         </div>
     </header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <h1 class="menu-text">Blitz and Chaos</h1>
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="index.html" class="navbar-item">
+                    Home
+                </a>
+
+                <a href="contributorsPage.html#project" class="navbar-item">
+                    Project
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a href="contributorsPage.html" class="navbar-link">
+                        Contributors
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a href="contributorsPage.html#heather" class="navbar-item">
+                            Heather Bjoin
+                        </a>
+                        <a href="contributorsPage.html#justin" class="navbar-item">
+                            Justin Hoch
+                        </a>
+                        <a href="contributorsPage.html#megan" class="navbar-item">
+                            Megan Steblay
+                        </a>
+                        <a href="contributorsPage.html#mike" class="navbar-item">
+                            Mike Steinmetz
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <img src="https://images.pexels.com/photos/2633/nature-france-rocks-caves.jpg" alt="Cave background" id="caveImage">
     <audio id="audio" src="#"></audio>
-    <div id="menuDiv">
-        <button id="showmenu"><p>Menu</p></button>
-        <ul id="menu">
-            <li>
-                <div><p>Save</p></div>
-            </li>
-            <li>
-                <div><p>Load Save</p></div>
-            </li>
-            <li>
-                <div><p>Close Menu</p></div>
-            </li>
-        </ul>
-        
-    </div>
     <div class="card has-text-centered storycard">
         <div class="card-content story">
             <p id="currentText"></p>
@@ -63,4 +95,3 @@
 </body>
 
 </html>
-
