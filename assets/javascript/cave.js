@@ -23,10 +23,12 @@ let mainLine = false;
 let choiceFinished = false;
 if (JSON.parse(localStorage.getItem("runfunctionStory4")) === null) {
     var textNum = 0;
-    var branch = 0
+    var branch = 0;
+    var currentPoints = 0;
 } else {
-    var textNum = JSON.parse(localStorage.getItem("runfunctionStory4"))[0]
-    var branch = JSON.parse(localStorage.getItem("runfunctionStory4"))[1]
+    var textNum = JSON.parse(localStorage.getItem("runfunctionStory4"))[0];
+    var branch = JSON.parse(localStorage.getItem("runfunctionStory4"))[1];
+    var currentPoints = JSON.parse(localStorage.getItem("runfunctionStory4"))[2];
 }
 if (textNum === 14) {
     window.location.href = "mountain.html"
@@ -199,6 +201,7 @@ function choice(event) {
                         run = false;
                         textNum = 0;
                         branch = 1;
+                        currentPoints -= 5
                     } else {
                         run = false;
                     }
@@ -257,6 +260,7 @@ function choice(event) {
                     textNum++;
                     if (object[0].id === "one") {
                         run = false;
+                        currentPoints += 5
                         textNum = 0;
                         branch = 2;
                     } else {
@@ -275,6 +279,7 @@ function choice(event) {
                     option2.parent().css({ "display": "none" });
                 } else if (textNum === 12 && finished && choiceFinished) {
                     textNum++;
+                    currentPoints += 10
                     if (object[0].id === "one") {
                         run = false;
                     }
@@ -283,13 +288,11 @@ function choice(event) {
                     option2.parent().css({ "display": "none" });
                 } else if (textNum === 13 && finished && choiceFinished) {
                     textNum++;
+                    localStorage.setItem("gamecounter", JSON.stringify(JSON.parse(localStorage.getItem("gamecounter")) + currentPoints))
                     if (object[0].id === "one") {
                         run = false;
                         window.location.href = "mountain.html"
                     }
-                    option1.text("continue");
-                    option2.text("");
-                    option2.parent().css({ "display": "none" });
                 }
             } else if (branch === 1) {
                 if (textNum === 0 && finished && choiceFinished) {
@@ -348,7 +351,7 @@ function choice(event) {
                     option2.parent().css({ "display": "none" });
                 }
             }
-            localStorage.setItem("runfunctionStory4", JSON.stringify([textNum, branch]))
+            localStorage.setItem("runfunctionStory4", JSON.stringify([textNum, branch, currentPoints]))
         }
     }
 }
