@@ -246,7 +246,7 @@ let singleMessage = function () {
         btnContinue.addEventListener('click', runStory, true);
         // Display the card that we initially had hidden: 
         cardContinue.style.display = "inline";
-        cardContinue.style.backgroundColor = 'black';
+        cardContinue.style.backgroundColor = 'bisque';
         cardContinue.appendChild(btnContinue);
 
     };
