@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-    <link href="http://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/cheboygan" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/forest.css" />
     <title>The Forest</title>
 </head>
@@ -66,34 +66,35 @@
     
   
     <audio id="audio" src="#"></audio>
-    <div class="has-text-right">
-      <button class="button" id="musicBtn">Toggle Music</button>
-    </div>
+    <div  id="backgroundImage" alt="Painting of Forest" width="300" height="200"></div>
 
-    <main>
-
-        <div  id="backgroundImage" alt="Painting of Forest" width="300" height="200"></div>
-
-        <div class="card has-text-centered storycard">
-            <div class="card-content story"></div>
-            <button class="button" id="autofill">Continue</button>
+    <main class="center-everything">
+      <div class="card has-text-centered storycard">
+        <div class="card-content story"></div>
+        <div class="has-text-right">
+          <button class="button" id="autofill">Fast Text</button>
         </div>
-
-
-        <div class="tile is-ancestor has-text-centered choiceBoxContainer">
-            <div class="tile choiceBox">
-                <div class="card tile is-parent is-vertical card1 choiceBox">
-                    <div class="card-content tile is-child choice1"></div>
-                </div>
-                <div class="card tile is-parent is-vertical card2 choiceBox">
-                    <div class="card-content tile is-child choice2"></div>
-                </div>
-                <div class="tile cardContinue">
-                  <div class="tile continue"></div>
-              </div>
-            </div>
+        <div class="has-text-right">
+          <button class="button" id="musicBtn">Toggle Music</button>
         </div>
-
+      </div>
+  
+  
+      <div class="tile is-ancestor choiceBoxContainer">
+        <div class="tile choiceBox">
+          <div class="card tile is-parent is-vertical card1 choiceBox">
+            <div class="card-content tile is-child choice1"></div>
+          </div>
+          <div class="card tile is-parent is-vertical card2 choiceBox">
+            <div class="card-content tile is-child choice2"></div>
+          </div>
+          <div class="tile cardContinue">
+            <div class="tile continue"></div>
+          </div>
+  
+        </div>
+      </div>
+  
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
