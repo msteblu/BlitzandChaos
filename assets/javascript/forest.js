@@ -114,11 +114,11 @@ let runStory = function () {
             runFunction = 'forBegin2' // Set runFunction to the subsequent "case"... called "next"
             break; // break out of the switch function
         case 'forBegin2': 
-            storyTxt = `Stopping for a moment at the edge of the forest, I analyzed the dirt path that was dry and dusty with green grass still around its edges. The sun was finally rising and slowly making its way over the dense forest. I closed my eyes and prayed that something would guide me. The forest was not known for its kindness, more so to strangers who never wander through the trees.  **
+            storyTxt = `Stopping for a moment at the edge of the forest, I analyzed the dirt path that was dry and dusty with green grass still around its edges. The sun was finally rising and slowly making its way over the dense forest. I closed my eyes and prayed that something would guide me. The forest was not known for its kindness, more so towards strangers who never wander through the trees.  **
 
             A shaking came from deep beneath the ground. **
             
-            I held my stance firm to keep from falling over and watched the roots of the trees because I was too scared to look up. Were the trees going to crash to the ground? The sky fall from up above me? Would I look up to see a beast with a wing span the size of a fully grown sequoia tree? Oh, the stupid thoughts. Yet, there I was, standing, just waiting for the rumbling to stop. 
+            I held my stance firm to keep from falling over and watched the roots of the trees because I was too scared to look up. Were the trees going to crash to the ground? The sky fall from up above me? Would I look up to see a beast with a wingspan the size of a fully grown sequoia tree? Oh, the stupid thoughts. Yet, there I was, standing, just waiting for the rumbling to stop. 
              `
             audioEl.play();
             singleMessage()
@@ -152,7 +152,7 @@ let runStory = function () {
         case 'theRiver2':
             storyTxt = `The walk along the river gave me peace. The sound of rushing water washed away all the bad, and as the sun warmed the ground the walk became more enjoyable. When the sun reached the high peak, I found a large boulder next to the river and sat for a moment, pulling out the sandwich I made and watching the world around me. **
 
-            The birds whistled, the squirrels jumped from tree to tree, and a mama bear and her cubs went down to the river for their lunch time fishing. 
+            The birds whistled, the squirrels jumped from tree to tree, and a mama bear and her cubs went down to the river for their lunchtime fishing. 
             `
             singleMessage();
             runFunction = 'theRiver3'
@@ -168,13 +168,13 @@ let runStory = function () {
         case 'deepForest':
             storyTxt = `The path was a straight incline up the small mountain. The cold didn't feel so bad as my body worked to get to the top. As it grew steeper wooden stairs came into view making the climb a little easier. ** 
 
-            I reached the top and took a small break. The creatures of the forest were watching my every move. I could feel their eyes on me, watching, waiting. They wanted me to step off the path. See, it is said that a long time ago the witch casted a spell along the paths in the forest. A protection spell of sorts. Any creature that came along the path to do harm, would suffer a horrible death. I don’t know the truth of that story, but as I walked I chose to believe it. The thought gave me comfort. 
+            I reached the top and took a small break. The creatures of the forest were watching my every move. I could feel their eyes on me, watching, waiting. They wanted me to step off the path. See, it is said that a long time ago the witch cast a spell along the paths in the forest. A protection spell of sorts. Any creature that came along the path to do harm would suffer a horrible death. I don’t know the truth of that story, but as I walked I chose to believe it. The thought gave me comfort. 
             `
             singleMessage()
             runFunction = 'deepForest2'
             break;
         case 'deepForest2':
-            storyTxt = 'A few hours in I could feel the hunger kicking in. And down the path a ways was a lake, a nice like just off the path that I could stop at, enjoy a nice lunch. I debated in my mind on if I should keep pressing on, or stop for a short break.'
+            storyTxt = 'A few hours in, I could feel the hunger kicking in. And down the path a ways was a lake, a nice lake just off the path that I could stop at, enjoy a nice lunch. I debated in my mind if I should keep pressing on or stop for a short break.'
             choice1Txt = `Stop for a short break`
             choice2Txt = `Continue through the forest`
             doubleMessage();
@@ -189,7 +189,7 @@ let runStory = function () {
             runFunction = `demonsAtTheLake2`
             break;
         case 'demonsAtTheLake2': 
-            storyTxt = `A snarling sound woke me. In a frantic mess I sat up and looked around.  No one was there. Infact, nothing was there but off in the distance I heard a dog or some kind of canine barking frantically. I wiped the dirt from my face, took a sip of water and packed my bag. When I went to grab the book it was gone! My heart paced a million miles a minute. I reached my hand inside my pack and found the envelope. At the very least I still had that.`
+            storyTxt = `A snarling sound woke me. In a frantic mess I sat up and looked around.  No one was there. In fact, nothing was there, but off in the distance I heard a dog or some kind of canine barking frantically. I wiped the dirt from my face, took a sip of water and packed my bag. When I went to grab the book it was gone! My heart paced a million miles a minute. I reached my hand inside my pack and found the envelope. At the very least I still had that.`
             singleMessage()
             subtractFromCounter(100)
             runFunction = 'forMain'
@@ -241,9 +241,9 @@ let runStory = function () {
 
             I stayed put. Waiting for instruction. The man stopped, turned around and glared. The dog stopped, turned around and growled. **
             
-            “Are you coming or not?” the old man grumbled. “Damn fool. Supposed to save the world, can you believe that Captain?” **
+            “Are you coming or not?” the old man grumbled. “Damn fool. Supposed to save the world, can you believe that, Captain?” **
             
-            I swear I saw the dog shake his head. I have never seen a human and animal with such a connection. I had questions, plenty of them. But,  it didn’t seem this man was willing to answer a single one. 
+            I swear I saw the dog shake his head. I have never seen a human and animal with such a connection. I had questions, plenty of them. But, it didn’t seem this man was willing to answer a single one. 
             `
             singleMessage()
             runFunction = 'forTorch3'
@@ -251,7 +251,7 @@ let runStory = function () {
         case 'forTorch3':
             storyTxt = `We walked until my ankles were swollen, my calves and thighs sore. We stopped for a moment and I sat down on the dirt. **
 
-            “You’re not done, yet.” he said. “He pulled out a torch from his bag and handed it down to me. “If you’re the one, you’ll find the way. I’m supposed to say if you need me or Captain. . . “ The dog growled. “We’ll come. But we won’t. No one will. You’re on your own. Let us all hope your not as stupid as look. Captain, come.” And it was there they left me in the middle of the forest to finish a quest that was supposed to save the world. 
+            “You’re not done, yet.” he said. “He pulled out a torch from his bag and handed it down to me. “If you’re the one, you’ll find the way. I’m supposed to say if you need me or Captain. . . “ The dog growled. “We’ll come. But we won’t. No one will. You’re on your own. Let us all hope you're not as stupid as you look. Captain, come.” And it was there they left me in the middle of the forest to finish a quest that was supposed to save the world. 
              `
             singleMessage();
             addToCounter(10);
