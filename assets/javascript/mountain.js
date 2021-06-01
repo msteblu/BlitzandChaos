@@ -7,6 +7,7 @@ let storyContainer = document.querySelector('.story');
 let choice1Container = document.querySelector('.choice1');
 let choice2Container = document.querySelector('.choice2');
 let continueContainer = document.querySelector('.continue');
+let storyCard = document.querySelector('.storycard');
 
 let card1 = document.querySelector('.card1');
 let card2 = document.querySelector('.card2');
@@ -16,9 +17,6 @@ let cardContinue = document.querySelector('.cardContinue');
 let autofill = document.querySelector('#autofill');
 // Button to control music: 
 let musicBtn = document.querySelector('#musicBtn');
-
-// Array for collecting Items: 
-let gameObjects;
 
 // Speed for typewriter functions: 
 let speed = 0;
@@ -67,11 +65,11 @@ let getImage = function () {
                     getMusic();
                 });
             } else {
-                alert('Error: ' + response.statusText);
+                console.log('Error: ' + response.statusText);
             }
         })
         .catch(function (error) {
-            alert('Unable to connect to API');
+            console.log('Unable to connect to API');
         });
 };
 
@@ -105,30 +103,75 @@ let runStory = function () {
     clearScreen(); // Each time this runs, first clear the screen
     switch (runFunction) { // It only runs one "case," passing in runFunction as the case name (each case needs to have a unique name)
         case 'win':
-            storyTxt = 'You make it to the mountain...'
+            storyTxt = `The trek up the mountain is daunting, and yet you do not find yourself wearied. There is power emerging from some place deep within you, awakening in the same way that the dragon awakes. **
+            
+            Though you still wonder why you, unworthy as you seem, were the one chosen for this task, you are finally sure that the old man spoke the truth. This quest is yours. And you have no hesitation anymore.`
             singleMessage(); // Run the function to display only one continue button
             runFunction = 'win2' // Set runFunction to the subsequent "case"... called "next"
             break; // break out of the switch function
         case 'win2':
-            storyTxt = 'You have prepared well. You fight the dragon and win...'
+            storyTxt = `The entire earth tremors as Fraener awakens. In a burst of fire and stone, the dragon emerges from his deep slumber. He rages at his awakening. **And you are there to meet him.`
             // Start to play the music, after the first user interaction: 
             audioEl.play();
+            singleMessage();
+            runFunction = 'win3'
+            break;
+        case 'win3':
+            storyTxt = `His terrible eyes sweep the land and then fix on you. You both know that fate has brought you together — for once and for all.`
+            singleMessage();
+            runFunction = 'win4'
+            break;
+        case 'win4':
+            storyTxt = `The battle seems to exist outside of time, each of you transfixed on the other. You breathe heavily, whirling through his singeing fire, in a chaos of motion and fury. **
+            
+            As the battle endures, the moon and the sun orbit you. Fatigue takes hold of you, and it does the same for Fraener. But there is a surety in your movements.`
+            singleMessage();
+            runFunction = 'win5'
+            break;
+        case 'win5':
+            storyTxt = `In one final, fearsome clash, you strike. In his eyes, you see recognition. You both know it is over.`
+            singleMessage();
+            runFunction = 'win6'
+            break;
+        case 'win6':
+            storyTxt = `Fraener falls. You watch the dragon’s form tumble from the mountainside. The world fades into darkness… `
+            singleMessage();
+            runFunction = 'win7'
+            break;
+        case 'win7':
+            storyTxt = `You have saved the land from Fraener’s wrath. Just how it always happens, those who doubted the most are the ones to most loudly praise the destruction of the dragon. The celebrations go on for weeks — you at the center. The land rests easy, safe in the knowledge that a great danger has passed. ** 
+
+            And yet, Fraener’s knowing eyes will forever haunt you, those eyes of blitz and chaos.`
             singleMessage();
             runFunction = 'end'
             break;
         case 'lost':
-            storyTxt = 'You make it to the mountain...'
+            storyTxt = 'The earth tremors as Fraener awakens. In a burst of fire and stone, the dragon emerges from his deep slumber. He rages at his awakening.'
             singleMessage()
             runFunction = 'lost2'
             break;
         case 'lost2':
-            storyTxt = "You were unprepared. The dragon scorches the earth..."
+            storyTxt = `You were not prepared for the magnitude of his anger. You remember the old man in the tavern, his warnings, but it is too late. The realization that you did not do enough consumes you. There is no conscript. There is no stopping Fraener’s wrath now.`
             audioEl.play();
+            singleMessage()
+            runFunction = 'lost3'
+            break;
+        case 'lost3':
+            storyTxt = `The mountain crumbles beneath his claws. The forest ignites, the scorching fires sweeping across the land with dazzling terror. **
+
+            There are screams, but your only thought is for the dragon that swoops towards you.`
+            singleMessage()
+            runFunction = 'lost4'
+            break;
+        case 'lost4':
+            storyTxt = `In the end, you are helpless, and so, too, is the world. **
+
+            You end in blitz and chaos.`
             singleMessage()
             runFunction = 'end'
             break;
         case 'end':
-            clearScreen();
+            // clearScreen();
             end();
             break;
     }
@@ -184,6 +227,8 @@ let singleMessage = function () {
 // FUNCTION FOR ENDING THE GAME: 
 
 let end = function () {
+    storyCard.style.display = "none";
+
     let btnEnd = document.createElement('button');
     btnEnd.classList.add("button", "continuebtn");
     btnEnd.innerHTML = "Restart Game";
@@ -294,9 +339,9 @@ let getRunFunction = function () {
 // FUNCTIONS FOR DETERMING WINS
 
 let determineWin = function () {
+
     let finalPoints = retrieveCounter()
-    // let finalObjects = retrieveGameObjects()
-    if (finalPoints > 30 ) {
+    if (finalPoints > 30) {
         runFunction = "win"
         runStory(runFunction);
 

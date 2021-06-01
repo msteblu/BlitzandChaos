@@ -70,11 +70,11 @@ let getImage = function () {
                     getMusic();
                 });
             } else {
-                alert('Error: ' + response.statusText);
+                console.log('Error: ' + response.statusText);
             }
         })
         .catch(function (error) {
-            alert('Unable to connect to API');
+            console.log('Unable to connect to API');
         });
 
 };
@@ -85,7 +85,7 @@ let getImage = function () {
 // "My Tavern 1.wav" by ralexpdx
 
 let getMusic = function () {
-    fetch("https://freesound.org/apiv2/sounds/321220/?token=VarP0dKebdRzKHFvZOPxw81IsdKK6OH3iLAgQRwY") 
+    fetch("https://freesound.org/apiv2/sounds/321220/?token=VarP0dKebdRzKHFvZOPxw81IsdKK6OH3iLAgQRwY")
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
@@ -239,7 +239,7 @@ let singleMessage = function () {
         let btnContinue = document.createElement('button');
         btnContinue.classList.add("button", "continuebtn");
         btnContinue.innerHTML = "Continue";
-        btnContinue.addEventListener('click', runStory, true); 
+        btnContinue.addEventListener('click', runStory, true);
         // Display the card that we initially had hidden: 
         cardContinue.style.display = "inline";
         cardContinue.appendChild(btnContinue);
