@@ -57,5 +57,5 @@ APIs: We utilized the [Freesound.org API](https://freesound.org/docs/api/authent
 
 ## License:
 
-This application is icensed under the [MIT](https://github.com/microsoft/vscode/blob/main/LICENSE.txt) license. 
+This application is licensed under the [MIT](https://github.com/microsoft/vscode/blob/main/LICENSE.txt) license. 
 
